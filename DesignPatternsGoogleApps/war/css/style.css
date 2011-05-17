@@ -1,0 +1,108 @@
+body {
+	margin: 0;
+	padding: 0;
+	font: 70% Tahoma, Arial, Helvetica, sans-serif;
+	color: #7e7e7e;
+	line-height: 16px;
+}
+
+.baslik {
+	background: #FFFFFF url(../image/arkaustdesen.png) repeat-x;
+	width: 100½;
+	height: 90px;
+}
+
+.marka {
+	font: Helvetica, Arial;
+	font-size: 32px;
+	color: darkblue;
+	text-indent: 50px;
+	padding-top: 20px;
+}
+
+.slogan {
+	font: Tahoma, Helvetica, Arial;
+	font-size: 12px; 
+	color: #CC6633;
+	text-indent: 70px;
+	padding-top: 10px;
+}
+
+.yataymenueksen {
+	background: #FFFFFF url(../image/menuarka.png) repeat-x;
+	width: 100½;
+	height: 31px;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.yataymenu ul {
+	background: url(../image/menuarka.png) center center repeat-x;
+	width:100%;
+	display: block;
+}
+
+.yataymenu ul {
+	margin: 0;
+	padding: 0;
+	/*padding-left: 10px;*/
+	list-style-type: none;
+}
+
+.yataymenu ul li {
+	position: relative;
+	display: inline;
+	float: left;
+}
+
+.yataymenu ul li a {
+	display: block;
+	padding: 6px 14px;
+	border: 1px solid #202020;
+	border-left-width: 0;
+	text-decoration: none;
+	text-align: center;
+	background: url(../image/menuarka.png) center center repeat-x;
+	color: white;
+	font: bold 13px Tahoma;
+}
+
+.yataymenu ul li a:hover{
+	background: url(../image/menuarkahover.png) center center repeat-x;
+}
+
+.solmenu {
+	width: 200px;
+}
+
+.solmenu ul {
+	margin-top: 10px;
+	margin-left: 10px;
+	padding-left: 20px;
+	padding-top: 20px;
+	list-style-type: none;			
+	float: left;
+	width: 200px;
+	border-right:1px dotted #AAA;
+}
+
+.solmenu ul li {
+	padding-bottom: 10px;
+	width: 180px;
+	height: 22px;
+}
+
+.solmenu ul li a:link, .solmenu ul li a:visited {
+	background: url(../image/okyok.png) 0% 30% no-repeat;
+	padding-left: 15px;
+	height: 22px;
+	font-family: "Trebuchet MS",Geneva,Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+}
+
+.solmenu ul li a:hover {
+	background: url(../image/okvar.png) 0% 30% no-repeat;
+}
