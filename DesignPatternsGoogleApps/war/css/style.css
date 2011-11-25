@@ -10,6 +10,7 @@ body {
 	background: #FFFFFF url(../image/arkaustdesen.png) repeat-x;
 	width: 100½;
 	height: 90px;
+	clear: both;
 }
 
 .marka {
@@ -73,7 +74,8 @@ body {
 }
 
 .solmenu {
-	width: 200px;
+	width: 230px;
+	float: left;
 }
 
 .solmenu ul {
@@ -83,13 +85,13 @@ body {
 	padding-top: 20px;
 	list-style-type: none;			
 	float: left;
-	width: 200px;
+	width: 220px;
 	border-right:1px dotted #AAA;
 }
 
 .solmenu ul li {
 	padding-bottom: 10px;
-	width: 180px;
+	width: 220px;
 	height: 22px;
 }
 
@@ -105,4 +107,25 @@ body {
 
 .solmenu ul li a:hover {
 	background: url(../image/okvar.png) 0% 30% no-repeat;
+}
+
+.content {
+	margin-left: 270px;
+	font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",monospace;
+	text-align: justify;
+	padding-right: 20px;	
+	font-size:1em;
+	color: black;
+	display: block;
+}
+
+.contentHeader {
+	font-family:Verdana,Arial,sans-serif;
+	font-size:1.2em;
+	border-bottom-color: #3333dd;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	width:270px;
+	padding-bottom: 5px;
+	color: #ee9915;
 }

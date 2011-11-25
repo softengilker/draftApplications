@@ -1,0 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+
+<p class="contentHeader">Tasarım Desenleri Tarihçesi</p>
+<p>Yazılım Mühendisliğindeki tasarım desenlerinin gerçek tarihi, Türkçe tabir ile "4 kafadar" ( Gang of Four ) olarak da bilinen, Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides in "Design Patterns, Elements of Reusable Object-Oriented Software" isimli meşhur kitaplarını yayınladıktan sonra başlar. Bu kitap çok kabul görmüş ve tasarım desenleri konusunun yaygınlaşmasını ve populer olmasını sağlamıştır.<br><br>Fakat bu kitaptan önce de, tasarım desenleri konusunda bazı araştırma ve çalışmalar olmuştur. Hatta 4 kafadarın eseri, bu çalışmalardan faydalanmıştır:</p>
