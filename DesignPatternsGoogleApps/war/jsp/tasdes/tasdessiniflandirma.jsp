@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <p class="contentHeader">Tasarım Desenleri Sınıflandırması</p>
-<p>Tasarım desenleri, yazılım tasarımında sürekli karşılaşılan genel sorunlara esnek, yeniden kullanılabilir, başarılı çözümler getiren bir takım hazır kalıplardır. Hazır olarak kodun içine konulup çalışabilen, bitmiş tasarımlar değildir. Çeşitli durumlarda sorunların nasıl giderileceğini açıklayan, bunlara yol gösteren açıklamalardır. Nesneye dayalı programlamada, tasarım desenleri sınıf ve nesneler arasındaki ilişkilerin en iyi şekilde nasıl olmaları gerektiğini açıklayan yöntemlerdir. Algoritmalar, tasarım deseni değildir. Çünkü bunlar hesaplama sorunlarına çözüm getirirler, oysa ki tasarım desenleri yazılım tasarımı sorunlarıyla ilgilenir.</p>
+<p>Tasarım desenleri için üç adet sınıflandırma yapabiliriz: <font class="vurgu">Yaratıcı Tasarım Desenleri, Yapısal Tasarım Desenleri ve Davranışsal Tasarım Desenleri</font></p>
+<p class="contentHeader">Yaratıcı Tasarım Desenleri</p>
+<p>Bu sınıfta yer alan tasarım desenleri, nesnelerin uygun ve verimli bir şekilde yaratılma yollarıyla ilgilenirler. Nesne yaratma sorumluluklarını, farklı sınıf düzenlerinde soyutlamayı açıklarlar. Başlıca yaratıcı tasarım desenleri: Tek Nesne, Fabrika Yordam, Soyut Fabrika, Kopya Nesne, Kurulum Nesnesi.</p>
+<p class="contentHeader">Yapısal Tasarım Desenleri</p>
+<p class="contentHeader">Davranışsal Tasarım Desenleri</p>
