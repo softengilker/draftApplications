@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<head>
+<meta name="currentPageType" content="ana"/>
+</head>
+<content tag="solmenubaslikicerik">Tasarım Desenleri</content>
 <p class="contentHeader">Tasarım Desenleri Sınıflandırması</p>
 <p>Tasarım desenleri için üç adet sınıflandırma yapabiliriz: <font class="vurgu">Yaratıcı Tasarım Desenleri, Yapısal Tasarım Desenleri ve Davranışsal Tasarım Desenleri</font></p>
 <p class="contentHeader">Yaratıcı Tasarım Desenleri</p>

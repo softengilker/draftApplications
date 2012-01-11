@@ -38,41 +38,6 @@ body {
 	display: block;
 }
 
-.yataymenu ul {
-	background: url(../image/menuarka.png) center center repeat-x;
-	width:100%;
-	display: block;
-}
-
-.yataymenu ul {
-	margin: 0;
-	padding: 0;
-	/*padding-left: 10px;*/
-	list-style-type: none;
-}
-
-.yataymenu ul li {
-	position: relative;
-	display: inline;
-	float: left;
-}
-
-.yataymenu ul li a {
-	display: block;
-	padding: 6px 14px;
-	border: 1px solid #202020;
-	border-left-width: 0;
-	text-decoration: none;
-	text-align: center;
-	background: url(../image/menuarka.png) center center repeat-x;
-	color: white;
-	font: bold 13px Tahoma;
-}
-
-.yataymenu ul li a:hover{
-	background: url(../image/menuarkahover.png) center center repeat-x;
-}
-
 .solmenu {
 	width: 230px;
 	float: left;
@@ -82,7 +47,7 @@ body {
 	margin-top: 10px;
 	margin-left: 10px;
 	padding-left: 20px;
-	padding-top: 20px;
+	padding-top: 10px;
 	list-style-type: none;			
 	float: left;
 	width: 220px;
@@ -109,6 +74,17 @@ body {
 	background: url(../image/okvar.png) 0% 30% no-repeat;
 }
 
+.solmenubaslik {
+	font-family: Geneva,Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 10px;
+	margin-left:10px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+}
+
 .content {
 	margin-left: 270px;
 	font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",monospace;
@@ -125,11 +101,23 @@ body {
 	border-bottom-color: #3333dd;
 	border-bottom-style: dotted;
 	border-bottom-width: 1px;
-	width:270px;
+	width:auto;
 	padding-bottom: 5px;
 	color: #ee9915;
 }
 
 .vurgu {
 	color: #ee2220;
+}
+
+.kodkirmizi {
+	color: #950055;
+}
+
+.kodmavi {
+	color: #645fd5;
+}
+
+.kodyesil {
+	color: #3f7f5f;
 }

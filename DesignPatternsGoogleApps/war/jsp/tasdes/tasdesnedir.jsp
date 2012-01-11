@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<head>
+<meta name="currentPageType" content="ana"/>
+</head>
+<content tag="solmenubaslikicerik">Tasarım Desenleri</content>
 <p class="contentHeader">Tasarım Desenleri Nedir?</p>
 <p>Tasarım desenleri, yazılım tasarımında sürekli karşılaşılan genel sorunlara esnek, yeniden kullanılabilir, başarılı çözümler getiren bir takım hazır kalıplardır. Hazır olarak kodun içine konulup çalışabilen, bitmiş tasarımlar değildir. Çeşitli durumlarda sorunların nasıl giderileceğini açıklayan, bunlara yol gösteren açıklamalardır. Nesneye dayalı programlamada, tasarım desenleri sınıf ve nesneler arasındaki ilişkilerin en iyi şekilde nasıl olmaları gerektiğini açıklayan yöntemlerdir. Algoritmalar, tasarım deseni değildir. Çünkü bunlar hesaplama sorunlarına çözüm getirirler, oysa ki tasarım desenleri yazılım tasarımı sorunlarıyla ilgilenir.</p>
 <p class="contentHeader">Tasarım Desenleri Ne Yarar Sağlar?</p>

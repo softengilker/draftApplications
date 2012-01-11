@@ -3,16 +3,7 @@
 xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<servlet>
-		<servlet-name>DesignPatternsGoogleApps</servlet-name>
-		<servlet-class>com.ilkerkonar.td.google.DesignPatternsGoogleAppsServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DesignPatternsGoogleApps</servlet-name>
-		<url-pattern>/designpatternsgoogleapps</url-pattern>
-	</servlet-mapping>
-	
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">	
 	<!-- Filters -->
 	<filter>
 		<filter-name>sitemesh</filter-name>
