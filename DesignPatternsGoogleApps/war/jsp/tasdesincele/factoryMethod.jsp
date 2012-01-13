@@ -11,7 +11,7 @@
 <p class="contentHeader">Fabrika Yordam ( Factory Method ) Tasarım Deseni</p>
 
 
-<DIV id="tabs">
+<DIV id="tabs" style="overflow:hidden;">
 <UL>
 <LI><A href="#tabs-1">Nunc tincidunt</A></LI>
 <LI><A href="#tabs-2">Proin dolor</A></LI>

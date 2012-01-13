@@ -9,7 +9,7 @@
 </head>
 <content tag="solmenubaslikicerik">Yaratıcı Tasarım Desenleri</content>
 <p class="contentHeader">Tek Nesne ( Singleton ) Tasarım Deseni</p>
-<div id="tabs">
+<div id="tabs" style="overflow:hidden;">
 	<ul>
 		<li><a href="#tabs-1">TekNesne.java</a></li>
 	</ul>

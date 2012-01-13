@@ -12,13 +12,17 @@
 <META http-equiv="Content-Type" content="text/html; charset=iso-8859-9">
 <META http-equiv="content-language" content="TR">
 <meta name="currentPageType" content="ana"/>
+
 <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/jMenu.jquery.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/css/jquery-ui-1.8.17.custom.css" rel="stylesheet" type="text/css" media="screen" />
+
 <script type="text/javascript" src="/js/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.8.17.custom.min.js"></script>
 <script type="text/javascript" src="/js/jMenu.jquery.js"></script>
+
 <title><decorator:title default="Tasarım Desenleri" /></title>
+
 <decorator:head />
 </head>
 <decorator:usePage id="thePage" />
