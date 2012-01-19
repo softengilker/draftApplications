@@ -18,6 +18,7 @@ public class TekNesne {
 	 * Yapıcı yordam ( constructor ) private olduğu için dışarıdan ulaşılamaz ve sınıfın nesnesi oluşturulamaz.	
 	 */
 	private TekNesne() {
+		System.out.println( "'TekNesne' sınıfının nesnesi bellekte oluşturuluyor." );
 	}
 
 	/**
@@ -25,5 +26,19 @@ public class TekNesne {
 	 */
 	public static TekNesne nesneAl() {
 		return tekNesne;
+	}
+
+	/**
+	 * @return Tüm uygulama boyunca kullanılacak "kullanıcı ismi" bilgisini döner.
+	 */
+	public String getKullanıcıİsmi() {
+		return "ilker";
+	}
+
+	/**
+	 * @return Tüm uygulama boyunca kullanılacak "şifre" bilgisini döner.
+	 */
+	public String getŞifre() {
+		return "12345";
 	}
 }
