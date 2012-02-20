@@ -9,12 +9,20 @@
 </head>
 <content tag="solmenubaslikicerik">Yaratıcı Tasarım Desenleri</content>
 <p class="contentHeader">Tek Nesne ( Singleton ) Tasarım Deseni</p>
+<p>Bu tasarım deseninde, bir sınıfın sistem içinde yalnızca bir tane nesnesi oluşturulabilir. Tek bir arayüz sunularak, bu nesneye yalnızca buradan erişim sağlanabilir. Bu desen kullanılarak, sistem içinde değeri değişmeyen, genel değişkenler bu oluşturulan tek nesneye konulabilir. Sistemde tek nesne yaratılabilme, <b>statik</b> değişken ve yordamlar sayesinde olur. Statik değişken ve yordamlar, nesneye dayalı programlanın esnekliğini, dinamik nesne yaratılma özelliklerini engellediği için yazılım mühendisleri tarafından eleştirilebilir.</p>
+<p class="contentHeader">Örnek Uygulama</p>
+<p>Örnekte, sisteme giriş yapılabilmesi için kullanılan "kullanıcı ismi" ve "şifre" bilgilerini tutan tek nesne örneklenmiştir. Sınıf içinde kendi tipinde nesneyi tutan static bir değişken bulunur. Bu nesneye yine static olan <u>nesneAl</u> yordamından ulaşılabilmektedir. Dikkat edilirse, sınıfın yapıcı (constructor) yordamı <u>private</u> şeklindedir. Yani "public" olmayarak dışarıdan erişim engellenmiş, nesne oluşumu sınıf içi ile sınırlandırılmıştır.</p>
 <div id="tabs" style="overflow:hidden;">
 	<ul>
-		<li><a href="#tabs-1">TekNesne.java</a></li>
-		<li><a href="#tabs-2">Deneme.java</a></li>
+		<li><a href="#tabs-1">UML Sınıf Çizelgesi</a></li>
+		<li><a href="#tabs-2">TekNesne.java</a></li>
+		<li><a href="#tabs-3">Deneme.java</a></li>
+		<li><a href="#tabs-4">Ekran Çıktısı</a></li>
 	</ul>
-	<div id="tabs-1">		
+	<div id="tabs-1">
+		<img src="/image/tasdes/singleton.jpg" />
+	</div>
+	<div id="tabs-2">		
 <div class="java"><code class="java"><span class="java14">/**<br />
  * </span><span class="java11">@author </span><span class="java14">İlker KONAR, Yazılım Kıdemli Uzmanı.<br />
  * <br />
@@ -60,7 +68,7 @@
 &#xA0;&#xA0; </span><span class="java8">}<br />
 }</span></code></div>
 	</div>
-	<div id="tabs-2">
+	<div id="tabs-3">
 <div class="java"><code class="java"><span class="java14">/**<br />
  * </span><span class="java11">@author </span><span class="java14">İlker KONAR, Yazılım Kıdemli Uzmanı.<br />
  * <br />
@@ -90,4 +98,12 @@
 &#xA0;&#xA0; </span><span class="java8">}<br />
 }</span></code></div>	
 	</div>
-</div>	
+	<div id="tabs-4">
+		<span class="ekrancikti">
+		'TekNesne' sınıfının nesnesi bellekte oluşturuluyor.<br />
+		Kullanıcı ismi: ilker<br /> 
+		Şifre: 12345<br />
+		</span>		
+	</div>
+</div>
+	

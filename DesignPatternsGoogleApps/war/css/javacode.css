@@ -19,3 +19,4 @@ tt.java-ln, pre.java-ln { color:#888888 }
 /* Javadoc others       */ span.java14  { font-size: 9pt; color:#3f5fbf; }
 /* Undefined       */ span.java15  { font-size: 9pt; color:#ff6100; }
 /* Annotation       */ span.java16  { font-size: 9pt; color:#646464; }
+span.ekrancikti { font-family: Consolas, Lucida Console; font-size: 10pt; }

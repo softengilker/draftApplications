@@ -17,6 +17,7 @@
 <link href="/css/jMenu.jquery.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/css/javacode.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/css/jquery-ui-1.8.17.custom.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/form.css" rel="stylesheet" type="text/css" media="screen" />
 
 <script type="text/javascript" src="/js/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.8.17.custom.min.js"></script>
@@ -69,7 +70,42 @@
 		</ul> 
 	</div>
 	<div class="content">
-		<decorator:body />		
+		<decorator:body />
+		<p class="contentHeader">Yorum Yaz, Düşüncelerini Paylaş</p>
+		<div class="formdiv">
+		<div class="form-container">
+		<form action="#" method="post">	
+			<p class="legend"><strong>Not:</strong> Zorunlu alanlar yıldız (<em>*</em>) ile belirtilmiştir.</p>
+			<fieldset>
+				<legend>Kişisel Bilgiler</legend>
+				<div>
+					<label for="nick">İsim <em>*</em></label> 
+					<input id="nick" type="text" name="nick" value="" />
+				</div>
+				<div>
+					<label for="email">E-posta Adresi </label> 
+					<input id="email" type="text" name="email" value="" />
+					<p class="note">E-posta adresiniz kimse ile paylaşılmayacaktır. <strong>Gerekli olduğunda sizinle iletişim sağlamak için kullanılacaktır.</strong></p>
+				</div>
+			</fieldset>	
+			<fieldset>
+				<legend>Yorum Alanı</legend>
+				<div>
+					<label for="yorumbaslik">Başlık <em>*</em></label> 
+					<input id="yorumbaslik" type="text" name="yorumbaslik" value="" />
+				</div>
+				<div>
+					<label for="yorum">Description <em>*</em></label>
+					<textarea id="yorum" name="yorum" cols="60" rows="10"></textarea>
+				</div>
+			</fieldset>	
+			<div class="buttonrow">
+				<input type="submit" value="Gönder" class="button" />
+				<input type="button" value="Temizle" class="button" />
+			</div>	
+		</form>
+		</div>
+		</div>				
 	</div>
 </body>
 </html>
