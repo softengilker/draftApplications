@@ -1,5 +1,6 @@
 <%@page import="com.ilkerkonar.td.model.SolMenu"%>
 <%@page import="com.ilkerkonar.td.model.SolMenuBirim"%>
+<%@page import="com.ilkerkonar.td.model.GirisKontrol"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
@@ -22,13 +23,17 @@
 <script type="text/javascript" src="/js/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.8.17.custom.min.js"></script>
 <script type="text/javascript" src="/js/jMenu.jquery.js"></script>
+<script type="text/javascript" src="/js/benim.js"></script>
 
 <title><decorator:title default="Tasarım Desenleri" /></title>
 
 <decorator:head />
 </head>
 <decorator:usePage id="thePage" />
-<% String pageType = thePage.getProperty("meta.currentPageType");%>
+<% 
+	String pageType = thePage.getProperty("meta.currentPageType");
+	int girisKontrolIndeks = GirisKontrol.girisKontrolIndeksVer();
+%>
 <body>
 	<div class="baslik">
 		<div class="marka">Tasarım Desenleri</div>
@@ -70,11 +75,12 @@
 		</ul> 
 	</div>
 	<div class="content">
-		<decorator:body />
+		<decorator:body />		
+		<% if ( !pageType.equals( "ana" ) ) { %>
 		<p class="contentHeader">Yorum Yaz, Düşüncelerini Paylaş</p>
 		<div class="formdiv">
 		<div class="form-container">
-		<form action="#" method="post">	
+		<form id="yorumGonderForm" name="yorumGonderForm" action="#" method="post">	
 			<p class="legend"><strong>Not:</strong> Zorunlu alanlar yıldız (<em>*</em>) ile belirtilmiştir.</p>
 			<fieldset>
 				<legend>Kişisel Bilgiler</legend>
@@ -95,17 +101,78 @@
 					<input id="yorumbaslik" type="text" name="yorumbaslik" value="" />
 				</div>
 				<div>
-					<label for="yorum">Description <em>*</em></label>
+					<label for="yorum">Yorum <em>*</em></label>
 					<textarea id="yorum" name="yorum" cols="60" rows="10"></textarea>
+				</div>
+			</fieldset>	
+			<fieldset>
+				<legend>Giriş Kontrol</legend>
+				<div>
+					<label for="yorumbaslik">&nbsp;</label> 
+					<img src="<%=GirisKontrol.girisKontrolResimYolVer(girisKontrolIndeks)%>" />
+				</div>
+				<div>
+					<label for="resimmetin">Resimdeki Metin <em>*</em></label> 
+					<input id="resimmetin" type="text" name="yorumbaslik" value="" />
+					<p class="note">Lütfen resimde gördüğünüz metni giriniz. Not: Büyük, küçük harf hassasiyeti vardır.</p>
 				</div>
 			</fieldset>	
 			<div class="buttonrow">
 				<input type="submit" value="Gönder" class="button" />
 				<input type="button" value="Temizle" class="button" />
-			</div>	
+			</div>
+			<input id="hiddenGirisKontrolIndeks" type="hidden" name="hiddenGirisKontrolIndeks" value="<%=girisKontrolIndeks%>" />	
 		</form>
 		</div>
-		</div>				
+		</div>
+		<% } %>				
 	</div>
 </body>
 </html>
+<script type="text/javascript">
+$('form#yorumGonderForm').submit(function(e){
+    e.preventDefault(); //Prevent the normal submission action
+    var self = this;
+    
+    var nick = $('#nick').val();
+    
+    if ( nick == '' ) {
+    	alert('Lütfen zorunlu alan olan isim alanına bir değer giriniz.');
+    	$('#nick').focus();
+    	return;
+    }
+
+    var email = $('#email').val();
+    
+    if ( email != '' && !validateEmail( email ) ) {
+    	alert('Girmiş olduğunuz e-posta değeri geçersizdir. Lütfen kontrol ediniz.');
+    	$('#email').focus();
+    	return;    
+    }
+
+    var yorumbaslik = $('#yorumbaslik').val();
+    
+    if ( yorumbaslik == '' ) {
+    	alert('Lütfen zorunlu alan olan yorum başlık alanına bir değer giriniz.');
+    	$('#yorumbaslik').focus();
+    	return;
+    }
+        
+    var yorum = $('#yorum').val();
+    
+    if ( yorum == '' ) {
+    	alert('Lütfen zorunlu alan olan yorum alanına bir değer giriniz.');
+    	$('#yorum').focus();
+    	return;
+    }
+            
+    self.submit();    
+});
+
+function validateEmail(email) {
+	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	return emailReg.test( email );
+}
+	
+</script>			
+

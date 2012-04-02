@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <head>
 <meta name="currentPageType" content="yarataticitd"/>
+<meta name="currentPageName" content="factoryMethod"/>
 <script type="text/javascript">
 	jQuery(document).ready(function(){
 		$("#tabs").tabs();
