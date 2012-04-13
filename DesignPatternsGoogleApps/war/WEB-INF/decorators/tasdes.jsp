@@ -32,6 +32,7 @@
 <decorator:usePage id="thePage" />
 <% 
 	String pageType = thePage.getProperty("meta.currentPageType");
+	String pageName = thePage.getProperty("meta.currentPageName");
 	int girisKontrolIndeks = GirisKontrol.girisKontrolIndeksVer();
 %>
 <body>
@@ -80,7 +81,7 @@
 		<p class="contentHeader">Yorum Yaz, Düşüncelerini Paylaş</p>
 		<div class="formdiv">
 		<div class="form-container">
-		<form id="yorumGonderForm" name="yorumGonderForm" action="#" method="post">	
+		<form id="yorumGonderForm" name="yorumGonderForm" action="/yorumEkle" method="post">	
 			<p class="legend"><strong>Not:</strong> Zorunlu alanlar yıldız (<em>*</em>) ile belirtilmiştir.</p>
 			<fieldset>
 				<legend>Kişisel Bilgiler</legend>
@@ -113,7 +114,7 @@
 				</div>
 				<div>
 					<label for="resimmetin">Resimdeki Metin <em>*</em></label> 
-					<input id="resimmetin" type="text" name="yorumbaslik" value="" />
+					<input id="resimmetin" type="text" name="resimmetin" value="" />
 					<p class="note">Lütfen resimde gördüğünüz metni giriniz. Not: Büyük, küçük harf hassasiyeti vardır.</p>
 				</div>
 			</fieldset>	
@@ -121,7 +122,8 @@
 				<input type="submit" value="Gönder" class="button" />
 				<input type="button" value="Temizle" class="button" />
 			</div>
-			<input id="hiddenGirisKontrolIndeks" type="hidden" name="hiddenGirisKontrolIndeks" value="<%=girisKontrolIndeks%>" />	
+			<input id="hiddenGirisKontrolIndeks" type="hidden" name="hiddenGirisKontrolIndeks" value="<%=girisKontrolIndeks%>" />
+			<input id="hiddenPageName" type="hidden" name="hiddenPageName" value="<%=pageName%>" />				
 		</form>
 		</div>
 		</div>
@@ -165,8 +167,22 @@ $('form#yorumGonderForm').submit(function(e){
     	$('#yorum').focus();
     	return;
     }
-            
-    self.submit();    
+    
+    var indeks = $('#hiddenGirisKontrolIndeks').val();
+    var resimMetin = $('#resimmetin').val();
+    var veri = { indeks:indeks, resimMetin:resimMetin };
+    
+    $.ajax(
+    	{ url:"/girisKontrol", type:"POST", contentType: 'application/json; charset=utf-8', dataType: 'json', data:veri,  
+    		success:function(result) {
+    			self.submit(); 
+    		},
+    		error:function(result) {
+        		alert('Olmaz:' + result);
+        		$('#resimmetin').focus();
+    		}    		
+    	}
+    );           
 });
 
 function validateEmail(email) {

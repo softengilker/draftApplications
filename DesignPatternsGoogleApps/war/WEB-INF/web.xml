@@ -17,4 +17,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<welcome-file-list>
 		<welcome-file>jsp/tasdes/tasdesnedir.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<servlet id="yorumEkle">
+		<servlet-name>yorumEkle</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.YorumEkleServlet</servlet-class>
+	</servlet>
+	
+	<servlet id="girisKontrol">
+		<servlet-name>girisKontrol</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.GirisKontrolServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>yorumEkle</servlet-name>
+		<url-pattern>/yorumEkle</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>girisKontrol</servlet-name>
+		<url-pattern>/girisKontrol</url-pattern>
+	</servlet-mapping>
 </web-app>
