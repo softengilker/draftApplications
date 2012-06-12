@@ -121,3 +121,63 @@ body {
 .kodyesil {
 	color: #3f7f5f;
 }
+
+.yorumBaslik {
+	width:auto;
+	background-color: #f6a828;
+	font-family: Tahoma, Arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding-left: 30px;
+	padding-top: 5px;
+	height: 25px;
+	border-color: #3333dd;
+	border-style: dotted;
+	border-width: 1px;	
+	border-color: #3333dd;
+	border-style: dotted;
+	border-width: 1px;	
+}
+
+.yorumIcerik {
+	width:auto;
+	background-color: #ffffff;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	color: #2886c5;
+	padding-left: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 50px;
+	height: auto;
+	margin-bottom: 15px;
+	border-right-color: #3333dd;
+	border-right-style: dotted;
+	border-right-width: 1px;	
+	border-left-color: #3333dd;
+	border-left-style: dotted;
+	border-left-width: 1px;	
+	border-bottom-color: #3333dd;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;	
+}
+
+.yorumAlt {
+	width:auto;
+	background-color: #f2f2f2;
+	font-family: Verdana,Arial;
+	font-size: 10px;
+	font-weight: normal;
+	padding-left: 50px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 50px;
+	height: auto;
+	border-right-color: #3333dd;
+	border-right-style: dotted;
+	border-right-width: 1px;	
+	border-left-color: #3333dd;
+	border-left-style: dotted;
+	border-left-width: 1px;	
+}

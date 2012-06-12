@@ -6,6 +6,8 @@
 
 package com.ilkerkonar.td.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -45,5 +47,10 @@ public class GirisKontrol {
 
 	public static boolean girisKontrol( final int indeks, final String girilen ) {
 		return girisKontrolMap.get( Integer.valueOf( indeks ) ).equalsIgnoreCase( girilen );
+	}
+
+	public static String tarihiFormatliAl( final Date dateNesnesi ) {
+		final SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy HH:mm" );
+		return sdf.format( dateNesnesi );
 	}
 }

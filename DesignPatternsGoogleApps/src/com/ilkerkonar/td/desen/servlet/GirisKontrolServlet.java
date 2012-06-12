@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.appengine.repackaged.org.json.JSONException;
-import com.google.appengine.repackaged.org.json.JSONObject;
 import com.ilkerkonar.td.model.GirisKontrol;
 
 /**
@@ -31,20 +29,20 @@ public class GirisKontrolServlet extends HttpServlet {
 		throws ServletException, IOException {
 
 		try {
-			final JSONObject jObj = new JSONObject( request.getParameter( "veri" ) );
-			final String indeks = jObj.getString( "indeks" );
-			final String resimMetin = jObj.getString( "resimMetin" );
+			final String indeks = request.getParameter( "indeks" );
+			final String resimMetin = request.getParameter( "resimMetin" );
 
 			if ( resimMetin == null || !GirisKontrol.girisKontrol( Integer.parseInt( indeks ), resimMetin ) ) {
 				throw new ServletException( "Resim metin bos veya yanlis girilmis" );
 			}
 
+			response.setContentType( "text/plain" );
 			final ServletOutputStream outputStream = response.getOutputStream();
 			outputStream.print( "basarili" );
 			outputStream.flush();
 			outputStream.close();
 
-		} catch ( final JSONException e ) {
+		} catch ( final Exception e ) {
 			throw new ServletException( "Json parse hatasi" );
 		}
 	}

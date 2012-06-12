@@ -1,7 +1,12 @@
+<%@page import="com.ilkerkonar.td.veri.Yorum"%>
+<%@page import="com.ilkerkonar.td.veri.PMF"%>
 <%@page import="com.ilkerkonar.td.model.SolMenu"%>
 <%@page import="com.ilkerkonar.td.model.SolMenuBirim"%>
 <%@page import="com.ilkerkonar.td.model.GirisKontrol"%>
+<%@page import="javax.jdo.PersistenceManager"%>
+<%@page import="javax.jdo.Query"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="decorator"%>
@@ -78,6 +83,26 @@
 	<div class="content">
 		<decorator:body />		
 		<% if ( !pageType.equals( "ana" ) ) { %>
+		<p class="contentHeader">Yorumlar</p>
+		<% 
+			Query query = PMF.get().getPersistenceManager().newQuery( Yorum.class, "this.pageName == \"" + pageName + "\" && this.durum == 1");
+			List<Yorum> tumYorumlar = ( List<Yorum> ) query.execute();
+			
+			if ( tumYorumlar.size() > 0 ) {
+				for ( Yorum yorum : tumYorumlar ) {
+		%>
+			<div class="yorumBaslik">
+			<%=yorum.getYorumBaslik()%>
+			</div>
+			<div class="yorumAlt">
+			<b><%=yorum.getNick()%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=GirisKontrol.tarihiFormatliAl( yorum.getYorumZamani() )%>
+			</div>
+			<div class="yorumIcerik">
+			<%=yorum.getYorumIcerik()%>
+			</div>
+		<% } } else { %>
+			<div class="yorumIcerik">Henüz bu sayfa için bir yorum yapılmamıştır.</div>
+		<% } %>
 		<p class="contentHeader">Yorum Yaz, Düşüncelerini Paylaş</p>
 		<div class="formdiv">
 		<div class="form-container">
@@ -170,15 +195,17 @@ $('form#yorumGonderForm').submit(function(e){
     
     var indeks = $('#hiddenGirisKontrolIndeks').val();
     var resimMetin = $('#resimmetin').val();
-    var veri = { indeks:indeks, resimMetin:resimMetin };
+    var veri = "indeks=" + indeks + "&resimMetin=" + resimMetin;
     
     $.ajax(
-    	{ url:"/girisKontrol", type:"POST", contentType: 'application/json; charset=utf-8', dataType: 'json', data:veri,  
+    	{ 	url:"/girisKontrol", 
+    	  	type:"POST",   
+    	  	data: veri,  
     		success:function(result) {
-    			self.submit(); 
+    			self.submit();
     		},
     		error:function(result) {
-        		alert('Olmaz:' + result);
+        		alert('Lütfen resimdeki metin bilgisini doğru bir şekilde giriniz');
         		$('#resimmetin').focus();
     		}    		
     	}
@@ -190,5 +217,16 @@ function validateEmail(email) {
 	return emailReg.test( email );
 }
 	
-</script>			
+</script>
 
+<% 
+String yorumAlindiParam = ( String ) session.getAttribute( "yorumAlindi" );
+if ( yorumAlindiParam != null && yorumAlindiParam.equals( "evet" ) ) { 
+%>
+<script type="text/javascript">
+	alert( 'Yorumunuz başarıyla alınmıştır. En kısa zamanda kontrol edildikten sonra yayına alınacaktır. Katkılarınızdan dolayı teşekkür ederim.');
+</script>			
+<% } 
+session.setAttribute( "yorumAlindi", "hayir" );
+%>
+			

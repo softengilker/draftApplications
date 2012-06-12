@@ -41,6 +41,10 @@ public class Yorum {
 	@Persistent
 	private String	yorumIcerik;
 
+	@Persistent
+	/* 0:yeni,1:aktif,2:pasif,3:kabul gormemis */
+	private Integer	durum;
+
 	public Long getId() {
 		return id;
 	}
@@ -95,5 +99,20 @@ public class Yorum {
 
 	public void setYorumIcerik( final String yorumIcerik ) {
 		this.yorumIcerik = yorumIcerik;
+	}
+
+	public Integer getDurum() {
+		return durum;
+	}
+
+	public void setDurum( final Integer durum ) {
+		this.durum = durum;
+	}
+
+	@Override
+	public String toString() {
+		return "Yorum [id=" + id + ", pageName=" + pageName + ", yorumZamani=" + yorumZamani + ", nick=" + nick
+			+ ", email=" + email + ", yorumBaslik=" + yorumBaslik + ", yorumIcerik=" + yorumIcerik + ", durum=" + durum
+			+ "]";
 	}
 }

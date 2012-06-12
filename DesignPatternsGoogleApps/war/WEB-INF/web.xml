@@ -28,6 +28,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-class>com.ilkerkonar.td.desen.servlet.GirisKontrolServlet</servlet-class>
 	</servlet>
 	
+	<servlet id="giris">
+		<servlet-name>giris</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.GirisServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>yorumEkle</servlet-name>
 		<url-pattern>/yorumEkle</url-pattern>
@@ -37,4 +42,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>girisKontrol</servlet-name>
 		<url-pattern>/girisKontrol</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>giris</servlet-name>
+		<url-pattern>/giris</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

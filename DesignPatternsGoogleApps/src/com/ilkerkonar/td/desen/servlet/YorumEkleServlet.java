@@ -45,11 +45,17 @@ public class YorumEkleServlet extends HttpServlet {
 		y.setYorumBaslik( yorumbaslik );
 		y.setYorumIcerik( yorum );
 		y.setYorumZamani( new Date() );
+		y.setDurum( 0 );
 
 		try {
 			pm.makePersistent( y );
+		} catch ( final Exception ex ) {
+
 		} finally {
 			pm.close();
 		}
+
+		request.getSession().setAttribute( "yorumAlindi", "evet" );
+		response.sendRedirect( response.encodeRedirectURL( "/jsp/tasdesincele/" + pageName + ".jsp" ) );
 	}
 }

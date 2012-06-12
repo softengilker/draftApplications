@@ -5,10 +5,16 @@
     <excludes>
         <pattern>/css/*</pattern>
         <pattern>/image/*</pattern>
+        <pattern>/js/*</pattern>
     </excludes>
 
     <decorator name="main" page="tasdes.jsp">
-        <pattern>/*</pattern>
+        <pattern>/jsp/tasdes/*</pattern>
+        <pattern>/jsp/tasdesincele/*</pattern>
+    </decorator>
+
+    <decorator name="yonetim" page="yonetici.jsp">
+        <pattern>/jsp/yonetim/*</pattern>
     </decorator>
 
 </decorators>
