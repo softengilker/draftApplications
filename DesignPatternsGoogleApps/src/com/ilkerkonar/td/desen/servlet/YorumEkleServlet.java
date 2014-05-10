@@ -19,9 +19,9 @@ import com.ilkerkonar.td.veri.Yorum;
 public class YorumEkleServlet extends HttpServlet {
 
 	/**
-	 * 
+	 *
 	 */
-	private static final long	serialVersionUID	= -5858965869773560554L;
+	private static final long	serialVersionUID	= 4478690272776407687L;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

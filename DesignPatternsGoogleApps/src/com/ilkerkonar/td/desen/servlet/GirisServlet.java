@@ -2,12 +2,14 @@
 package com.ilkerkonar.td.desen.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 /**
  * Servlet implementation class Deneme
@@ -15,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 public class GirisServlet extends HttpServlet {
 
 	/**
-	 * 
+	 *
 	 */
-	private static final long	serialVersionUID	= -5858965869773560554L;
+	private static final long	serialVersionUID	= -1602208399477103746L;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,19 +32,22 @@ public class GirisServlet extends HttpServlet {
 			final String kullaniciIsmi = request.getParameter( "kullaniciIsmi" );
 			final String sifre = request.getParameter( "sifre" );
 
+			final JSONObject jsonObject = new JSONObject();
+			jsonObject.put( "sonuc", "basarili" );
+
 			if ( kullaniciIsmi == null || sifre == null || !kullaniciIsmi.equals( "softengilker" )
 				|| !sifre.equals( "nehir3509" ) ) {
-				throw new ServletException( "Giris bilgileri bos veya yanlis girilmis" );
+				jsonObject.put( "sonuc", "kullaniciSifreYanlis" );
 			}
 
-			response.setContentType( "text/plain" );
-			final ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.print( "basarili" );
-			outputStream.flush();
-			outputStream.close();
+			response.setContentType( "application/json" );
+			final PrintWriter out = response.getWriter();
+			out.print( jsonObject );
+			out.flush();
+			out.close();
 
 		} catch ( final Exception e ) {
-			throw new ServletException( "Json parse hatasi" );
+			throw new ServletException( "Giris yapmaya calisirken bir hata oldu!, Ileti : " + e.getMessage() );
 		}
 	}
 }
