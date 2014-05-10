@@ -200,14 +200,21 @@ $('form#yorumGonderForm').submit(function(e){
     $.ajax(
     	{ 	url:"/girisKontrol", 
     	  	type:"POST",   
-    	  	data: veri,  
+    	  	data: veri,
+    	  	dataType: "json",
     		success:function(result) {
-    			self.submit();
+    			
+    			if ( result['sonuc'] == 'resimMetinYanlis' ) {
+    				alert('Lütfen resimdeki metin bilgisini doğru bir şekilde giriniz.');
+    				$('#resimmetin').focus();
+    			} else {
+    				self.submit();
+    			}
     		},
     		error:function(result) {
-        		alert('Lütfen resimdeki metin bilgisini doğru bir şekilde giriniz');
+        		alert( result['statusText'] );
         		$('#resimmetin').focus();
-    		}    		
+    		}    		    		
     	}
     );           
 });

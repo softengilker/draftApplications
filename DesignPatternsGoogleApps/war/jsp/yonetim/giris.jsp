@@ -22,4 +22,50 @@
 
 <script type="text/javascript">
 	$('#kullaniciIsmi').focus();
-</script>			
+	
+	$('form#girisForm').submit(function(e){
+	    e.preventDefault(); //Prevent the normal submission action
+	    var self = this;
+	    
+	    var kullaniciIsmi = $('#kullaniciIsmi').val();
+	    
+	    if ( kullaniciIsmi == '' ) {
+	    	alert('Lütfen kullanıcı isminizi giriniz.');
+	    	$('#kullaniciIsmi').focus();
+	    	return;
+	    }
+
+	    var sifre = $('#sifre').val();
+	    
+	    if ( sifre == '' ) {
+	    	alert('Lütfen şifrenizi giriniz.');
+	    	$('#sifre').focus();
+	    	return;
+	    }
+
+	    var veri = "kullaniciIsmi=" + kullaniciIsmi + "&sifre=" + sifre;
+	    
+	    $.ajax(
+	    	{ 	url:"/giris", 
+	    	  	type:"POST",   
+	    	  	data: veri,
+	    	  	dataType: "json",
+	    		success:function(result) {
+	    			
+	    			if ( result['sonuc'] == 'kullaniciSifreYanlis' ) {
+	    				alert('Kullanıcı ismi veya şifreniz yanlıştır. Lütfen kontrol ederek tekrar giriniz.');
+	    				$('#kullaniciIsmi').focus();
+	    			} else {
+	    				self.submit();
+	    			}
+	    		},
+	    		error:function(result) {
+	        		alert( result['statusText'] );
+	        		$('#kullaniciIsmi').focus();
+	    		}    		
+	    	}
+	    );           
+	});
+	
+</script>
+
