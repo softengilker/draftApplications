@@ -4,7 +4,7 @@
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.
  */
 
-package com.ilkerkonar.td.desen.abstractFactory;
+package com.ilkerkonar.td.desen.ornekkodlar.abstractFactory;
 
 /**
  * @author İlker KONAR, Kıdemli Yazılım Uzmanı
@@ -12,15 +12,15 @@ package com.ilkerkonar.td.desen.abstractFactory;
  * Tarih Bilgisi: 29 Oca 2013
  *
  */
-public class HızlıSiparişNesneFabrikası implements ISiparişNesneFabrikası {
+public class NormalSiparişNesneFabrikası implements ISiparişNesneFabrikası {
 
 	@Override
 	public ÖdemeTipi ödemeTipiYarat() {
-		return new Havale();
+		return new PostaÇeki();
 	}
 
 	@Override
 	public Bildirim bildirimYarat() {
-		return new Sms();
+		return new Eposta();
 	}
 }

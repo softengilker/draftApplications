@@ -4,7 +4,7 @@
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.
  */
 
-package com.ilkerkonar.td.desen.factoryMethod;
+package com.ilkerkonar.td.desen.ornekkodlar.factoryMethod;
 
 /**
  * @author İlker KONAR, Kıdemli Yazılım Uzmanı

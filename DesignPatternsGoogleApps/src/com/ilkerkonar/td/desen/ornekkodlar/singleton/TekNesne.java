@@ -4,7 +4,7 @@
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.
  */
 
-package com.ilkerkonar.td.desen.singleton;
+package com.ilkerkonar.td.desen.ornekkodlar.singleton;
 
 /**
  * TekNesne.java
