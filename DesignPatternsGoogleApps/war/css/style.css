@@ -181,3 +181,11 @@ body {
 	border-left-style: dotted;
 	border-left-width: 1px;	
 }
+
+.icerikKodVurgu {
+	font-family: Courier;
+	font-size: 13px;
+	font-weight: bold;
+	color: red;
+}
+

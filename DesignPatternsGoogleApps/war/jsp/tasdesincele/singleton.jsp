@@ -9,15 +9,17 @@
 </script>
 </head>
 <content tag="solmenubaslikicerik">Yaratıcı Tasarım Desenleri</content>
+
 <p class="contentHeader">Tek Nesne ( Singleton ) Tasarım Deseni</p>
-<p>Bu tasarım deseninde, bir sınıfın sistem içinde yalnızca bir tane nesnesi oluşturulabilir. Tek bir arayüz sunularak, bu nesneye yalnızca buradan erişim sağlanabilir. Bu desen kullanılarak, sistem içinde değeri değişmeyen, genel değişkenler bu oluşturulan tek nesneye konulabilir. Sistemde tek nesne yaratılabilme, <b>statik</b> değişken ve yordamlar sayesinde olur. Statik değişken ve yordamlar, nesneye dayalı programlanın esnekliğini, dinamik nesne yaratılma özelliklerini engellediği için yazılım mühendisleri tarafından eleştirilebilir.</p>
+<p>Bu tasarım deseninde, bir sınıfın sistem içinde yalnızca bir tane nesnesi oluşturulabilir. Tek bir arayüz sunularak, bu nesneye yalnızca buradan erişim sağlanabilir. Bu desen kullanılarak, sistem içinde değeri değişmeyen, genel değişkenler bu oluşturulan tek nesneye konulabilir. Sistemde tek nesne yaratılabilme, <b>statik</b> değişken ve yordamlar sayesinde olur. Statik değişken ve yordamlar, nesneye dayalı programlanın esnekliğini, dinamik nesne yaratılma özelliklerini engellediği için bazı yazılım mühendisleri tarafından eleştirilebilir.</p>
 <p class="contentHeader">Örnek Uygulama</p>
-<p>Örnekte, sisteme giriş yapılabilmesi için kullanılan "kullanıcı ismi" ve "şifre" bilgilerini tutan tek nesne örneklenmiştir. Sınıf içinde kendi tipinde nesneyi tutan static bir değişken bulunur. Bu nesneye yine static olan <u>nesneAl</u> yordamından ulaşılabilmektedir. Dikkat edilirse, sınıfın yapıcı (constructor) yordamı <u>private</u> şeklindedir. Yani "public" olmayarak dışarıdan erişim engellenmiş, nesne oluşumu sınıf içi ile sınırlandırılmıştır.</p>
+<p>Örnekte, sisteme giriş yapılabilmesi için kullanılan "kullanıcı ismi" ve "şifre" bilgilerini tutan tek nesne örneklenmiştir. Sınıf içinde kendi tipinde nesneyi tutan static bir değişken bulunur. Bu nesneye yine static olan <font class="icerikKodVurgu">nesneAl</font> yordamından ulaşılabilmektedir. Dikkat edilirse, sınıfın yapıcı (constructor) yordamı <u>private</u> şeklindedir. Yani "public" olmayarak dışarıdan erişim engellenmiş, nesne oluşumu sınıf içi ile sınırlandırılmıştır.</p>
+
 <div id="tabs" style="overflow:hidden;">
 	<ul>
 		<li><a href="#tabs-1">UML Sınıf Çizelgesi</a></li>
 		<li><a href="#tabs-2">TekNesne.java</a></li>
-		<li><a href="#tabs-3">Deneme.java</a></li>
+		<li><a href="#tabs-3">DenemeSingleton.java</a></li>
 		<li><a href="#tabs-4">Ekran Çıktısı</a></li>
 	</ul>
 	<div id="tabs-1">
@@ -29,11 +31,27 @@
  * <br />
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.<br />
  */<br />
+<br /> 
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7707439910959753";
+/* Yeni Tasarım Desenleri Kod İçi Uzun2 */
+google_ad_slot = "3718320695";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>		
 <br />
-</span><span class="java4">package </span><span class="java10">com.ilkerkonar.td.desen.singleton;<br />
+<br />
+</span><span class="java4">package </span><span class="java10">com.ilkerkonar.uygulamalar.web.designPatterns.sample.singleton;<br />
 <br />
 </span><span class="java14">/**<br />
- * TekNesne.java<br />
+ * </span><span class="java11">@author </span><span class="java14">İlker KONAR, Kıdemli Yazılım Uzmanı<br />
+ *<br />
+ * Tarih Bilgisi: 08 Oca 2013<br />
+ *<br />
  */<br />
 </span><span class="java4">public class </span><span class="java10">TekNesne </span><span class="java8">{<br />
 <br />
@@ -67,7 +85,7 @@
 &#xA0;&#xA0; </span><span class="java4">public </span><span class="java10">String getŞifre</span><span class="java8">() {<br />
 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java4">return </span><span class="java5">&#34;12345&#34;</span><span class="java10">;<br />
 &#xA0;&#xA0; </span><span class="java8">}<br />
-}</span></code></div>
+}</span></code></div>	
 	</div>
 	<div id="tabs-3">
 <div class="java"><code class="java"><span class="java14">/**<br />
@@ -76,12 +94,15 @@
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.<br />
  */<br />
 <br />
-</span><span class="java4">package </span><span class="java10">com.ilkerkonar.td.desen.singleton;<br />
+</span><span class="java4">package </span><span class="java10">com.ilkerkonar.uygulamalar.web.designPatterns.sample.singleton;<br />
 <br />
 </span><span class="java14">/**<br />
- * Deneme.java<br />
+ * </span><span class="java11">@author </span><span class="java14">İlker KONAR, Kıdemli Yazılım Uzmanı<br />
+ *<br />
+ * Tarih Bilgisi: 08 Oca 2013<br />
+ *<br />
  */<br />
-</span><span class="java4">public class </span><span class="java10">Deneme </span><span class="java8">{<br />
+</span><span class="java4">public class </span><span class="java10">DenemeSingleton </span><span class="java8">{<br />
 <br />
 &#xA0;&#xA0; </span><span class="java14">/**<br />
 &#xA0;&#xA0;&#xA0; * </span><span class="java11">@param </span><span class="java14">args<br />
@@ -107,4 +128,3 @@
 		</span>		
 	</div>
 </div>
-	
