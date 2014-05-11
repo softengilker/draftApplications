@@ -22,7 +22,7 @@
 
 <div id="tabs" style="overflow:hidden;">
 	<ul>
-		<li><a href="#tabs-1">UML Sınıf Çizelgesi</a></li>
+		<li style="background-color: #c4ffff;"><a href="#tabs-1">UML Sınıf Çizelgesi</a></li>
 		<li><a href="#tabs-2">Bildirim.java</a></li>
 		<li><a href="#tabs-3">Eposta.java</a></li>
 		<li><a href="#tabs-4">Sms.java</a></li>
@@ -33,7 +33,7 @@
 		<li><a href="#tabs-9">NormalSiparişNesneFabrikası.java</a></li>
 		<li><a href="#tabs-10">HızlıSiparişNesneFabrikası.java</a></li>
 		<li><a href="#tabs-11">SiparişGönderici.java</a></li>
-		<li><a href="#tabs-12">Ekran Çıktısı</a></li>
+		<li style="background-color: #ffffc4;"><a href="#tabs-12">Ekran Çıktısı</a></li>
 	</ul>
 	<div id="tabs-1">
 		<img src="/image/tasdes/abstractFactory.jpg" />

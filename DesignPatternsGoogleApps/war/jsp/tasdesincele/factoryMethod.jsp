@@ -18,13 +18,13 @@
 
 <div id="tabs" style="overflow:hidden;">
 	<ul>
-		<li><a href="#tabs-1">UML Sınıf Çizelgesi</a></li>
+		<li style="background-color: #c4ffff;"><a href="#tabs-1">UML Sınıf Çizelgesi</a></li>
 		<li><a href="#tabs-2">IResimFormatı.java</a></li>
 		<li><a href="#tabs-3">JpegResimFormatı.java</a></li>
 		<li><a href="#tabs-4">GifResimFormatı.java</a></li>
 		<li><a href="#tabs-5">FormatSeçici.java</a></li>
 		<li><a href="#tabs-6">Resimİşleyici.java</a></li>
-		<li><a href="#tabs-7">Ekran Çıktısı</a></li>
+		<li style="background-color: #ffffc4;"><a href="#tabs-7">Ekran Çıktısı</a></li>
 	</ul>
 	<div id="tabs-1">
 		<img src="/image/tasdes/factoryMethod.jpg" />
