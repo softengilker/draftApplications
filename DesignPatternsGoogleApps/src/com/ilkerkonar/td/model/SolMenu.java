@@ -1,6 +1,6 @@
 /**
  * @author İlker KONAR, Yazılım Kıdemli Uzmanı.
- * 
+ *
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.
  */
 
@@ -27,11 +27,11 @@ public class SolMenu {
 		final List< SolMenuBirim > yaraticiListe = new ArrayList< SolMenuBirim >();
 		yaraticiListe.add( new SolMenuBirim( "Tek Nesne ( Singleton )", "/jsp/tasdesincele/singleton.jsp" ) );
 		yaraticiListe
-			.add( new SolMenuBirim( "Fabrika Yordam ( Factory Method )", "/jsp/tasdesincele/factoryMethod.jsp" ) );
+		.add( new SolMenuBirim( "Fabrika Yordam ( Factory Method )", "/jsp/tasdesincele/factoryMethod.jsp" ) );
 		yaraticiListe.add( new SolMenuBirim( "Soyut Fabrika ( Abstract Factory )",
 			"/jsp/tasdesincele/abstractFactory.jsp" ) );
 		yaraticiListe.add( new SolMenuBirim( "Kopya Nesne ( Prototype )", "/jsp/tasdesincele/prototype.jsp" ) );
-		yaraticiListe.add( new SolMenuBirim( "Kurulum Nesnesi ( Builder )", "/jsp/tasdesincele/builder.jsp" ) );
+		yaraticiListe.add( new SolMenuBirim( "Kurucu ( Builder )", "/jsp/tasdesincele/builder.jsp" ) );
 
 		final List< SolMenuBirim > yapisalListe = new ArrayList< SolMenuBirim >();
 		yapisalListe.add( new SolMenuBirim( "Adaptör ( Adapter )", "/jsp/tasdesincele/adapter.jsp" ) );
@@ -48,7 +48,7 @@ public class SolMenu {
 		davranissalListe.add( new SolMenuBirim( "Gözlemci ( Observer )", "/jsp/tasdesincele/observer.jsp" ) );
 		davranissalListe.add( new SolMenuBirim( "Hatırlayıcı ( Memento )", "/jsp/tasdesincele/memento.jsp" ) );
 		davranissalListe
-			.add( new SolMenuBirim( "Kalıp Yordam ( Template Method )", "/jsp/tasdesincele/templateMethod.jsp" ) );
+		.add( new SolMenuBirim( "Kalıp Yordam ( Template Method )", "/jsp/tasdesincele/templateMethod.jsp" ) );
 		davranissalListe.add( new SolMenuBirim( "Komut ( Command )", "/jsp/tasdesincele/command.jsp" ) );
 		davranissalListe.add( new SolMenuBirim( "Sorumluluk Zinciri ( Chain of Res. )",
 			"/jsp/tasdesincele/chainOfResponsibility.jsp" ) );

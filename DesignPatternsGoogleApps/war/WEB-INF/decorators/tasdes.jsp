@@ -154,6 +154,10 @@
 		</div>
 		<% } %>				
 	</div>
+	<div class="altkisim">
+		<p>Tüm java kodları "jdk1.7.0_09" ile derlenmiş ve çalıştırılmıştır. Tüm UML çizimleri ise "Microsoft Visio 2010" ile oluşturulmuştur.</p>
+		<p>Tüm hakları saklıdır. &copy;&nbsp;&nbsp;<a href="http://www.ilkerkonar.com" target="blank">"İlker KONAR"</a> | İletişim: <a href="mailto:bilgi@tasarimdesenleri.com">bilgi@tasarimdesenleri.com</a></p>
+	</div>	
 </body>
 </html>
 <script type="text/javascript">
