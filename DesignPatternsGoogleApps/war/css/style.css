@@ -189,3 +189,13 @@ body {
 	color: red;
 }
 
+.altkisim {
+	background: #FFFFFF url(../image/altcizgi.png) repeat-x;
+	clear: both;
+	height: 70px;
+	padding-top: 25px;
+	padding-left: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
