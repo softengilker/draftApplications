@@ -14,6 +14,8 @@
 <p class="contentHeader">Kopya Nesne ( Prototype ) Tasarım Deseni</p>
 <p>Var olan bir nesneden, kopyalama yöntemi ile yeni nesne yaratmak için bu tasarım deseni kullanılır. Nesne yaratmak için "new" operatörü kullanılmaz. Yazılım dillerindeki "clone" gibi, nesne kopyalama yordamlarından faydalanılır. Örneğin java programlama dilinde, bir nesnenin kopyalanabilmesi için, nesnenin "Cloneable" arayüzünden türemiş olması gereklidir.</p>
 <p>Bazı nesneler çok büyük olup, çok kaynak harcıyor olabilir. <u>Bu nesnelerin yeniden yaratılması yerine, kolonlanması performans ve kaynak kullanımı açısından tasarruf edilmesine yarar.</u> Bu durumlarda "Kopya Nesne" tasarım deseni kullanılabilir.</p>
+<p class="contentHeader">Örnek Uygulama</p>
+<p>Örnekte, kopyalanabilme özelliğine sahip ( Java Cloneable arayüzünden türemiş ) bir Resim sınıfı bulunmaktadır. Bu sınıfın renk, boy, en gibi sınıf değişkenleri bulunmakta ve bir de kopyasının alınmasına yarayan ve dışarıdan çağırılabilen ( public ) bir "kopyaAl" yordamı vardır. İstemci sınıf ( ResimÜretici ) bu yordam ile sınıfın kopyasını oluşturabilmektedir.</p>
 
 <div id="tabs" style="overflow:hidden;">
 	<ul>
@@ -88,6 +90,19 @@
 		 *<br />
 		 * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.<br />
 		 */<br />
+		<br />		
+		 <script type="text/javascript"><!--
+google_ad_client = "ca-pub-7707439910959753";
+/* Yeni Tasarım Desenleri Kod İçi */
+google_ad_slot = "5334654695";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>		
+		<br />		 
 		<br />
 		</span><span class="java4">package </span><span class="java10">com.ilkerkonar.td.desen.ornekkodlar.prototype;<br />
 		<br />
