@@ -14,6 +14,9 @@ package com.ilkerkonar.td.desen.ornekkodlar.facade;
 public class Bilgisayar {
 
 	public void aç() {
+
+		// Ön yüz sınıfının kullandığı ve istemcinin
+		// bilmediği detay sınıflar.
 		final İşlemci işlemci = new İşlemci();
 		final Bellek bellek = new Bellek();
 		final SabitDisk disk = new SabitDisk();

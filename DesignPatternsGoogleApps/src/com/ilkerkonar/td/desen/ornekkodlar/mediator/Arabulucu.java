@@ -30,16 +30,19 @@ public class Arabulucu {
 	}
 
 	public void bilgisayarÇalıştır() {
+		// Bilgisayar çalıştığında, diğer aygıtların durması isteniyor.
 		televizyon.durdur();
 		radyo.durdur();
 	}
 
 	public void radyoÇalıştır() {
+		// Radyo çalıştığında, diğer aygıtların durması isteniyor.
 		bilgisayar.durdur();
 		televizyon.durdur();
 	}
 
 	public void televizyonÇalıştır() {
+		// Televizyon çalıştığında, diğer aygıtların durması isteniyor.
 		bilgisayar.durdur();
 		radyo.durdur();
 	}

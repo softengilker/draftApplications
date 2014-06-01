@@ -11,13 +11,17 @@ package com.ilkerkonar.td.desen.ornekkodlar.bridge;
  *
  * Tarih bilgisi : May 24, 2014
  */
-public abstract class Şekil {
+public class Şekil {
 
 	protected ÇizimKalıbı	kalıp;
+	private final String	isim;
 
-	public Şekil( final ÇizimKalıbı kalıp ) {
+	public Şekil( final ÇizimKalıbı kalıp, final String isim ) {
 		this.kalıp = kalıp;
+		this.isim = isim;
 	}
 
-	public abstract void çiz();
+	public void çiz() {
+		System.out.println( isim + " Çiziliyor..." );
+	}
 }

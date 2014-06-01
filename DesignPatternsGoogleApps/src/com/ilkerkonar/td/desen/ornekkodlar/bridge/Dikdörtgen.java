@@ -14,11 +14,14 @@ package com.ilkerkonar.td.desen.ornekkodlar.bridge;
 public class Dikdörtgen extends Şekil {
 
 	public Dikdörtgen( final ÇizimKalıbı kalıp ) {
-		super( kalıp );
+		super( kalıp, "Dikdörtgen" );
 	}
 
 	@Override
 	public void çiz() {
+
+		super.çiz();
+
 		kalıp.çizgiÇiz();
 		kalıp.çizgiÇiz();
 		kalıp.çizgiÇiz();

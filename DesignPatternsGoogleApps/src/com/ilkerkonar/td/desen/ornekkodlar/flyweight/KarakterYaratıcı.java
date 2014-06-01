@@ -19,7 +19,8 @@ public class KarakterYaratıcı {
 	private final Map< Character, Karakter >	karakterHavuzu	= new HashMap< Character, Karakter >();
 
 	public Karakter karakterAl( final char karakter ) {
-		// Havuzda varsa onu dön.
+
+		// Havuzda varsa onu dön. Yeni nesne oluşturma.
 		if ( karakterHavuzu.containsKey( karakter ) ) {
 			return karakterHavuzu.get( karakter );
 		}

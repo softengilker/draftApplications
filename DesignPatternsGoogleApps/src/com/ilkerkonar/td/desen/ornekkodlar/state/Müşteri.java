@@ -23,6 +23,8 @@ public class Müşteri {
 		// Müşteri altın hesaba geçiriliyor.
 		hesap.durumDeğiştir( new AltınHesap() );
 
+		System.out.println( "Müşteri altın hesaba geçiriliyor." );
+
 		// Durum değiştiği için davranış da değişecek.
 		hesap.faizÖde();
 		hesap.paraÇek();

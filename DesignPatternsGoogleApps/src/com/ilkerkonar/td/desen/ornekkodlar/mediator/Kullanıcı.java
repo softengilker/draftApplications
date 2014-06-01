@@ -14,8 +14,12 @@ package com.ilkerkonar.td.desen.ornekkodlar.mediator;
 public class Kullanıcı {
 
 	public static void main( final String[] args ) {
+		// Arabulu sınıf yaratılır.
 		final Arabulucu arabulucu = new Arabulucu();
 
+		// Arabulucu sınıfı içeren nesneler yaratılıyor ve bir
+		// dizine ekleniyor. Bu nesneler arasındaki haberleşmeyi
+		// ortak Arabulucu sınıf sağlayacak.
 		final ElektronikAygıt[] aygıtlar = new ElektronikAygıt[ 3 ];
 		aygıtlar[ 0 ] = new Bilgisayar( arabulucu );
 		aygıtlar[ 1 ] = new Televizyon( arabulucu );

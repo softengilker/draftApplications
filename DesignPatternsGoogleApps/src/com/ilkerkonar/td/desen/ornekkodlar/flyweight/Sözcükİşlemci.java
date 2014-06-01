@@ -17,8 +17,8 @@ public class Sözcükİşlemci {
 
 		final String satır = "Merhaba, nasılsın?";
 
-		final KarakterYaratıcı karakterYaratıcı =
-			new KarakterYaratıcı();
+		// Hafif ağırlık sınıfı, karakterlerin listesini tutar.
+		final KarakterYaratıcı karakterYaratıcı = new KarakterYaratıcı();
 
 		// Satırdaki her bir bilgiyi ekrana bas.
 		for ( final char c : satır.toCharArray() ) {

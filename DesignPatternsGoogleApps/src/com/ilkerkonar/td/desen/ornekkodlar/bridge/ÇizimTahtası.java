@@ -15,6 +15,7 @@ public class ÇizimTahtası {
 
 	public static void main( final String[] args ) {
 
+		// Şekil dizisi.
 		final Şekil[] şekiller = new Şekil[ 3 ];
 
 		// Şekil nesnelerini oluştur.

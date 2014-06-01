@@ -14,11 +14,14 @@ package com.ilkerkonar.td.desen.ornekkodlar.bridge;
 public class Çember extends Şekil {
 
 	public Çember( final ÇizimKalıbı kalıp ) {
-		super( kalıp );
+		super( kalıp, "Çember" );
 	}
 
 	@Override
 	public void çiz() {
+
+		super.çiz();
+
 		kalıp.çemberÇiz();
 	}
 }

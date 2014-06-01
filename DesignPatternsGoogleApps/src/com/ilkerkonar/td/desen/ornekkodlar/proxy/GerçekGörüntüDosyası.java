@@ -20,11 +20,11 @@ public class GerçekGörüntüDosyası extends GörüntüDosyası {
 
 	private void görüntüDosyasınıSabitDisktenYükle() {
 		// Pahalı ve zaman alıcı bir işlem.
-		System.out.println( "Görüntü dosyası sabit diskten yüklendi." );
+		System.out.println( "Görüntü dosyası ( " + dosyaİsmi + " ) sabit diskten yüklendi." );
 	}
 
 	@Override
 	public void görüntüyüGöster() {
-		System.out.println( "Görüntü dosyası görüntülendi." );
+		System.out.println( "Görüntü dosyası ( " + dosyaİsmi + " ) görüntülendi." );
 	}
 }
