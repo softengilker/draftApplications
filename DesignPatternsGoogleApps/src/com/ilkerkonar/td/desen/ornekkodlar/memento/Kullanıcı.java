@@ -25,7 +25,7 @@ public class Kullanıcı {
 
 		// En son içerik "4" yazılır.
 		// Fakat önceki içerikler saklanır.
-		System.out.println( döküman.içerikAl() );
+		System.out.println( "En son içerik : " + döküman.içerikAl() );
 
 		// Son üç işlem geri alınır.
 		program.geriAl();
@@ -33,6 +33,6 @@ public class Kullanıcı {
 		program.geriAl();
 
 		// Son üç işlem geri alındığı için, "1" içeriği yazılır.
-		System.out.println( döküman.içerikAl() );
+		System.out.println( "Üç işlem geri alındıktan sonra içerik : " + döküman.içerikAl() );
 	}
 }
