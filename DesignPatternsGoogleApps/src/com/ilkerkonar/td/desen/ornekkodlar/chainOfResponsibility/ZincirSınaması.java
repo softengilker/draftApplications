@@ -28,9 +28,9 @@ public class ZincirSınaması {
 		zincir2.sonrakiniAyarla( new İşlevA() );
 
 		// Zincir 1 i çalıştır.
-		zincir1.çalıştır( "Veri1" );
+		zincir1.çalıştır( "veri1" );
 
 		// Zincir 2 yi çalıştır.
-		zincir2.çalıştır( "Veri2" );
+		zincir2.çalıştır( "veri2" );
 	}
 }
