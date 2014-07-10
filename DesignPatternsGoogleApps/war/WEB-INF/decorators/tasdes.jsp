@@ -62,11 +62,8 @@
 						<li><a href="/jsp/tasdesincele/adapter.jsp">Yapısal Tasarım Desenleri</a></li>
 						<li><a href="/jsp/tasdesincele/mediator.jsp">Davranışsal Tasarım Desenleri</a></li>
 					</ul>
-				</li>
-				<!--  	
-				<li><a class="fNiv" href="http://www.ilkerkonar.com">Nesneye
-						Dayalı Programlama</a></li>
-				-->		
+				</li>  	
+				<li><a class="fNiv" href="/jsp/tasdes/blog.jsp">Bloglar</a></li>		
 			</ul>
 			<script type="text/javascript">
 				$(document).ready(function() {  
@@ -85,21 +82,25 @@
 				<li><a href="<%=birim.getUrl()%>"><%=birim.getContent()%></a></li>
 			<% } %>
 		</ul>
-		<div style="margin-left: 40px; margin-top: 50px;"> 
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- Tasarım Desenleri Desenler -->
-			<ins class="adsbygoogle"
-			     style="display:inline-block;width:160px;height:600px"
-			     data-ad-client="ca-pub-7707439910959753"
-			     data-ad-slot="4886250995"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-		</div>		
+		<% if ( !pageType.equals( "blog" ) && !pageType.equals( "ana" ) ) { %>
+			<div style="margin-left: 40px; margin-top: 50px;"> 
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Tasarım Desenleri Desenler -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:160px;height:600px"
+				     data-ad-client="ca-pub-7707439910959753"
+				     data-ad-slot="4886250995"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+		<% } else { %>
+			<div style="height: 300px;">&nbsp;</div>
+		<% } %>		
 	</div>
 	<div class="content">
 		<decorator:body />		
-		<% if ( !pageType.equals( "ana" ) ) { %>
+		<% if ( !pageType.equals( "ana" ) && !pageType.equals( "blog" ) ) { %>
 		<p class="contentHeader">Yorumlar</p>
 		<% 
 			Query query = PMF.get().getPersistenceManager().newQuery( Yorum.class, "this.pageName == \"" + pageName + "\" && this.durum == 1");

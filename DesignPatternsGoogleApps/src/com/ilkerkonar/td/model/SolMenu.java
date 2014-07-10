@@ -56,9 +56,13 @@ public class SolMenu {
 		davranissalListe.add( new SolMenuBirim( "Yorumlayıcı ( Interpreter )", "/jsp/tasdesincele/interpreter.jsp" ) );
 		davranissalListe.add( new SolMenuBirim( "Ziyaretçi ( Visitor )", "/jsp/tasdesincele/visitor.jsp" ) );
 
+		final List< SolMenuBirim > blogListe = new ArrayList< SolMenuBirim >();
+		blogListe.add( new SolMenuBirim( "Bloglarım", "/jsp/tasdes/blog.jsp" ) );
+
 		menuMap.put( "ana", anaListe );
 		menuMap.put( "yarataticitd", yaraticiListe );
 		menuMap.put( "yapisaltd", yapisalListe );
 		menuMap.put( "davranissaltd", davranissalListe );
+		menuMap.put( "blog", blogListe );
 	}
 }
