@@ -1,6 +1,6 @@
 /**
  * @author İlker KONAR, Yazılım Kıdemli Uzmanı.
- * 
+ *
  * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.
  */
 
@@ -23,7 +23,7 @@ public class GirisKontrol {
 	private static final String					yolSonEk				= ".png";
 
 	private static final String[]				girisKontrolDosyaIsim	= new String[] { "107", "284", "371", "453",
-																		"509", "738", "876", "954" };
+																		"509", "738", "876", "954", "179" };
 
 	static {
 		girisKontrolMap.put( 0, "a5C27g1" );
@@ -34,6 +34,7 @@ public class GirisKontrol {
 		girisKontrolMap.put( 5, "Zm8nL46" );
 		girisKontrolMap.put( 6, "d5Ak9Z3" );
 		girisKontrolMap.put( 7, "B93e9r7" );
+		girisKontrolMap.put( 8, "72R9Sak" );
 	}
 
 	public static int girisKontrolIndeksVer() {

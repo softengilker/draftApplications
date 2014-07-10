@@ -46,6 +46,9 @@
 		<div class="slogan">Nesneye Dayalı Programlamada Sınıf
 			İlişkileri Nasıl Olmalı?</div>
 	</div>
+	<div align="right" style="margin-right: 30px;margin-bottom:5px;font-family: Tahoma;font-style: italic;color: green;">
+		Sitem yeni tasarımı ile karşınızda! Yorum da ekleyebilirsiniz! :) 
+	</div>
 	<div class="yataymenueksen">
 		<div class="yataymenu">
 			<ul id="jMenu">
@@ -69,7 +72,7 @@
 				$(document).ready(function() {  
 					$("#jMenu").jMenu();  
 				});
-			</script>			
+			</script>
 		</div>
 	</div>
 	<div class="solmenu">
@@ -81,7 +84,18 @@
 			<% for ( final SolMenuBirim birim : menuList ) { %> 
 				<li><a href="<%=birim.getUrl()%>"><%=birim.getContent()%></a></li>
 			<% } %>
-		</ul> 
+		</ul>
+		<div style="margin-left: 40px; margin-top: 50px;"> 
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Tasarım Desenleri Desenler -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:160px;height:600px"
+			     data-ad-client="ca-pub-7707439910959753"
+			     data-ad-slot="4886250995"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>		
 	</div>
 	<div class="content">
 		<decorator:body />		
@@ -158,8 +172,23 @@
 		<% } %>				
 	</div>
 	<div class="altkisim">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 728x90, oluşturulma 28.01.2009 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-7707439910959753"
+		     data-ad-slot="7560399975"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<br/>
+		<br/>
 		<p>Tüm java kodları "jdk1.7.0_09" ile derlenmiş ve çalıştırılmıştır.</p>
 		<p>Tüm hakları saklıdır. &copy;&nbsp;&nbsp;<a href="http://www.ilkerkonar.com" target="blank">"İlker KONAR"</a> | İletişim: <a href="mailto:bilgi@tasarimdesenleri.com">bilgi@tasarimdesenleri.com</a></p>
+		<br/>
+		<br/>
+		<br/>
+		<br/>		
 	</div>	
 </body>
 </html>

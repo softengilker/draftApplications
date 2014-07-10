@@ -183,8 +183,8 @@ body {
 }
 
 .icerikKodVurgu {
-	font-family: Courier;
-	font-size: 13px;
+	font-family: sans-serif;
+	font-size: 12px;
 	font-weight: bold;
 	color: red;
 }
