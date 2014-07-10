@@ -40,6 +40,9 @@ public class GirisServlet extends HttpServlet {
 				jsonObject.put( "sonuc", "kullaniciSifreYanlis" );
 			}
 
+			//Session nesnesi olustur.
+			request.getSession().setAttribute( "girdi", new Boolean( true ) );
+
 			response.setContentType( "application/json" );
 			final PrintWriter out = response.getWriter();
 			out.print( jsonObject );

@@ -39,7 +39,9 @@
 				Ekran Seçimleri			
 			</div>  
 			<ul> 
-				<li><a href="">Yeni Yorumları Onaylama</a></li>
+				<li><a href="/jsp/yonetim/yeniYorumlariOnaylama.jsp">Yeni Yorumları Onaylama</a></li>
+				<li><a href="/jsp/yonetim/yorumYonetimi.jsp?sayfaismi=hepsi">Yorum Yönetimi</a></li>
+				<li><a href="/cikis">Çıkış</a></li>
 			</ul> 
 		</div>
 	<% } %>

@@ -59,8 +59,11 @@
 						<li><a href="/jsp/tasdesincele/adapter.jsp">Yapısal Tasarım Desenleri</a></li>
 						<li><a href="/jsp/tasdesincele/mediator.jsp">Davranışsal Tasarım Desenleri</a></li>
 					</ul>
+				</li>
+				<!--  	
 				<li><a class="fNiv" href="http://www.ilkerkonar.com">Nesneye
 						Dayalı Programlama</a></li>
+				-->		
 			</ul>
 			<script type="text/javascript">
 				$(document).ready(function() {  
@@ -155,7 +158,7 @@
 		<% } %>				
 	</div>
 	<div class="altkisim">
-		<p>Tüm java kodları "jdk1.7.0_09" ile derlenmiş ve çalıştırılmıştır. Tüm UML çizimleri ise "Microsoft Visio 2010" ile oluşturulmuştur.</p>
+		<p>Tüm java kodları "jdk1.7.0_09" ile derlenmiş ve çalıştırılmıştır.</p>
 		<p>Tüm hakları saklıdır. &copy;&nbsp;&nbsp;<a href="http://www.ilkerkonar.com" target="blank">"İlker KONAR"</a> | İletişim: <a href="mailto:bilgi@tasarimdesenleri.com">bilgi@tasarimdesenleri.com</a></p>
 	</div>	
 </body>

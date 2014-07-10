@@ -3,7 +3,7 @@
 <meta name="currentPageName" content="giris"/>
 </head>
 
-<form id="girisForm" name="girisForm" action="/giris" method="post">
+<form id="girisForm" name="girisForm" action="/jsp/yonetim/yeniYorumlariOnaylama.jsp" method="post">
 	<table style="margin-left : 200px;">
 		<tr>
 			<td width="150">Kullanıcı İsmi:</td>

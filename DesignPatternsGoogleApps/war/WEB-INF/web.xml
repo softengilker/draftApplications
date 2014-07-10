@@ -29,6 +29,21 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-class>com.ilkerkonar.td.desen.servlet.GirisServlet</servlet-class>
 	</servlet>
 	
+	<servlet id="cikis">
+		<servlet-name>cikis</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.CikisServlet</servlet-class>
+	</servlet>
+
+	<servlet id="yorumOnayla">
+		<servlet-name>yorumOnayla</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.YorumOnaylaServlet</servlet-class>
+	</servlet>
+	
+	<servlet id="yorumDegistir">
+		<servlet-name>yorumDegistir</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.YorumYonetimiServlet</servlet-class>
+	</servlet>	
+	
 	<servlet-mapping>
 		<servlet-name>yorumEkle</servlet-name>
 		<url-pattern>/yorumEkle</url-pattern>
@@ -43,5 +58,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>giris</servlet-name>
 		<url-pattern>/giris</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>cikis</servlet-name>
+		<url-pattern>/cikis</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>yorumOnayla</servlet-name>
+		<url-pattern>/yorumOnayla</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>yorumDegistir</servlet-name>
+		<url-pattern>/yorumDegistir</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+    	<session-timeout>8</session-timeout>
+	</session-config>	
 	
 </web-app>

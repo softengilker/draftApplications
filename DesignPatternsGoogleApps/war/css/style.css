@@ -124,13 +124,13 @@ body {
 
 .yorumBaslik {
 	width:auto;
-	background-color: #f6a828;
+	background-color: #f6d9a8;
 	font-family: Tahoma, Arial;
 	font-size: 13px;
 	font-weight: bold;
 	padding-left: 30px;
 	padding-top: 5px;
-	height: 25px;
+	height: 18px;
 	border-color: #3333dd;
 	border-style: dotted;
 	border-width: 1px;	
@@ -197,5 +197,29 @@ body {
 	padding-left: 200px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.yorumTablo {
+	margin-left: 10px;
+	margin-top: 5px;
+	border: 1px solid black;
+}
+
+.yorumTablo th {
+	border: 1px solid black;
+	font-family: Tahoma, Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: red;	
+	padding: 2px;
+}
+
+.yorumTablo td {
+	border: 1px solid black;
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: normal;
+	color: black;
+	padding: 2px;	
 }
 
