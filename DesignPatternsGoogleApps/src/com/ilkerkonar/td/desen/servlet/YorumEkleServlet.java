@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ilkerkonar.td.logic.EpostaGonder;
 import com.ilkerkonar.td.veri.PMF;
 import com.ilkerkonar.td.veri.Yorum;
 
@@ -54,6 +55,9 @@ public class YorumEkleServlet extends HttpServlet {
 		} finally {
 			pm.close();
 		}
+
+		final EpostaGonder eposta = new EpostaGonder();
+		eposta.yorumGeldiEpostaGonder( pageName, nick );
 
 		request.getSession().setAttribute( "yorumAlindi", "evet" );
 		response.sendRedirect( response.encodeRedirectURL( "/jsp/tasdesincele/" + pageName + ".jsp" ) );
