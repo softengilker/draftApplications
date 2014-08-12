@@ -20,15 +20,15 @@ public class Şirket {
 		final Yönetici yönetici = new Yönetici();
 
 		// Ziyaretçi nesnelerini oluştur.
-		final PersonelZiyaretçisi ziyaretçi1 = new MaaşHesaplamaZiyaretçisi();
-		final PersonelZiyaretçisi ziyaretçi2 = new ÇalışmaPlanıZiyaretçisi();
+		final PersonelZiyaretçisi maaşHesaplamaZiyaretçisi = new MaaşHesaplamaZiyaretçisi();
+		final PersonelZiyaretçisi çalışmaPlanıZiyaretçisi = new ÇalışmaPlanıZiyaretçisi();
 
 		// Maaş Hesaplama işlemlerini yap.
-		ziyaretçi1.ziyaretEt( işçi );
-		ziyaretçi1.ziyaretEt( yönetici );
+		işçi.kabulEt( maaşHesaplamaZiyaretçisi );
+		yönetici.kabulEt( maaşHesaplamaZiyaretçisi );
 
 		// Çalışma Planı işlemlerini yap.
-		ziyaretçi2.ziyaretEt( işçi );
-		ziyaretçi2.ziyaretEt( yönetici );
+		işçi.kabulEt( çalışmaPlanıZiyaretçisi );
+		yönetici.kabulEt( çalışmaPlanıZiyaretçisi );
 	}
 }

@@ -239,7 +239,7 @@ google_ad_height = 60;
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>		
-		<br /> 		 		 		 		 		 
+		<br /> 		 		 		 		 		 		 
 		<br />
 		</span><span class="java4">package </span><span class="java10">com.ilkerkonar.td.desen.ornekkodlar.visitor;<br />
 		<br />
@@ -250,24 +250,24 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		 */<br />
 		</span><span class="java4">public class </span><span class="java10">Şirket </span><span class="java8">{<br />
 		<br />
-		&#xA0; </span><span class="java4">public static </span><span class="java9">void </span><span class="java10">main</span><span class="java8">( </span><span class="java4">final </span><span class="java10">String</span><span class="java8">[] </span><span class="java10">args </span><span class="java8">) {<br />
+		&#xA0;&#xA0; </span><span class="java4">public static </span><span class="java9">void </span><span class="java10">main</span><span class="java8">( </span><span class="java4">final </span><span class="java10">String</span><span class="java8">[] </span><span class="java10">args </span><span class="java8">) {<br />
 		<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java3">// Personel nesnelerini oluştur.<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">İş&ccedil;i iş&ccedil;i = </span><span class="java4">new </span><span class="java10">İş&ccedil;i</span><span class="java8">()</span><span class="java10">;<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">Y&ouml;netici y&ouml;netici = </span><span class="java4">new </span><span class="java10">Y&ouml;netici</span><span class="java8">()</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java3">// Personel nesnelerini oluştur.<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">İş&ccedil;i iş&ccedil;i = </span><span class="java4">new </span><span class="java10">İş&ccedil;i</span><span class="java8">()</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">Y&ouml;netici y&ouml;netici = </span><span class="java4">new </span><span class="java10">Y&ouml;netici</span><span class="java8">()</span><span class="java10">;<br />
 		<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java3">// Ziyaret&ccedil;i nesnelerini oluştur.<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">PersonelZiyaret&ccedil;isi ziyaret&ccedil;i1 = </span><span class="java4">new </span><span class="java10">MaaşHesaplamaZiyaret&ccedil;isi</span><span class="java8">()</span><span class="java10">;<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">PersonelZiyaret&ccedil;isi ziyaret&ccedil;i2 = </span><span class="java4">new </span><span class="java10">&Ccedil;alışmaPlanıZiyaret&ccedil;isi</span><span class="java8">()</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java3">// Ziyaret&ccedil;i nesnelerini oluştur.<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">PersonelZiyaret&ccedil;isi maaşHesaplamaZiyaret&ccedil;isi = </span><span class="java4">new </span><span class="java10">MaaşHesaplamaZiyaret&ccedil;isi</span><span class="java8">()</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">PersonelZiyaret&ccedil;isi &ccedil;alışmaPlanıZiyaret&ccedil;isi = </span><span class="java4">new </span><span class="java10">&Ccedil;alışmaPlanıZiyaret&ccedil;isi</span><span class="java8">()</span><span class="java10">;<br />
 		<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java3">// Maaş Hesaplama işlemlerini yap.<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java10">ziyaret&ccedil;i1.ziyaretEt</span><span class="java8">( </span><span class="java10">iş&ccedil;i </span><span class="java8">)</span><span class="java10">;<br />
-		&#xA0;&#xA0;&#xA0; ziyaret&ccedil;i1.ziyaretEt</span><span class="java8">( </span><span class="java10">y&ouml;netici </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java3">// Maaş Hesaplama işlemlerini yap.<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java10">iş&ccedil;i.kabulEt</span><span class="java8">( </span><span class="java10">maaşHesaplamaZiyaret&ccedil;isi </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; y&ouml;netici.kabulEt</span><span class="java8">( </span><span class="java10">maaşHesaplamaZiyaret&ccedil;isi </span><span class="java8">)</span><span class="java10">;<br />
 		<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java3">// &Ccedil;alışma Planı işlemlerini yap.<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java10">ziyaret&ccedil;i2.ziyaretEt</span><span class="java8">( </span><span class="java10">iş&ccedil;i </span><span class="java8">)</span><span class="java10">;<br />
-		&#xA0;&#xA0;&#xA0; ziyaret&ccedil;i2.ziyaretEt</span><span class="java8">( </span><span class="java10">y&ouml;netici </span><span class="java8">)</span><span class="java10">;<br />
-		&#xA0; </span><span class="java8">}<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java3">// &Ccedil;alışma Planı işlemlerini yap.<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java10">iş&ccedil;i.kabulEt</span><span class="java8">( </span><span class="java10">&ccedil;alışmaPlanıZiyaret&ccedil;isi </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; y&ouml;netici.kabulEt</span><span class="java8">( </span><span class="java10">&ccedil;alışmaPlanıZiyaret&ccedil;isi </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0; </span><span class="java8">}<br />
 		}</span></code></div>	
 	</div>
 	<div id="tabs-9">
