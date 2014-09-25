@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<h:outputStylesheet library="css" name="style.css" />
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>School Project</title>
+		</f:facet>
+	</h:head>
+
+	<h:body>
+		<p:layout fullPage="true">
+
+			<p:layoutUnit position="north" size="100" resizable="true"
+				closable="false" collapsible="false">
+	                    Header
+	                </p:layoutUnit>
+
+			<p:layoutUnit position="south" size="100" closable="false"
+				collapsible="false">
+	                    Footer
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="250" header="Seçenekler"
+				collapsible="false">
+				<h:form>
+					<p:menu>
+							<p:menuitem action="#{navigationBean.doNav}" value="Sınıflar"
+								ajax="false" update=":contentPanel">
+								<f:param name="pageId" value="class" />
+							</p:menuitem>
+							<p:menuitem action="#{navigationBean.doNav}" value="Öğretmenler"
+								ajax="false" update=":contentPanel">
+								<f:param name="pageId" value="teacher" />
+							</p:menuitem>
+					</p:menu>
+				</h:form>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center">
+				<h:panelGroup id="contentPanel">
+					<ui:include src="#{navigationBean.pageName}" />
+				</h:panelGroup>
+			</p:layoutUnit>
+
+		</p:layout>
+	</h:body>
+
+</f:view>
+</html>
