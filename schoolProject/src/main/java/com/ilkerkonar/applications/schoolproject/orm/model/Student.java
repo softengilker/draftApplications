@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -20,6 +22,10 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
+@NamedQueries( {
+	@NamedQuery( name = "Student.findAll", query = "SELECT c FROM Student c" ),
+	@NamedQuery( name = "Student.findById", query = "SELECT c FROM Student c WHERE c.no = :no" )
+} )
 public class Student implements Serializable {
 
 	/**
@@ -37,11 +43,11 @@ public class Student implements Serializable {
 	@Column( name = "schoolNumber", nullable = false )
 	private Integer				schoolNumber;
 
-	@Column( name = "gender", nullable = false )
+	@Column( name = "gender", nullable = false, length = 10 )
 	private String				gender;
 
 	@ManyToOne( targetEntity = SchoolClass.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "classNo", insertable = false, updatable = false, nullable = false )
+	@JoinColumn( name = "classNo", insertable = true, updatable = true, nullable = false )
 	private SchoolClass			schoolClass;
 
 	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "student" )

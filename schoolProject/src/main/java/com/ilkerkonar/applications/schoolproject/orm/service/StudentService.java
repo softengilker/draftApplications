@@ -20,47 +20,36 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
-import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
+import com.ilkerkonar.applications.schoolproject.orm.model.Student;
 
 /**
  * @author ilker KONAR, senior software developer
  *
  */
 
-@ManagedBean( name = "classService" )
+@ManagedBean( name = "studentService" )
 @ApplicationScoped
-public class ClassService {
+public class StudentService {
 
 	@PersistenceContext( unitName = "school" )
 	private EntityManager	entityManager;
 
-	public List< SchoolClass > getAllClasses() {
+	public List< Student > getAllStudents() {
 
-		final TypedQuery< SchoolClass > namedQuery = entityManager.createNamedQuery( "SchoolClass.findAll",
-			SchoolClass.class );
+		final TypedQuery< Student > namedQuery = entityManager.createNamedQuery( "Student.findAll", Student.class );
 
 		return namedQuery.getResultList();
 	}
 
-	public SchoolClass getClass( final Long no ) {
-
-		final TypedQuery< SchoolClass > namedQuery = entityManager.createNamedQuery( "SchoolClass.findById",
-			SchoolClass.class );
-
-		namedQuery.setParameter( "no", no );
-
-		return namedQuery.getSingleResult();
-	}
-
-	public void addNewClass( final SchoolClass schoolClass ) {
+	public void addNewStudent( final Student student ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
-			entityManager.persist( schoolClass );
+			entityManager.persist( student );
 			entityManager.flush();
 
 			transaction.commit();
@@ -72,17 +61,37 @@ public class ClassService {
 		}
 	}
 
-	public void removeClass( final SchoolClass schoolClass ) {
+	public void updateStudent( final Student student ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
-			final SchoolClass mergeClass = entityManager.merge( schoolClass );
+			entityManager.merge( student );
+			entityManager.flush();
 
-			entityManager.remove( mergeClass );
+			transaction.commit();
+
+		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
+			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void removeStudent( final Student student ) {
+
+		try {
+			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
+				.lookup( "java:comp/UserTransaction" );
+
+			transaction.begin();
+
+			final Student mergeStudent = entityManager.merge( student );
+
+			entityManager.remove( mergeStudent );
 			entityManager.flush();
 
 			transaction.commit();

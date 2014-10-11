@@ -45,11 +45,11 @@ public class Test implements Serializable {
 	private Date				date;
 
 	@ManyToOne( targetEntity = Lesson.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "lessonNo", insertable = false, updatable = false, nullable = false )
+	@JoinColumn( name = "lessonNo", insertable = true, updatable = true, nullable = false )
 	private Lesson				lesson;
 
 	@ManyToOne( targetEntity = Student.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "studentNo", insertable = false, updatable = false, nullable = false )
+	@JoinColumn( name = "studentNo", insertable = true, updatable = true, nullable = false )
 	private Student				student;
 
 	/**

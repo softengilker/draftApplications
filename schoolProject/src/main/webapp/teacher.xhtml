@@ -6,19 +6,25 @@
       xmlns:p="http://primefaces.org/ui">
 
 	<f:view contentType="text/html">
+	
 		<h:form id="teacherForm">
 			<p:dataTable var="teacher" value="#{teacherBean.teachers}"
-				emptyMessage="Sistemde hiç bir öğretmen bulunmuyor" id="teacherDT" widgetVar="teacherDT" style="width: 500px;">
+				emptyMessage="Sistemde hiç bir öğretmen bulunmuyor" id="teacherDT" widgetVar="teacherDT" style="width: 470px;">
 				<p:column headerText="No" style="width: 20%;">
 					<h:outputText value="#{teacher.no}" />
 				</p:column>
 				<p:column headerText="İsim">
 					<h:outputText value="#{teacher.name}" />
 				</p:column>
-				<p:column headerText="" style="width: 10%;">
-					<p:commandButton process="@this" icon="ui-icon-close" title="Sil" onclick="PF('deleteConfirmationDialog').show();">
+				<p:column headerText="Sil" style="width: 12%;">
+					<p:commandButton process="@this" icon="ui-icon-close" title="Sil" oncomplete="PF('deleteConfirmationDialog').show();" update=":teacherForm:deleteConfirmationDialog">
 						<f:setPropertyActionListener value="#{teacher}" target="#{teacherBean.paramTeacher}"/>
 					</p:commandButton>				
+				</p:column>
+				<p:column headerText="Güncelle" style="width: 15%;">
+					<p:commandButton process="@this" icon="ui-icon-edit" title="Güncelle" oncomplete="PF('updateDialog').show();" update=":teacherForm:updateDialog">
+						<f:setPropertyActionListener value="#{teacher}" target="#{teacherBean.paramTeacher}"/>
+					</p:commandButton>
 				</p:column>
 	
 				<f:facet name="footer">
@@ -26,22 +32,66 @@
 						onclick="PF('addDialog').show();"
 						icon="ui-icon-add" />
 				</f:facet>
-			</p:dataTable>
+								 
+			</p:dataTable>						
 			
-			<p:dialog id="addDialog" style="text-align:center" widgetVar="addDialog" header="Sınıf Ekleme">  
-	    		<h:outputText value="İsim:" />
-	    		<h:inputText id="teacherName" required="true" requiredMessage="İsim alanı boş bırakılamaz" value="#{teacherBean.teacherName}" />
-				<p:commandButton value="Yeni Öğretmen Ekle" oncomplete="PF('addDialog').hide();" actionListener="#{teacherBean.addNewTeacher}" update=":teacherForm:teacherDT" />			 	
+			<p:dialog id="addDialog" style="text-align:center" widgetVar="addDialog" header="Öğretmen Ekleme" width="300" resizable="false" height="70">  	    									 	
+				<p:outputPanel id="addPanel">
+					<h:panelGrid columns="2" border="0" cellpadding="4">
+						<p:outputLabel value="İsim:"/>
+						<p:inputText id="teacherName" style="width:200px;" value="#{teacherBean.paramTeacher.name}" required="true" requiredMessage="İsim alanı boş bırakılamaz"/>						
+						<f:facet name="footer">
+							<p:commandButton value="Yeni Öğretmen Ekle" oncomplete="handleSubmitRequest( xhr, status, args, 'addDialog' );" action="#{teacherBean.addNewTeacher}" update=":teacherForm, :growl" />
+							<p:spacer width="15"/>
+							<p:commandButton value="İptal" onclick="PF('addDialog').hide();"/>
+						</f:facet>	  
+	   				</h:panelGrid>	   				
+	   			</p:outputPanel>										 	
+			</p:dialog>
+			
+			<p:dialog id="updateDialog" style="text-align:center" widgetVar="updateDialog" header="Öğretmen Güncelleme" width="300" resizable="false" height="70" dynamic="true">
+				<p:outputPanel id="updatePanel">
+					<h:panelGrid columns="2" border="0" cellpadding="4">
+						<p:outputLabel value="İsim:"/>
+						<p:inputText id="teacherNameUpdate" style="width:200px;" value="#{teacherBean.paramTeacher.name}" required="true" requiredMessage="İsim alanı boş bırakılamaz"/>
+						<f:facet name="footer">
+							<p:commandButton value="Öğretmen Güncelle" oncomplete="handleSubmitRequest( xhr, status, args, 'updateDialog' );" actionListener="#{teacherBean.updateTeacher}" update=":teacherForm, :growl" />
+							<p:spacer width="15"/>
+							<p:commandButton value="İptal" onclick="PF('updateDialog').hide();"/>
+						</f:facet>	  
+	   				</h:panelGrid>
+	   			</p:outputPanel>										 	
 			</p:dialog>
 			
 			<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="Onaylama">
-				<h:outputText value="Öğretmeni silmek istediğinizden emin misiniz?" />
-	        	<p:commandButton value="Evet" icon="ui-icon-check" oncomplete="PF('deleteConfirmationDialog').hide();" actionListener="#{teacherBean.removeTeacher}" update=":teacherForm:teacherDT" />
+				<h:outputText value="'#{teacherBean.paramTeacher.name}' isimli Öğretmeni silmek istediğinizden emin misiniz?" />
+				<br/>
+	        	<p:commandButton process="@this" value="Evet" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog' );" action="#{teacherBean.removeTeacher}" update=":teacherForm, :growl" />
+	        	<p:spacer width="40"/>
 	        	<p:commandButton value="Hayır" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
-			</p:dialog>
-			
-			<h:messages/>
+			</p:dialog>			
 			
 		</h:form>
 	</f:view>
+	
+	<p:growl id="growl" showDetail="true" life="3000" />
+	
+<script type="text/javascript">  
+    
+    function handleSubmitRequest(xhr, status, args, dialogName ) {  
+        dialog = jQuery('#'+dialogName);
+        
+        if ( args.validationFailed ) {  
+            dialog.effect("shake", { times:3 }, 100);  
+        } else {
+            clearForm();
+            dialog.hide();  
+        }  
+    }
+    
+    function clearForm(formName){
+        jQuery('#teacherForm').each(function(){ this.reset(); });
+    }
+</script> 
+	
 </html>

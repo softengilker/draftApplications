@@ -46,7 +46,7 @@ public class TeacherService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -66,13 +66,33 @@ public class TeacherService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
 			final Teacher mergeClass = entityManager.merge( teacher );
 
 			entityManager.remove( mergeClass );
+			entityManager.flush();
+
+			transaction.commit();
+
+		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
+			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void updateTeacher( final Teacher teacher ) {
+
+		try {
+			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
+				.lookup( "java:comp/UserTransaction" );
+
+			transaction.begin();
+
+			entityManager.merge( teacher );
 			entityManager.flush();
 
 			transaction.commit();

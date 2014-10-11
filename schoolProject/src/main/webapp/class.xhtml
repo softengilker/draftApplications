@@ -8,15 +8,15 @@
 <f:view contentType="text/html">
 	<h:form id="classForm">
 		<p:dataTable var="class" value="#{classBean.classes}"
-			emptyMessage="Sistemde hiç bir sınıf bulunmuyor" id="classDT" widgetVar="classDT" style="width: 500px;">
-			<p:column headerText="No" style="width: 20%;">
+			emptyMessage="Sistemde hiç bir sınıf bulunmuyor" id="classDT" widgetVar="classDT" style="width: 300px;">
+			<p:column headerText="No" style="width: 15%;">
 				<h:outputText value="#{class.no}" />
 			</p:column>
 			<p:column headerText="İsim">
 				<h:outputText value="#{class.name}" />
 			</p:column>
-			<p:column headerText="" style="width: 10%;">
-				<p:commandButton process="@this" icon="ui-icon-close" title="Sil" onclick="PF('deleteConfirmationDialog').show();">
+			<p:column headerText="Sil" style="width: 15%;">
+				<p:commandButton process="@this" icon="ui-icon-close" title="Sil" oncomplete="PF('deleteConfirmationDialog').show();" update=":classForm:deleteConfirmationDialog">
 					<f:setPropertyActionListener value="#{class}" target="#{classBean.paramClass}"/>
 				</p:commandButton>				
 			</p:column>
@@ -28,19 +28,27 @@
 			</f:facet>
 		</p:dataTable>
 		
-		<p:dialog id="addDialog" style="text-align:center" widgetVar="addDialog" header="Sınıf Ekleme">  
-    		<h:outputText value="İsim:" />
-    		<h:inputText id="className" required="true" requiredMessage="İsim alanı boş bırakılamaz" value="#{classBean.className}" />
-			<p:commandButton value="Yeni Sınıf Ekle" oncomplete="PF('addDialog').hide();" actionListener="#{classBean.addNewClass}" update=":classForm:classDT" />			 	
+		<p:dialog id="addDialog" style="text-align:center;" widgetVar="addDialog" header="Sınıf Ekleme" width="300" resizable="false" height="60">
+			<table>
+				<tr>
+					<td width="80px;"><p:outputLabel value="İsim:" /></td>
+					<td><h:inputText id="className" style="width:200px;" required="true" requiredMessage="İsim alanı boş bırakılamaz" value="#{classBean.className}" /></td>
+				</tr>
+			</table>					
+   			<f:facet name="footer">
+   				<p:commandButton value="Yeni Sınıf Ekle" oncomplete="PF('addDialog').hide();" action="#{classBean.addNewClass}" update=":classForm" />
+   				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   				<p:commandButton value="İptal" onclick="PF('addDialog').hide();"/>
+   			</f:facet>										 	
 		</p:dialog>
 		
 		<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="Onaylama">
-			<h:outputText value="Sınıfı silmek istediğinizden emin misiniz?" />
-        	<p:commandButton value="Evet" icon="ui-icon-check" oncomplete="PF('deleteConfirmationDialog').hide();" actionListener="#{classBean.removeClass}" update=":classForm:classDT" />
+			<h:outputText value="'#{classBean.paramClass.name}' isimli sınıfı silmek istediğinizden emin misiniz?" />
+        	<p:commandButton process="@this" value="Evet" icon="ui-icon-check" oncomplete="PF('deleteConfirmationDialog').hide();" action="#{classBean.removeClass}" update=":classForm:classDT" />
         	<p:commandButton value="Hayır" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
-		</p:dialog>
+		</p:dialog>		
 		
-		<h:messages/>
+		<h:messages style="color:red;"/>
 		
 	</h:form>
 </f:view>

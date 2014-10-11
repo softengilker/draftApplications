@@ -35,11 +35,11 @@ public class Lesson implements Serializable {
 	private String				name;
 
 	@ManyToOne( targetEntity = SchoolClass.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "classNo", insertable = false, updatable = false, nullable = false )
+	@JoinColumn( name = "classNo", insertable = true, updatable = true, nullable = false )
 	private SchoolClass			schoolClass;
 
 	@ManyToOne( targetEntity = Teacher.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "teacherNo", insertable = false, updatable = false, nullable = false )
+	@JoinColumn( name = "teacherNo", insertable = true, updatable = true, nullable = false )
 	private Teacher				teacher;
 
 	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "lesson" )

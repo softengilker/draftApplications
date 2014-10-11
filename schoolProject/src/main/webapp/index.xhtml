@@ -39,6 +39,18 @@
 								ajax="false" update=":contentPanel">
 								<f:param name="pageId" value="teacher" />
 							</p:menuitem>
+							<p:menuitem action="#{navigationBean.doNav}" value="Öğrenciler"
+								ajax="false" update=":contentPanel">
+								<f:param name="pageId" value="student" />
+							</p:menuitem>
+							<p:menuitem action="#{navigationBean.doNav}" value="Dersler"
+								ajax="false" update=":contentPanel">
+								<f:param name="pageId" value="lesson" />
+							</p:menuitem>
+							<p:menuitem action="#{navigationBean.doNav}" value="Sınavlar"
+								ajax="false" update=":contentPanel">
+								<f:param name="pageId" value="test" />
+							</p:menuitem>
 					</p:menu>
 				</h:form>
 			</p:layoutUnit>

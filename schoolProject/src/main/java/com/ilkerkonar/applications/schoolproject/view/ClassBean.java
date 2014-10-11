@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
@@ -41,6 +40,7 @@ public class ClassBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		classes = service.getAllClasses();
+		paramClass = new SchoolClass();
 	}
 
 	/**
@@ -52,19 +52,19 @@ public class ClassBean implements Serializable {
 
 	/**
 	 * Add a new class
-	 *
-	 * @param event The primefaces action event
 	 */
-	public void addNewClass( final ActionEvent event ) {
+	public void addNewClass() {
 
 		final SchoolClass newClass = new SchoolClass();
 		newClass.setName( getClassName() );
 
 		service.addNewClass( newClass );
 		reload();
+
+		setClassName( "" );
 	}
 
-	public void removeClass( final ActionEvent event ) {
+	public void removeClass() {
 		service.removeClass( getParamClass() );
 		reload();
 	}

@@ -13,4 +13,12 @@
 
 .ui-datatable {            
     margin-left: 20px;
+}
+
+.leftAlignClass {
+	text-align: left;
+}
+            
+.rightAlignClass {
+	text-align: right;
 }            

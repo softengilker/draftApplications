@@ -8,10 +8,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
+import javax.faces.context.FacesContext;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.Teacher;
 import com.ilkerkonar.applications.schoolproject.orm.service.TeacherService;
@@ -31,8 +32,6 @@ public class TeacherBean implements Serializable {
 
 	private List< Teacher >		teachers;
 
-	private String				teacherName;
-
 	private Teacher				paramTeacher;
 
 	@ManagedProperty( "#{teacherService}" )
@@ -41,6 +40,7 @@ public class TeacherBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		teachers = service.getAllTeachers();
+		paramTeacher = new Teacher();
 	}
 
 	/**
@@ -51,41 +51,48 @@ public class TeacherBean implements Serializable {
 	}
 
 	/**
-	 * Add a new class
-	 *
-	 * @param event The primefaces action event
+	 * Add a new teacher
 	 */
-	public void addNewTeacher( final ActionEvent event ) {
+	public void addNewTeacher() {
 
 		final Teacher newTeacher = new Teacher();
-		newTeacher.setName( getTeacherName() );
+		newTeacher.setName( getParamTeacher().getName() );
 
 		service.addNewTeacher( newTeacher );
 		reload();
+
+		FacesContext.getCurrentInstance().addMessage(
+			null,
+			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
+				"Yeni öğretmen sisteme başarılı bir şekilde eklendi." ) );
 	}
 
-	public void removeTeacher( final ActionEvent event ) {
+	/**
+	 * Update teacher
+	 */
+	public void updateTeacher() {
+		service.updateTeacher( getParamTeacher() );
+		reload();
+
+		FacesContext.getCurrentInstance().addMessage(
+			null,
+			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
+				"Öğretmen sistemde başarılı bir şekilde güncellendi." ) );
+	}
+
+	public void removeTeacher() {
 		service.removeTeacher( getParamTeacher() );
 		reload();
+
+		FacesContext.getCurrentInstance().addMessage(
+			null,
+			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
+				"Öğretmen sistemden başarılı bir şekilde silindi." ) );
 	}
 
 	private void reload() {
 		// Reload classes.
 		teachers = service.getAllTeachers();
-	}
-
-	/**
-	 * @return The getter method of the 'teacherName' instance variable
-	 */
-	public String getTeacherName() {
-		return teacherName;
-	}
-
-	/**
-	 * @param The setter method of the 'teacherName' instance variable
-	 */
-	public void setTeacherName( final String teacherName ) {
-		this.teacherName = teacherName;
 	}
 
 	/**
