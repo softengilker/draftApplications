@@ -33,6 +33,8 @@ public class ClassBean implements Serializable {
 
 	private String				className;
 
+	private SchoolClass			paramClass;
+
 	@ManagedProperty( "#{classService}" )
 	private ClassService		service;
 
@@ -56,11 +58,19 @@ public class ClassBean implements Serializable {
 	public void addNewClass( final ActionEvent event ) {
 
 		final SchoolClass newClass = new SchoolClass();
-		newClass.setNo( service.getNewClassSequenceValue() );
 		newClass.setName( getClassName() );
 
 		service.addNewClass( newClass );
+		reload();
+	}
 
+	public void removeClass( final ActionEvent event ) {
+		service.removeClass( getParamClass() );
+		reload();
+	}
+
+	private void reload() {
+		// Reload classes.
 		classes = service.getAllClasses();
 	}
 
@@ -84,4 +94,19 @@ public class ClassBean implements Serializable {
 	public void setClassName( final String className ) {
 		this.className = className;
 	}
+
+	/**
+	 * @return The getter method of the 'paramClass' instance variable
+	 */
+	public SchoolClass getParamClass() {
+		return paramClass;
+	}
+
+	/**
+	 * @param The setter method of the 'paramClass' instance variable
+	 */
+	public void setParamClass( final SchoolClass paramClass ) {
+		this.paramClass = paramClass;
+	}
+
 }

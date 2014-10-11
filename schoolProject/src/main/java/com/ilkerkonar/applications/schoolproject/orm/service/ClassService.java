@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
@@ -43,12 +42,6 @@ public class ClassService {
 		return namedQuery.getResultList();
 	}
 
-	public Long getNewClassSequenceValue() {
-		final Query q = entityManager.createNativeQuery( "select nextval('public.class_sequence')" );
-
-		return ( Long ) q.getSingleResult();
-	}
-
 	public void addNewClass( final SchoolClass schoolClass ) {
 
 		try {
@@ -67,6 +60,27 @@ public class ClassService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
 
+	public void removeClass( final SchoolClass schoolClass ) {
+
+		try {
+			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
+				.lookup( "java:comp/UserTransaction" );
+
+			transaction.begin();
+
+			final SchoolClass mergeClass = entityManager.merge( schoolClass );
+
+			entityManager.remove( mergeClass );
+			entityManager.flush();
+
+			transaction.commit();
+
+		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
+			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -8,7 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,6 +28,7 @@ public class Student implements Serializable {
 	private static final long	serialVersionUID	= 6641176040807382476L;
 
 	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long				no;
 
 	@Column( name = "name", nullable = false, length = 50 )
@@ -39,7 +41,7 @@ public class Student implements Serializable {
 	private String				gender;
 
 	@ManyToOne( targetEntity = SchoolClass.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "classNo", insertable = false, updatable = false, nullable = false, foreignKey = @ForeignKey( name = "class_fk2" ) )
+	@JoinColumn( name = "classNo", insertable = false, updatable = false, nullable = false )
 	private SchoolClass			schoolClass;
 
 	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "student" )

@@ -7,7 +7,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,6 +28,7 @@ public class Test implements Serializable {
 	private static final long	serialVersionUID	= 49208057261783330L;
 
 	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long				no;
 
 	@Column( name = "name", nullable = false, length = 100 )
@@ -43,11 +45,11 @@ public class Test implements Serializable {
 	private Date				date;
 
 	@ManyToOne( targetEntity = Lesson.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "lessonNo", insertable = false, updatable = false, nullable = false, foreignKey = @ForeignKey( name = "lesson_fk1" ) )
+	@JoinColumn( name = "lessonNo", insertable = false, updatable = false, nullable = false )
 	private Lesson				lesson;
 
 	@ManyToOne( targetEntity = Student.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "studentNo", insertable = false, updatable = false, nullable = false, foreignKey = @ForeignKey( name = "student_fk1" ) )
+	@JoinColumn( name = "studentNo", insertable = false, updatable = false, nullable = false )
 	private Student				student;
 
 	/**

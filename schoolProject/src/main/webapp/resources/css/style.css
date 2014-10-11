@@ -5,3 +5,12 @@
 .ui-layout-north .ui-widget-content {
 	background-color: #FAF8D7;
 }
+
+.ui-widget, .ui-widget .ui-widget
+{
+  	font-size: 90% !important;
+}
+
+.ui-datatable {            
+    margin-left: 20px;
+}            

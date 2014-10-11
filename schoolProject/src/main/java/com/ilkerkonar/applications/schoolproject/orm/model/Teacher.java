@@ -8,7 +8,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -16,6 +20,10 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
+@NamedQueries( {
+	@NamedQuery( name = "Teacher.findAll", query = "SELECT c FROM Teacher c" ),
+	@NamedQuery( name = "Teacher.findById", query = "SELECT c FROM Teacher c WHERE c.no = :no" )
+} )
 public class Teacher implements Serializable {
 
 	/**
@@ -24,6 +32,7 @@ public class Teacher implements Serializable {
 	private static final long	serialVersionUID	= 910252295440402038L;
 
 	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long				no;
 
 	@Column( name = "name", nullable = false, length = 50 )
