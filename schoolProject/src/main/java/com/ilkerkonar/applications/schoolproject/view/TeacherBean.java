@@ -64,7 +64,7 @@ public class TeacherBean implements Serializable {
 		reload();
 	}
 
-	public void removeTeacher( final ActionEvent event ) {
+	public void removeTeacher() {
 		service.removeTeacher( getParamTeacher() );
 		reload();
 	}

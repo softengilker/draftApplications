@@ -64,7 +64,7 @@ public class ClassBean implements Serializable {
 		reload();
 	}
 
-	public void removeClass( final ActionEvent event ) {
+	public void removeClass() {
 		service.removeClass( getParamClass() );
 		reload();
 	}

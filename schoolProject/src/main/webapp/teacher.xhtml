@@ -16,7 +16,7 @@
 					<h:outputText value="#{teacher.name}" />
 				</p:column>
 				<p:column headerText="" style="width: 10%;">
-					<p:commandButton process="@this" icon="ui-icon-close" title="Sil" onclick="PF('deleteConfirmationDialog').show();">
+					<p:commandButton process="@this" icon="ui-icon-close" title="Sil" oncomplete="PF('deleteConfirmationDialog').show();" update=":teacherForm:deleteConfirmationDialog">
 						<f:setPropertyActionListener value="#{teacher}" target="#{teacherBean.paramTeacher}"/>
 					</p:commandButton>				
 				</p:column>
@@ -35,8 +35,8 @@
 			</p:dialog>
 			
 			<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="Onaylama">
-				<h:outputText value="Öğretmeni silmek istediğinizden emin misiniz?" />
-	        	<p:commandButton value="Evet" icon="ui-icon-check" oncomplete="PF('deleteConfirmationDialog').hide();" actionListener="#{teacherBean.removeTeacher}" update=":teacherForm:teacherDT" />
+				<h:outputText value="'#{teacherBean.paramTeacher.name}' isimli Öğretmeni silmek istediğinizden emin misiniz?" />
+	        	<p:commandButton process="@this" value="Evet" icon="ui-icon-check" oncomplete="PF('deleteConfirmationDialog').hide();" action="#{teacherBean.removeTeacher}" update=":teacherForm:teacherDT" />
 	        	<p:commandButton value="Hayır" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
 			</p:dialog>
 			
