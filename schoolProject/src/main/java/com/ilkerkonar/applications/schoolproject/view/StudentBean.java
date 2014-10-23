@@ -37,6 +37,8 @@ public class StudentBean implements Serializable {
 
 	private Student				paramStudent;
 
+	private Student				newStudent;
+
 	private Long				paramClassNo;
 
 	@ManagedProperty( "#{studentService}" )
@@ -51,6 +53,7 @@ public class StudentBean implements Serializable {
 	public void init() {
 		students = service.getAllStudents();
 		paramStudent = new Student();
+		newStudent = new Student();
 		classes = classService.getAllClasses();
 	}
 
@@ -75,13 +78,7 @@ public class StudentBean implements Serializable {
 	 */
 	public void addNewStudent( final ActionEvent event ) {
 
-		final Student newStudent = new Student();
-		newStudent.setName( paramStudent.getName() );
-		newStudent.setGender( paramStudent.getGender() );
-		newStudent.setSchoolNumber( paramStudent.getSchoolNumber() );
-
 		final SchoolClass getClass = classService.getClass( getParamClassNo() );
-
 		newStudent.setSchoolClass( getClass );
 
 		service.addNewStudent( newStudent );
@@ -104,13 +101,23 @@ public class StudentBean implements Serializable {
 	}
 
 	public void updateStudent() {
-		service.updateStudent( getParamStudent() );
+
+		final Student updateStudent = getParamStudent();
+		final SchoolClass getClass = classService.getClass( getParamClassNo() );
+
+		updateStudent.setSchoolClass( getClass );
+
+		service.updateStudent( updateStudent );
 		reload();
 
 		FacesContext.getCurrentInstance().addMessage(
 			null,
 			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
 				"Öğrenci sistemde başarılı bir şekilde güncellendi." ) );
+	}
+
+	public void beforeAdd( final ActionEvent event ) {
+		paramStudent = new Student();
 	}
 
 	private void reload() {
@@ -158,5 +165,19 @@ public class StudentBean implements Serializable {
 	 */
 	public void setParamClassNo( final Long paramClassNo ) {
 		this.paramClassNo = paramClassNo;
+	}
+
+	/**
+	 * @return The getter method of the 'newStudent' instance variable
+	 */
+	public Student getNewStudent() {
+		return newStudent;
+	}
+
+	/**
+	 * @param The setter method of the 'newStudent' instance variable
+	 */
+	public void setNewStudent( final Student newStudent ) {
+		this.newStudent = newStudent;
 	}
 }
