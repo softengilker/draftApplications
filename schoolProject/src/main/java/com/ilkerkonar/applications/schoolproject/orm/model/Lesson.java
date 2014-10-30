@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -20,6 +22,10 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
+@NamedQueries( {
+	@NamedQuery( name = "Lesson.findAll", query = "SELECT c FROM Lesson c" ),
+	@NamedQuery( name = "Lesson.findById", query = "SELECT c FROM Lesson c WHERE c.no = :no" )
+} )
 public class Lesson implements Serializable {
 
 	/**
@@ -42,7 +48,7 @@ public class Lesson implements Serializable {
 	@JoinColumn( name = "teacherNo", insertable = true, updatable = true, nullable = false )
 	private Teacher				teacher;
 
-	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "lesson" )
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.REMOVE }, mappedBy = "lesson" )
 	private List< Test >		tests;
 
 	/**

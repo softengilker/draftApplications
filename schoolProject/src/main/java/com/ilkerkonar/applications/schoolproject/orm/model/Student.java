@@ -2,9 +2,7 @@
 package com.ilkerkonar.applications.schoolproject.orm.model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 
 /**
  * @author ilker KONAR, senior software developer
@@ -49,9 +46,6 @@ public class Student implements Serializable {
 	@ManyToOne( targetEntity = SchoolClass.class, fetch = FetchType.LAZY )
 	@JoinColumn( name = "classNo", insertable = true, updatable = true, nullable = false )
 	private SchoolClass			schoolClass;
-
-	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "student" )
-	private List< Test >		tests;
 
 	/**
 	 * @return The getter method of the 'no' instance variable
@@ -123,26 +117,12 @@ public class Student implements Serializable {
 		this.gender = gender;
 	}
 
-	/**
-	 * @return The getter method of the 'tests' instance variable
-	 */
-	public List< Test > getTests() {
-		return tests;
-	}
-
-	/**
-	 * @param The setter method of the 'tests' instance variable
-	 */
-	public void setTests( final List< Test > tests ) {
-		this.tests = tests;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Student [no=" + no + ", name=" + name + ", schoolNumber=" + schoolNumber + ", gender=" + gender
-			+ ", schoolClass=" + schoolClass + ", tests=" + tests + "]";
+			+ ", schoolClass=" + schoolClass + "]";
 	}
 }

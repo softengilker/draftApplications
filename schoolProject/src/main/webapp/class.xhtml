@@ -6,50 +6,77 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <f:view contentType="text/html">
+
 	<h:form id="classForm">
+	
 		<p:dataTable var="class" value="#{classBean.classes}"
-			emptyMessage="Sistemde hiç bir sınıf bulunmuyor" id="classDT" widgetVar="classDT" style="width: 300px;">
-			<p:column headerText="No" style="width: 15%;">
+			emptyMessage="#{classBean.messageMap['datatable.empty.message']}" id="classDT" widgetVar="classDT" style="width: 400px;">
+			<p:column headerText="#{msg.id}" style="width: 15%;">
 				<h:outputText value="#{class.no}" />
 			</p:column>
-			<p:column headerText="İsim">
+			<p:column headerText="#{msg.name}">
 				<h:outputText value="#{class.name}" />
 			</p:column>
-			<p:column headerText="Sil" style="width: 15%;">
-				<p:commandButton process="@this" icon="ui-icon-close" title="Sil" oncomplete="PF('deleteConfirmationDialog').show();" update=":classForm:deleteConfirmationDialog">
+			<p:column headerText="#{msg['class.total']}">
+				<h:outputText value="#{class.total}" />
+			</p:column>
+			<p:column headerText="#{msg['class.female.total']}">
+				<h:outputText value="#{class.femaleTotal}" />
+			</p:column>
+			<p:column headerText="#{msg['class.male.total']}">
+				<h:outputText value="#{class.maleTotal}" />
+			</p:column>
+			<p:column headerText="#{msg['datatable.delete']}" style="width: 15%;">
+				<p:commandButton process="@this" icon="#{msg['datatable.delete.button.icon']}" title="#{msg['datatable.delete']}" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
 					<f:setPropertyActionListener value="#{class}" target="#{classBean.paramClass}"/>
 				</p:commandButton>				
 			</p:column>
 
 			<f:facet name="footer">
-				<p:commandButton value="Yeni Sınıf Ekle"
-					onclick="PF('addDialog').show();"
-					icon="ui-icon-add" />
+				<p:commandButton value="#{classBean.messageMap['add.button.value']}" icon="#{msg['datatable.add.new.item.icon']}" oncomplete="PF('addDialog').show()"/>
 			</f:facet>
 		</p:dataTable>
-		
-		<p:dialog id="addDialog" style="text-align:center;" widgetVar="addDialog" header="Sınıf Ekleme" width="300" resizable="false" height="60">
-			<table>
-				<tr>
-					<td width="80px;"><p:outputLabel value="İsim:" /></td>
-					<td><h:inputText id="className" style="width:200px;" required="true" requiredMessage="İsim alanı boş bırakılamaz" value="#{classBean.className}" /></td>
-				</tr>
-			</table>					
-   			<f:facet name="footer">
-   				<p:commandButton value="Yeni Sınıf Ekle" oncomplete="PF('addDialog').hide();" action="#{classBean.addNewClass}" update=":classForm" />
-   				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   				<p:commandButton value="İptal" onclick="PF('addDialog').hide();"/>
-   			</f:facet>										 	
-		</p:dialog>
-		
-		<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="Onaylama">
-			<h:outputText value="'#{classBean.paramClass.name}' isimli sınıfı silmek istediğinizden emin misiniz?" />
-        	<p:commandButton process="@this" value="Evet" icon="ui-icon-check" oncomplete="PF('deleteConfirmationDialog').hide();" action="#{classBean.removeClass}" update=":classForm:classDT" />
-        	<p:commandButton value="Hayır" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
-		</p:dialog>		
-		
-		<h:messages style="color:red;"/>
+				
+		<p:dialog id="addDialog" widgetVar="addDialog" header="#{classBean.messageMap['add.header']}" width="290" resizable="false" height="80">
+		  
+				<p:outputPanel id="addPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}" />
+						<h:inputText id="className" style="width:200px;" required="true" requiredMessage="#{msg['name.required.message']}" value="#{classBean.className}" />
+						<f:facet name="footer">
+							<p:commandButton id="addButtonCmd" value="#{classBean.messageMap['add.button.value']}" oncomplete="handleSubmitAdd( xhr, status, args );" 
+								actionListener="#{classBean.addNewClass}" update=":classForm:classDT, :growl" icon="#{msg['add.save.icon']}" />
+							<p:spacer width="15"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('addDialog').hide();" icon="#{msg['close.icon']}"/>
+						</f:facet>	  					
+					</h:panelGrid>
+				</p:outputPanel>
+			
+		</p:dialog>				
 		
 	</h:form>
+	
+	<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="170">
+		
+		<h:form id="deleteForm">
+			<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+				<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
+					<h:outputText value="'#{classBean.paramClass.name}' #{msg['class.delete.confirmation']}" />
+					<h:outputText value="#{msg['delete.confirmation']}" />
+					<h:outputText value="#{msg.note} #{msg['class.delete.confirmation.note']}" />
+					<f:facet name="footer">
+        				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{classBean.removeClass}" update=":classForm:classDT, :growl" />
+        				<p:spacer width="40"/>
+        				<p:commandButton value="#{msg.no}" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
+        			</f:facet>
+        		</h:panelGrid>
+			</p:outputPanel>										
+		</h:form>
+		
+	</p:dialog>					
+	
 </f:view>
+
+<p:growl id="growl" showDetail="true" life="4000" />
+	
 </html>

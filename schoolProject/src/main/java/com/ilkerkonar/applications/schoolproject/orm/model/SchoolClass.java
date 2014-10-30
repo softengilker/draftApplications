@@ -40,10 +40,10 @@ public class SchoolClass implements Serializable {
 	@Column( name = "name", nullable = false, length = 100 )
 	private String				name;
 
-	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "schoolClass" )
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.REMOVE }, mappedBy = "schoolClass" )
 	private List< Lesson >		lessons;
 
-	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "schoolClass" )
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.REMOVE }, mappedBy = "schoolClass" )
 	private List< Student >		students;
 
 	/**

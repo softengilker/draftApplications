@@ -38,7 +38,7 @@ public class Teacher implements Serializable {
 	@Column( name = "name", nullable = false, length = 50 )
 	private String				name;
 
-	@OneToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "teacher" )
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.REMOVE }, mappedBy = "teacher" )
 	private List< Lesson >		lessons;
 
 	/**

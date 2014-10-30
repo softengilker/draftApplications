@@ -9,89 +9,81 @@
 	
 		<h:form id="teacherForm">
 			<p:dataTable var="teacher" value="#{teacherBean.teachers}"
-				emptyMessage="Sistemde hiç bir öğretmen bulunmuyor" id="teacherDT" widgetVar="teacherDT" style="width: 470px;">
-				<p:column headerText="No" style="width: 20%;">
+				emptyMessage="#{teacherBean.messageMap['datatable.empty.message']}" id="teacherDT" widgetVar="teacherDT" style="width: 420px;">
+				<p:column headerText="#{msg.id}" style="width: 12%;">
 					<h:outputText value="#{teacher.no}" />
 				</p:column>
-				<p:column headerText="İsim">
+				<p:column headerText="#{msg.name}" style="width: 58%;">
 					<h:outputText value="#{teacher.name}" />
 				</p:column>
-				<p:column headerText="Sil" style="width: 12%;">
-					<p:commandButton process="@this" icon="ui-icon-close" title="Sil" oncomplete="PF('deleteConfirmationDialog').show();" update=":teacherForm:deleteConfirmationDialog">
+				<p:column headerText="#{msg['datatable.delete']}" style="width: 12%;">
+					<p:commandButton process="@this" icon="#{msg['datatable.delete.button.icon']}" title="#{msg['datatable.delete']}" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
 						<f:setPropertyActionListener value="#{teacher}" target="#{teacherBean.paramTeacher}"/>
 					</p:commandButton>				
 				</p:column>
-				<p:column headerText="Güncelle" style="width: 15%;">
-					<p:commandButton process="@this" icon="ui-icon-edit" title="Güncelle" oncomplete="PF('updateDialog').show();" update=":teacherForm:updateDialog">
+				<p:column headerText="#{msg['datatable.update']}" style="width: 18%;text-align:center;">
+					<p:commandButton process="@this" icon="#{msg['datatable.update.button.icon']}" title="#{msg['datatable.update']}" oncomplete="PF('updateDialog').show();" update=":updateDialog">
 						<f:setPropertyActionListener value="#{teacher}" target="#{teacherBean.paramTeacher}"/>
 					</p:commandButton>
 				</p:column>
-	
+					
 				<f:facet name="footer">
-					<p:commandButton value="Yeni Öğretmen Ekle"
-						onclick="PF('addDialog').show();"
-						icon="ui-icon-add" />
+					<p:commandButton value="#{teacherBean.messageMap['add.button.value']}" icon="#{msg['datatable.add.new.item.icon']}" oncomplete="PF('addDialog').show()" />
 				</f:facet>
-								 
+												 
 			</p:dataTable>						
 			
-			<p:dialog id="addDialog" style="text-align:center" widgetVar="addDialog" header="Öğretmen Ekleme" width="300" resizable="false" height="70">  	    									 	
-				<p:outputPanel id="addPanel">
-					<h:panelGrid columns="2" border="0" cellpadding="4">
-						<p:outputLabel value="İsim:"/>
-						<p:inputText id="teacherName" style="width:200px;" value="#{teacherBean.paramTeacher.name}" required="true" requiredMessage="İsim alanı boş bırakılamaz"/>						
+			<p:dialog id="addDialog" widgetVar="addDialog" header="#{teacherBean.messageMap['add.header']}" width="320" resizable="false" height="90">  	    									 	
+				<p:outputPanel id="addPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}"/>
+						<p:inputText id="teacherName" style="width:200px;" value="#{teacherBean.paramTeacher.name}" required="true" requiredMessage="#{msg['name.required.message']}"/>						
 						<f:facet name="footer">
-							<p:commandButton value="Yeni Öğretmen Ekle" oncomplete="handleSubmitRequest( xhr, status, args, 'addDialog' );" action="#{teacherBean.addNewTeacher}" update=":teacherForm, :growl" />
+							<p:commandButton value="#{teacherBean.messageMap['add.button.value']}" oncomplete="handleSubmitAdd( xhr, status, args );" actionListener="#{teacherBean.addNewTeacher}" update=":teacherForm:teacherDT, :growl" icon="#{msg['add.save.icon']}" />
 							<p:spacer width="15"/>
-							<p:commandButton value="İptal" onclick="PF('addDialog').hide();"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('addDialog').hide();" icon="#{msg['close.icon']}"/>
 						</f:facet>	  
 	   				</h:panelGrid>	   				
 	   			</p:outputPanel>										 	
 			</p:dialog>
-			
-			<p:dialog id="updateDialog" style="text-align:center" widgetVar="updateDialog" header="Öğretmen Güncelleme" width="300" resizable="false" height="70" dynamic="true">
-				<p:outputPanel id="updatePanel">
-					<h:panelGrid columns="2" border="0" cellpadding="4">
-						<p:outputLabel value="İsim:"/>
-						<p:inputText id="teacherNameUpdate" style="width:200px;" value="#{teacherBean.paramTeacher.name}" required="true" requiredMessage="İsim alanı boş bırakılamaz"/>
+		</h:form>
+						
+		<p:dialog id="updateDialog" style="text-align:center" widgetVar="updateDialog" header="#{teacherBean.messageMap['update.header']}" width="320" resizable="false" height="90" dynamic="true">
+			<h:form id="updateForm">
+				<p:outputPanel id="updatePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}"/>
+						<p:inputText id="teacherNameUpdate" style="width:200px;" value="#{teacherBean.paramTeacher.name}" required="true" requiredMessage="#{msg['name.required.message']}"/>
 						<f:facet name="footer">
-							<p:commandButton value="Öğretmen Güncelle" oncomplete="handleSubmitRequest( xhr, status, args, 'updateDialog' );" actionListener="#{teacherBean.updateTeacher}" update=":teacherForm, :growl" />
+							<p:commandButton value="#{teacherBean.messageMap['update.button.value']}" oncomplete="handleSubmitRequest( xhr, status, args, 'updateDialog' );" actionListener="#{teacherBean.updateTeacher}" update=":teacherForm:teacherDT, :growl" icon="ui-icon-circle-check" />
 							<p:spacer width="15"/>
-							<p:commandButton value="İptal" onclick="PF('updateDialog').hide();"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('updateDialog').hide();" icon="#{msg['close.icon']}"/>
 						</f:facet>	  
 	   				</h:panelGrid>
-	   			</p:outputPanel>										 	
-			</p:dialog>
+	   			</p:outputPanel>	
+	   		</h:form>									 	
+		</p:dialog>
+		
+		<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="120">
 			
-			<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="Onaylama">
-				<h:outputText value="'#{teacherBean.paramTeacher.name}' isimli Öğretmeni silmek istediğinizden emin misiniz?" />
-				<br/>
-	        	<p:commandButton process="@this" value="Evet" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog' );" action="#{teacherBean.removeTeacher}" update=":teacherForm, :growl" />
-	        	<p:spacer width="40"/>
-	        	<p:commandButton value="Hayır" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
-			</p:dialog>			
+			<h:form id="deleteForm">
+				<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
+						<h:outputText value="'#{teacherBean.paramTeacher.name}' #{msg['teacher.delete.confirmation']}" />
+						<h:outputText value="#{msg['delete.confirmation']}" />
+						<f:facet name="footer">
+	        				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{teacherBean.removeTeacher}" update=":teacherForm:teacherDT, :growl" />
+	        				<p:spacer width="40"/>
+	        				<p:commandButton value="#{msg.no}" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
+	        			</f:facet>
+	        		</h:panelGrid>
+				</p:outputPanel>										
+			</h:form>
 			
-		</h:form>
+		</p:dialog>
+		
 	</f:view>
 	
 	<p:growl id="growl" showDetail="true" life="3000" />
-	
-<script type="text/javascript">  
-    
-    function handleSubmitRequest(xhr, status, args, dialogName ) {  
-        dialog = jQuery('#'+dialogName);
-        
-        if ( args.validationFailed ) {  
-            dialog.effect("shake", { times:3 }, 100);  
-        } else {
-            clearForm();
-            dialog.hide();  
-        }  
-    }
-    
-    function clearForm(formName){
-        jQuery('#teacherForm').each(function(){ this.reset(); });
-    }
-</script> 
 	
 </html>

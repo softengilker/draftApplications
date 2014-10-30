@@ -5,9 +5,148 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<f:view contentType="text/html">
-	<h:form id="testForm">
-		Test
-	</h:form>
-</f:view>
+	<f:view contentType="text/html">
+	
+		<h:form id="testForm">
+			<p:dataTable var="test" value="#{testBean.tests}"
+				emptyMessage="#{testBean.messageMap['datatable.empty.message']}" id="testDT" widgetVar="testDT" style="width: 800px;">
+				<p:column headerText="#{msg.id}" style="width: 5%;">
+					<h:outputText value="#{test.no}" />
+				</p:column>
+				<p:column headerText="#{msg.name}" style="width: 27%;">
+					<h:outputText value="#{test.name}" />
+				</p:column>
+				<p:column headerText="#{msg.lesson}" style="width: 15%;">
+					<h:outputText value="#{test.lesson.name}" />
+				</p:column>
+				<p:column headerText="#{msg.date}" style="width: 13%;">
+					<h:outputText value="#{test.date}">
+						<f:convertDateTime pattern="dd-MMM-yyyy" locale="tr" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="#{msg.semester}" style="width: 8%;">
+					<h:outputText value="#{test.semester}" />
+				</p:column>
+				<p:column headerText="#{msg['test.test.type']}" style="width: 8%;">
+					<h:outputText value="#{test.testType}">
+						<f:converter converterId="testTypeConverter"/>
+					</h:outputText>						
+				</p:column>
+				<p:column headerText="#{msg['test.test.number']}" style="width: 8%;">
+					<h:outputText value="#{test.testNumber}" />
+				</p:column>
+				<p:column headerText="#{msg['datatable.delete']}" style="width: 7%;">
+					<p:commandButton process="@this" icon="#{msg['datatable.delete.button.icon']}" title="#{msg['datatable.delete']}" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
+						<f:setPropertyActionListener value="#{test}" target="#{testBean.paramTest}"/>
+					</p:commandButton>				
+				</p:column>
+				<p:column headerText="#{msg['datatable.update']}" style="width: 9%;text-align:center;">
+					<p:commandButton process="@this" icon="#{msg['datatable.update.button.icon']}" title="#{msg['datatable.update']}" oncomplete="PF('updateDialog').show();" update=":updateDialog">
+						<f:setPropertyActionListener value="#{test}" target="#{testBean.paramTest}"/>
+					</p:commandButton>
+				</p:column>
+					
+				<f:facet name="footer">
+					<p:commandButton value="#{testBean.messageMap['add.button.value']}" icon="#{msg['datatable.add.new.item.icon']}" oncomplete="PF('addDialog').show()" />
+				</f:facet>
+												 
+			</p:dataTable>						
+			
+			<p:dialog id="addDialog" widgetVar="addDialog" header="#{testBean.messageMap['add.header']}" width="380" resizable="false" height="260">  	    									 	
+				<p:outputPanel id="addPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}"/>
+						<p:inputText id="testName" style="width:200px;" value="#{testBean.newTest.name}" required="true" requiredMessage="#{msg['name.required.message']}"/>
+			        	<p:outputLabel value="#{msg.lesson}" />
+						<p:selectOneMenu id="lessonMenu" value="#{testBean.paramLessonNo}">
+							<f:selectItems value="#{testBean.lessons}" var="lessonItem" itemLabel="#{lessonItem.name}" itemValue="#{lessonItem.no}"/>						
+						</p:selectOneMenu>
+						<p:outputLabel value="#{msg.date}" />
+						<p:calendar id="testDate" value="#{testBean.newTest.date}" locale="tr" pattern="dd-MMM-yyyy"/>
+						<p:outputLabel value="#{msg.semester}" />
+						<p:selectOneMenu id="semesterInput" value="#{testBean.newTest.semester}">
+			            	<f:selectItem itemLabel="1" itemValue="1" />
+			            	<f:selectItem itemLabel="2" itemValue="2" />
+			        	</p:selectOneMenu>    																			
+						<p:outputLabel value="#{msg['test.test.type']}" />
+						<p:selectOneMenu id="testTypeInput" value="#{testBean.newTest.testType}">
+			            	<f:selectItem itemLabel="#{msg.writtenTest}" itemValue="1" />
+			        	</p:selectOneMenu>    																			
+						<p:outputLabel value="#{msg['test.test.number']}" />
+						<p:selectOneMenu id="testNumberInput" value="#{testBean.newTest.testNumber}">
+			            	<f:selectItem itemLabel="1" itemValue="1" />
+			            	<f:selectItem itemLabel="2" itemValue="2" />
+			            	<f:selectItem itemLabel="3" itemValue="3" />
+			            	<f:selectItem itemLabel="4" itemValue="4" />
+			        	</p:selectOneMenu>    																			
+						<f:facet name="footer">
+							<p:commandButton value="#{testBean.messageMap['add.button.value']}" oncomplete="handleSubmitAdd( xhr, status, args );" actionListener="#{testBean.addNewTest}" update=":testForm:testDT, :growl" icon="#{msg['add.save.icon']}" />
+							<p:spacer width="15"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('addDialog').hide();" icon="#{msg['close.icon']}"/>
+						</f:facet>	  
+	   				</h:panelGrid>	   				
+	   			</p:outputPanel>										 	
+			</p:dialog>
+		</h:form>
+						
+		<p:dialog id="updateDialog" style="text-align:center" widgetVar="updateDialog" header="#{testBean.messageMap['update.header']}" width="380" resizable="false" height="260" dynamic="true">  
+			<h:form id="updateForm">
+				<p:outputPanel id="updatePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}"/>
+						<p:inputText id="testNameUpdate" style="width:200px;" value="#{testBean.paramTest.name}" required="true" requiredMessage="#{msg['name.required.message']}"/>
+			        	<p:outputLabel value="#{msg.lesson}" />
+						<p:selectOneMenu id="lessonMenuUpdate" value="#{testBean.paramLessonNo}">
+							<f:selectItems value="#{testBean.lessons}" var="lessonItem" itemLabel="#{lessonItem.name}" itemValue="#{lessonItem.no}"/>						
+						</p:selectOneMenu>
+						<p:outputLabel value="#{msg.date}" />
+						<p:calendar id="testDateUpdate" value="#{testBean.paramTest.date}" locale="tr" pattern="dd-MMM-yyyy"/>
+						<p:outputLabel value="#{msg.semester}" />
+						<p:selectOneMenu id="semesterInputUpdate" value="#{testBean.paramTest.semester}">
+			            	<f:selectItem itemLabel="1" itemValue="1" />
+			            	<f:selectItem itemLabel="2" itemValue="2" />
+			        	</p:selectOneMenu>    																			
+						<p:outputLabel value="#{msg['test.test.type']}" />
+						<p:selectOneMenu id="testTypeInputUpdate" value="#{testBean.paramTest.testType}">
+			            	<f:selectItem itemLabel="#{msg.writtenTest}" itemValue="1" />
+			        	</p:selectOneMenu>    																			
+						<p:outputLabel value="#{msg['test.test.number']}" />
+						<p:selectOneMenu id="testNumberInputUpdate" value="#{testBean.paramTest.testNumber}">
+			            	<f:selectItem itemLabel="1" itemValue="1" />
+			            	<f:selectItem itemLabel="2" itemValue="2" />
+			            	<f:selectItem itemLabel="3" itemValue="3" />
+			            	<f:selectItem itemLabel="4" itemValue="4" />
+			        	</p:selectOneMenu>    																			
+						<f:facet name="footer">
+							<p:commandButton value="#{testBean.messageMap['update.button.value']}" oncomplete="handleSubmitRequest( xhr, status, args, 'updateDialog' );" actionListener="#{testBean.updateTest}" update=":testForm:testDT, :growl" icon="ui-icon-circle-check" />
+							<p:spacer width="15"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('updateDialog').hide();" icon="#{msg['close.icon']}"/>
+						</f:facet>	  
+	   				</h:panelGrid>
+	   			</p:outputPanel>	
+	   		</h:form>									 	
+		</p:dialog>
+		
+		<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="120">
+			
+			<h:form id="deleteForm">
+				<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
+						<h:outputText value="'#{testBean.paramTest.name}' #{msg['test.delete.confirmation']}" />
+						<h:outputText value="#{msg['delete.confirmation']}" />
+						<f:facet name="footer">
+	        				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{testBean.removeTest}" update=":testForm:testDT, :growl" />
+	        				<p:spacer width="40"/>
+	        				<p:commandButton value="#{msg.no}" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
+	        			</f:facet>
+	        		</h:panelGrid>
+				</p:outputPanel>										
+			</h:form>
+			
+		</p:dialog>
+		
+	</f:view>
+	
+	<p:growl id="growl" showDetail="true" life="3000" />
+
 </html>

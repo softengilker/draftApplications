@@ -20,47 +20,45 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
-import com.ilkerkonar.applications.schoolproject.orm.model.Teacher;
+import com.ilkerkonar.applications.schoolproject.orm.model.Lesson;
 
 /**
  * @author ilker KONAR, senior software developer
  *
  */
 
-@ManagedBean( name = "teacherService" )
+@ManagedBean( name = "lessonService" )
 @ApplicationScoped
-public class TeacherService {
+public class LessonService {
 
 	@PersistenceContext( unitName = "school" )
 	private EntityManager	entityManager;
 
-	public List< Teacher > getAllTeachers() {
+	public List< Lesson > getAllLessons() {
 
-		final TypedQuery< Teacher > namedQuery = entityManager.createNamedQuery( "Teacher.findAll",
-			Teacher.class );
+		final TypedQuery< Lesson > namedQuery = entityManager.createNamedQuery( "Lesson.findAll", Lesson.class );
 
 		return namedQuery.getResultList();
 	}
 
-	public Teacher getTeacher( final Long no ) {
+	public Lesson getLesson( final Long no ) {
 
-		final TypedQuery< Teacher > namedQuery = entityManager.createNamedQuery( "Teacher.findById",
-			Teacher.class );
+		final TypedQuery< Lesson > namedQuery = entityManager.createNamedQuery( "Lesson.findById", Lesson.class );
 
 		namedQuery.setParameter( "no", no );
 
 		return namedQuery.getSingleResult();
 	}
 
-	public void addNewTeacher( final Teacher teacher ) {
+	public void addNewLesson( final Lesson Lesson ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
-			entityManager.persist( teacher );
+			entityManager.persist( Lesson );
 			entityManager.flush();
 
 			transaction.commit();
@@ -72,17 +70,15 @@ public class TeacherService {
 		}
 	}
 
-	public void removeTeacher( final Teacher teacher ) {
+	public void updateLesson( final Lesson Lesson ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
-			final Teacher mergeClass = entityManager.merge( teacher );
-
-			entityManager.remove( mergeClass );
+			entityManager.merge( Lesson );
 			entityManager.flush();
 
 			transaction.commit();
@@ -94,15 +90,17 @@ public class TeacherService {
 		}
 	}
 
-	public void updateTeacher( final Teacher teacher ) {
+	public void removeLesson( final Lesson Lesson ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
-			entityManager.merge( teacher );
+			final Lesson mergeLesson = entityManager.merge( Lesson );
+
+			entityManager.remove( mergeLesson );
 			entityManager.flush();
 
 			transaction.commit();

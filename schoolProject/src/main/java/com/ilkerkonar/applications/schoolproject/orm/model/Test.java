@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,6 +22,10 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity
+@NamedQueries( {
+	@NamedQuery( name = "Test.findAll", query = "SELECT c FROM Test c" ),
+	@NamedQuery( name = "Test.findById", query = "SELECT c FROM Test c WHERE c.no = :no" )
+} )
 public class Test implements Serializable {
 
 	/**
@@ -37,9 +43,6 @@ public class Test implements Serializable {
 	@Column( name = "description", nullable = true, length = 1000 )
 	private String				description;
 
-	@Column( name = "grade", nullable = false )
-	private Float				grade;
-
 	@Temporal( TemporalType.DATE )
 	@Column( name = "date", nullable = true )
 	private Date				date;
@@ -48,9 +51,15 @@ public class Test implements Serializable {
 	@JoinColumn( name = "lessonNo", insertable = true, updatable = true, nullable = false )
 	private Lesson				lesson;
 
-	@ManyToOne( targetEntity = Student.class, fetch = FetchType.LAZY )
-	@JoinColumn( name = "studentNo", insertable = true, updatable = true, nullable = false )
-	private Student				student;
+	@Column( name = "semester", nullable = false )
+	private Integer				semester;
+
+	// 1: Written test
+	@Column( name = "testType", nullable = false )
+	private Integer				testType;
+
+	@Column( name = "testNumber", nullable = false )
+	private Integer				testNumber;
 
 	/**
 	 * @return The getter method of the 'no' instance variable
@@ -95,20 +104,6 @@ public class Test implements Serializable {
 	}
 
 	/**
-	 * @return The getter method of the 'grade' instance variable
-	 */
-	public Float getGrade() {
-		return grade;
-	}
-
-	/**
-	 * @param The setter method of the 'grade' instance variable
-	 */
-	public void setGrade( final Float grade ) {
-		this.grade = grade;
-	}
-
-	/**
 	 * @return The getter method of the 'date' instance variable
 	 */
 	public Date getDate() {
@@ -137,25 +132,44 @@ public class Test implements Serializable {
 	}
 
 	/**
-	 * @return The getter method of the 'student' instance variable
+	 * @return The getter method of the 'semester' instance variable
 	 */
-	public Student getStudent() {
-		return student;
+	public Integer getSemester() {
+		return semester;
 	}
 
 	/**
-	 * @param The setter method of the 'student' instance variable
+	 * @param The setter method of the 'semester' instance variable
 	 */
-	public void setStudent( final Student student ) {
-		this.student = student;
+	public void setSemester( final Integer semester ) {
+		this.semester = semester;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return The getter method of the 'testType' instance variable
 	 */
-	@Override
-	public String toString() {
-		return "Test [no=" + no + ", name=" + name + ", description=" + description + ", grade=" + grade + ", date="
-			+ date + ", lesson=" + lesson + ", student=" + student + "]";
+	public Integer getTestType() {
+		return testType;
+	}
+
+	/**
+	 * @param The setter method of the 'testType' instance variable
+	 */
+	public void setTestType( final Integer testType ) {
+		this.testType = testType;
+	}
+
+	/**
+	 * @return The getter method of the 'testNumber' instance variable
+	 */
+	public Integer getTestNumber() {
+		return testNumber;
+	}
+
+	/**
+	 * @param The setter method of the 'testNumber' instance variable
+	 */
+	public void setTestNumber( final Integer testNumber ) {
+		this.testNumber = testNumber;
 	}
 }

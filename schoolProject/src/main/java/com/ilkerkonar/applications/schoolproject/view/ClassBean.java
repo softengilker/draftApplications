@@ -5,6 +5,7 @@
 package com.ilkerkonar.applications.schoolproject.view;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +14,10 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
+import com.ilkerkonar.applications.schoolproject.orm.model.Student;
 import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
+import com.ilkerkonar.applications.schoolproject.orm.type.ProcessType;
+import com.ilkerkonar.applications.schoolproject.view.model.ClassView;
 
 /**
  * @author ilker KONAR, senior software developer
@@ -21,14 +25,14 @@ import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
  */
 @ManagedBean( name = "classBean" )
 @ViewScoped
-public class ClassBean implements Serializable {
+public class ClassBean extends AbstractBean implements Serializable {
 
 	/**
 	 *
 	 */
 	private static final long	serialVersionUID	= -5941571640869756279L;
 
-	private List< SchoolClass >	classes;
+	private List< ClassView >	classes;
 
 	private String				className;
 
@@ -39,8 +43,10 @@ public class ClassBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		classes = service.getAllClasses();
+		reload();
 		paramClass = new SchoolClass();
+		setModelName( getBundle().getString( "class" ) );
+		setInitialMessages();
 	}
 
 	/**
@@ -62,22 +68,51 @@ public class ClassBean implements Serializable {
 		reload();
 
 		setClassName( "" );
+
+		giveInfoMessageAfterAProcess( ProcessType.ADD );
 	}
 
 	public void removeClass() {
-		service.removeClass( getParamClass() );
+		final Long classNo = getParamClass().getNo();
+		final SchoolClass removeClass = service.getClass( classNo );
+
+		service.removeClass( removeClass );
 		reload();
+
+		giveInfoMessageAfterAProcess( ProcessType.DELETE );
 	}
 
 	private void reload() {
 		// Reload classes.
-		classes = service.getAllClasses();
+		final List< SchoolClass > dbClasses = service.getAllClasses();
+
+		classes = new ArrayList< ClassView >();
+
+		for ( final SchoolClass schoolClass : dbClasses ) {
+
+			final ClassView classView = new ClassView();
+
+			classView.setName( schoolClass.getName() );
+			classView.setNo( schoolClass.getNo() );
+
+			// Trick for filling the lazying loading list for streaming operations
+			List< Student > students = schoolClass.getStudents();
+			final int size = students.size();
+			students = students.subList( 0, size );
+
+			classView.setTotal( size );
+			classView.setMaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "male" ) ).count() );
+			classView
+				.setFemaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count() );
+
+			classes.add( classView );
+		}
 	}
 
 	/**
 	 * @return The getter method of the 'classes' instance variable
 	 */
-	public List< SchoolClass > getClasses() {
+	public List< ClassView > getClasses() {
 		return classes;
 	}
 
