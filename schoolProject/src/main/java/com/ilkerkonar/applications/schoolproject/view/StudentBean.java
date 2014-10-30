@@ -8,17 +8,16 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 import com.ilkerkonar.applications.schoolproject.orm.model.Student;
 import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
 import com.ilkerkonar.applications.schoolproject.orm.service.StudentService;
+import com.ilkerkonar.applications.schoolproject.orm.type.ProcessType;
 
 /**
  * @author ilker KONAR, senior software developer
@@ -26,7 +25,7 @@ import com.ilkerkonar.applications.schoolproject.orm.service.StudentService;
  */
 @ManagedBean( name = "studentBean" )
 @ViewScoped
-public class StudentBean implements Serializable {
+public class StudentBean extends AbstractBean implements Serializable {
 
 	/**
 	 *
@@ -40,6 +39,8 @@ public class StudentBean implements Serializable {
 	private Student				newStudent;
 
 	private Long				paramClassNo;
+
+	private Long				paramClassNoUpdate;
 
 	@ManagedProperty( "#{studentService}" )
 	private StudentService		service;
@@ -55,6 +56,13 @@ public class StudentBean implements Serializable {
 		paramStudent = new Student();
 		newStudent = new Student();
 		classes = classService.getAllClasses();
+		setModelName( getBundle().getString( "student" ) );
+		setInitialMessages();
+	}
+
+	public void refreshPage( final ActionEvent event ) {
+		classes = classService.getAllClasses();
+		students = service.getAllStudents();
 	}
 
 	/**
@@ -84,36 +92,27 @@ public class StudentBean implements Serializable {
 		service.addNewStudent( newStudent );
 		reload();
 
-		FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
-				"Yeni öğrenci sisteme başarılı bir şekilde eklendi." ) );
+		giveInfoMessageAfterAProcess( ProcessType.ADD );
 	}
 
 	public void removeStudent() {
 		service.removeStudent( getParamStudent() );
 		reload();
 
-		FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
-				"Öğrenci sistemden başarılı bir şekilde silindi." ) );
+		giveInfoMessageAfterAProcess( ProcessType.DELETE );
 	}
 
 	public void updateStudent() {
 
 		final Student updateStudent = getParamStudent();
-		final SchoolClass getClass = classService.getClass( getParamClassNo() );
+		final SchoolClass getClass = classService.getClass( getParamClassNoUpdate() );
 
 		updateStudent.setSchoolClass( getClass );
 
 		service.updateStudent( updateStudent );
 		reload();
 
-		FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
-				"Öğrenci sistemde başarılı bir şekilde güncellendi." ) );
+		giveInfoMessageAfterAProcess( ProcessType.UPDATE );
 	}
 
 	public void beforeAdd( final ActionEvent event ) {
@@ -179,5 +178,19 @@ public class StudentBean implements Serializable {
 	 */
 	public void setNewStudent( final Student newStudent ) {
 		this.newStudent = newStudent;
+	}
+
+	/**
+	 * @return The getter method of the 'paramClassNoUpdate' instance variable
+	 */
+	public Long getParamClassNoUpdate() {
+		return paramClassNoUpdate;
+	}
+
+	/**
+	 * @param The setter method of the 'paramClassNoUpdate' instance variable
+	 */
+	public void setParamClassNoUpdate( final Long paramClassNoUpdate ) {
+		this.paramClassNoUpdate = paramClassNoUpdate;
 	}
 }

@@ -14,6 +14,7 @@ import javax.faces.bean.ViewScoped;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
+import com.ilkerkonar.applications.schoolproject.orm.type.ProcessType;
 
 /**
  * @author ilker KONAR, senior software developer
@@ -21,7 +22,7 @@ import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
  */
 @ManagedBean( name = "classBean" )
 @ViewScoped
-public class ClassBean implements Serializable {
+public class ClassBean extends AbstractBean implements Serializable {
 
 	/**
 	 *
@@ -41,6 +42,8 @@ public class ClassBean implements Serializable {
 	public void init() {
 		classes = service.getAllClasses();
 		paramClass = new SchoolClass();
+		setModelName( getBundle().getString( "class" ) );
+		setInitialMessages();
 	}
 
 	/**
@@ -62,11 +65,15 @@ public class ClassBean implements Serializable {
 		reload();
 
 		setClassName( "" );
+
+		giveInfoMessageAfterAProcess( ProcessType.ADD );
 	}
 
 	public void removeClass() {
 		service.removeClass( getParamClass() );
 		reload();
+
+		giveInfoMessageAfterAProcess( ProcessType.DELETE );
 	}
 
 	private void reload() {

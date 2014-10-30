@@ -10,118 +10,126 @@
 	
 	<h:form id="studentForm">
 	
+		<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" actionListener="#{studentBean.refreshPage}" ajax="false" />
+		
 		<p:dataTable var="student" value="#{studentBean.students}"
-			emptyMessage="Sistemde hiç bir öğrenci bulunmuyor" id="studentDT" widgetVar="studentDT" style="width: 680px;" rowKey="#{student.no}"
+			emptyMessage="#{studentBean.messageMap['datatable.empty.message']}" id="studentDT" widgetVar="studentDT" style="width: 700px;" rowKey="#{student.no}"
 			paginator="true" rows="10" rowsPerPageTemplate="10,20,30,40,50" sortMode="multiple"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
-			<p:column headerText="No" style="width: 7%;">
+			<p:column headerText="#{msg.id}" style="width: 7%;">
 				<h:outputText value="#{student.no}" />
 			</p:column>
-			<p:column headerText="İsim" style="width: 32%;" sortBy="#{student.name}">
+			<p:column headerText="#{msg.name}" style="width: 31%;" sortBy="#{student.name}" filterBy="#{student.name}" filterMatchMode="contains">
 				<h:outputText value="#{student.name}" />
 			</p:column>
-			<p:column headerText="Cinsiyet" style="width: 14%;">
+			<p:column headerText="#{msg.gender}" style="width: 14%;">
 				<h:outputText value="#{student.gender}">
 					<f:converter converterId="genderConverter"/>
 				</h:outputText>
 			</p:column>
-			<p:column headerText="Okul Numarası" style="width: 18%;" sortBy="#{student.schoolNumber}">
+			<p:column headerText="#{msg.schoolNumber}" style="width: 18%;" sortBy="#{student.schoolNumber}" filterMatchMode="contains" filterBy="#{student.schoolNumber}">
 				<h:outputText value="#{student.schoolNumber}" />
 			</p:column>
-			<p:column headerText="Sınıfı" style="width: 9%;">
+			<p:column headerText="#{msg.class}" style="width: 10%;" filterMatchMode="exact" filterBy="#{student.schoolClass.name}">
+          		<f:facet name="filter">
+                	<p:selectOneMenu onchange="PF('studentDT').filter()">
+                		<f:selectItem itemLabel="#{msg.select}" itemValue="#{null}" noSelectionOption="true" />
+                    	<f:selectItems value="#{studentBean.classes}" var="classItem" itemLabel="#{classItem.name}" itemValue="#{classItem.name}" />
+                	</p:selectOneMenu>
+            	</f:facet>			
 				<h:outputText value="#{student.schoolClass.name}" />
 			</p:column>
-			<p:column headerText="Sil" style="width: 8%;text-align:center;">
-				<p:commandButton process="@this" icon="ui-icon-close" title="Sil" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
+			<p:column headerText="#{msg['datatable.delete']}" style="width: 8%;text-align:center;">
+				<p:commandButton process="@this" icon="#{msg['datatable.delete.button.icon']}" title="#{msg['datatable.delete']}" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
 					<f:setPropertyActionListener value="#{student}" target="#{studentBean.paramStudent}"/>		
 				</p:commandButton>		
 			</p:column>
-			<p:column headerText="Güncelle" style="width: 12%;text-align:center;">
-				<p:commandButton process="@this" icon="ui-icon-edit" title="Güncelle" oncomplete="PF('updateDialog').show();" update=":updateDialog">
+			<p:column headerText="#{msg['datatable.update']}" style="width: 12%;text-align:center;">
+				<p:commandButton process="@this" icon="#{msg['datatable.update.button.icon']}" title="#{msg['datatable.update']}" oncomplete="PF('updateDialog').show();" update=":updateDialog">
 					<f:setPropertyActionListener value="#{student}" target="#{studentBean.paramStudent}"/>
-					<f:setPropertyActionListener value="#{student.schoolClass.no}" target="#{studentBean.paramClassNo}"/>
+					<f:setPropertyActionListener value="#{student.schoolClass.no}" target="#{studentBean.paramClassNoUpdate}"/>
 				</p:commandButton>			
 			</p:column>
 
 			<f:facet name="footer">
-				<p:commandButton value="Yeni Öğrenci Ekle" icon="ui-icon-add" oncomplete="PF('addDialog').show();" />
+				<p:commandButton value="#{studentBean.messageMap['add.button.value']}" icon="#{msg['datatable.add.new.item.icon']}" oncomplete="PF('addDialog').show()" />
 			</f:facet>
 		</p:dataTable>
-				
-	</h:form>
-	
+
+		<p:dialog id="addDialog" widgetVar="addDialog" header="#{studentBean.messageMap['add.header']}" width="370" resizable="false" height="190">
+		  
+				<p:outputPanel id="addPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}" />
+						<h:inputText id="studentName" style="width:200px;" required="true" requiredMessage="#{msg['name.required.message']}" value="#{studentBean.newStudent.name}" />
+						<p:outputLabel value="#{msg.gender}" />
+						<p:selectOneMenu id="genderInput" value="#{studentBean.newStudent.gender}">
+			            	<f:selectItem itemLabel="#{msg.female}" itemValue="female" />
+			            	<f:selectItem itemLabel="#{msg.male}" itemValue="male" />
+			        	</p:selectOneMenu>    		
+			        	<p:outputLabel value="#{msg.schoolNumber}" />
+			        	<h:inputText id="schoolNumber" style="width:50px;" required="true" requiredMessage="#{msg['schoolNumber.required.message']}" value="#{studentBean.newStudent.schoolNumber}" />
+			        	<p:outputLabel value="#{msg.class}" />
+						<p:selectOneMenu id="classMenu" value="#{studentBean.paramClassNo}">
+							<f:selectItems value="#{studentBean.classes}" var="classItem" itemLabel="#{classItem.name}" itemValue="#{classItem.no}"/>						
+						</p:selectOneMenu>
+						<f:facet name="footer">
+							<p:commandButton id="addButtonCmd" value="#{studentBean.messageMap['add.button.value']}" oncomplete="handleSubmitAdd( xhr, status, args );" 
+								actionListener="#{studentBean.addNewStudent}" update=":studentForm:studentDT, :growl" icon="#{msg['add.save.icon']}" />
+							<p:spacer width="15"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('addDialog').hide();" icon="#{msg['close.icon']}"/>
+						</f:facet>	  					
+					</h:panelGrid>
+				</p:outputPanel>
+			
+		</p:dialog>				
+	</h:form>								
 		
-	<p:dialog id="addDialog" style="text-align:center" widgetVar="addDialog" header="Öğrenci Ekleme" width="370" resizable="false" height="190">
-	
-		<h:form id="addForm">  
-			<p:outputPanel id="addPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
-				<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
-					<p:outputLabel value="İsim:" />
-					<h:inputText id="studentName" style="width:200px;" required="true" requiredMessage="İsim alanı boş bırakılamaz" value="#{studentBean.newStudent.name}" />
-					<p:outputLabel value="Cinsiyet:" />
-					<p:selectOneMenu id="genderInput" value="#{studentBean.newStudent.gender}">
-		            	<f:selectItem itemLabel="Kız" itemValue="female" />
-		            	<f:selectItem itemLabel="Erkek" itemValue="male" />
-		        	</p:selectOneMenu>    		
-		        	<p:outputLabel value="Okul Numarası:" />
-		        	<h:inputText id="schoolNumber" style="width:50px;" required="true" requiredMessage="Okul numarası alanı boş bırakılamaz" value="#{studentBean.newStudent.schoolNumber}" />
-		        	<p:outputLabel value="Sınıf:" />
-					<p:selectOneMenu id="classMenu" value="#{studentBean.paramClassNo}">
-						<f:selectItems value="#{studentBean.classes}" var="classItem" itemLabel="#{classItem.name}" itemValue="#{classItem.no}"/>						
-					</p:selectOneMenu>
-					<f:facet name="footer">
-						<p:commandButton id="addButtonCmd" value="Yeni Öğrenci Ekle" oncomplete="handleSubmitRequest( xhr, status, args, 'addDialog', 'addForm' );" actionListener="#{studentBean.addNewStudent}" update=":studentForm, :growl" />
-						<p:spacer width="15"/>
-						<p:commandButton value="İptal" onclick="PF('addDialog').hide();"/>
-					</f:facet>	  					
-				</h:panelGrid>
-			</p:outputPanel>
-		</h:form>
-		
-	</p:dialog>
-					
-		
-	<p:dialog id="updateDialog" style="text-align:center" widgetVar="updateDialog" header="Öğrenci Güncelleme" width="370" resizable="false" height="190">
+	<p:dialog id="updateDialog" style="text-align:center" widgetVar="updateDialog" header="#{studentBean.messageMap['update.header']}" width="370" resizable="false" height="190">
 			
 		<h:form id="updateForm">  
 			<p:outputPanel id="updatePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
 				<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
 					<p:outputLabel value="İsim:" />
-					<h:inputText id="studentNameUpdate" style="width:200px;" required="true" requiredMessage="İsim alanı boş bırakılamaz" value="#{studentBean.paramStudent.name}" />
-					<p:outputLabel value="Cinsiyet:" />
+					<h:inputText id="studentNameUpdate" style="width:200px;" required="true" requiredMessage="#{msg['name.required.message']}" value="#{studentBean.paramStudent.name}" />
+					<p:outputLabel value="#{msg.gender}" />
 					<p:selectOneMenu id="genderInputUpdate" value="#{studentBean.paramStudent.gender}">
-		            	<f:selectItem itemLabel="Kız" itemValue="female" />
-		            	<f:selectItem itemLabel="Erkek" itemValue="male" />
+		            	<f:selectItem itemLabel="#{msg.female}" itemValue="female" />
+		            	<f:selectItem itemLabel="#{msg.male}" itemValue="male" />
 		        	</p:selectOneMenu>    		
-		        	<p:outputLabel value="Okul Numarası:" />
-		        	<h:inputText id="schoolNumberUpdate" style="width:50px;" required="true" requiredMessage="Okul numarası alanı boş bırakılamaz" value="#{studentBean.paramStudent.schoolNumber}" />
-		        	<p:outputLabel value="Sınıf:" />
-					<p:selectOneMenu id="classMenuUpdate" value="#{studentBean.paramClassNo}">
+		        	<p:outputLabel value="#{msg.schoolNumber}" />
+		        	<h:inputText id="schoolNumberUpdate" style="width:50px;" required="true" requiredMessage="#{msg['schoolNumber.required.message']}" value="#{studentBean.paramStudent.schoolNumber}" />
+		        	<p:outputLabel value="#{msg.class}" />
+					<p:selectOneMenu id="classMenuUpdate" value="#{studentBean.paramClassNoUpdate}">
 						<f:selectItems value="#{studentBean.classes}" var="classItem" itemLabel="#{classItem.name}" itemValue="#{classItem.no}"/>						
 					</p:selectOneMenu>
 					<f:facet name="footer">
-						<p:commandButton id="updateButtonCmd" value="Öğrenci Güncelle" oncomplete="handleSubmitRequest( xhr, status, args, 'updateDialog', 'updateForm' );" actionListener="#{studentBean.updateStudent}" update=":studentForm, :growl" />
+						<p:commandButton id="updateButtonCmd" value="#{studentBean.messageMap['update.button.value']}" oncomplete="handleSubmitRequest( xhr, status, args, 'updateDialog', 'updateForm' );" 
+							actionListener="#{studentBean.updateStudent}" update=":studentForm:studentDT, :growl" icon="ui-icon-circle-check"/>
 						<p:spacer width="15"/>
-						<p:commandButton value="İptal" oncomplete="PF('updateDialog').hide();"/>
+						<p:commandButton value="#{msg.cancel}" oncomplete="PF('updateDialog').hide();" icon="#{msg['close.icon']}"/>
 					</f:facet>	  					
 				</h:panelGrid>
 			</p:outputPanel>
+			
+			<pe:keyFilter for=":updateForm:schoolNumberUpdate" mask="num"/>
+			
 		</h:form>
 		
 	</p:dialog>
 	
 						
-	<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="Onaylama" width="350" resizable="false" height="120">
+	<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="120">
 		
 		<h:form id="deleteForm">
 			<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
 				<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
-					<h:outputText value="'#{studentBean.paramStudent.name}' isimli öğrenciyi" />
-					<h:outputText value="silmek istediğinizden emin misiniz?" />
+					<h:outputText value="'#{studentBean.paramStudent.name}' #{msg['student.delete.confirmation']}" />
+					<h:outputText value="#{msg['delete.confirmation']}" />
 					<f:facet name="footer">
-        				<p:commandButton id="deleteButtonCmd" process="@this" value="Evet" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{studentBean.removeStudent}" update=":studentForm, :growl" />
+        				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{studentBean.removeStudent}" update=":studentForm:studentDT, :growl" />
         				<p:spacer width="40"/>
-        				<p:commandButton value="Hayır" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
+        				<p:commandButton value="#{msg.no}" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
         			</f:facet>
         		</h:panelGrid>
 			</p:outputPanel>										
@@ -129,29 +137,10 @@
 		
 	</p:dialog>
 	
-	<pe:keyFilter for=":addForm:schoolNumber" mask="num"/>
-	<pe:keyFilter for=":updateForm:schoolNumberUpdate" mask="num"/>
+	<pe:keyFilter for=":studentForm:schoolNumber" mask="num"/>	
 	
 </f:view>
 
 <p:growl id="growl" showDetail="true" life="4000" />
 	
-<script type="text/javascript">  
-    
-    function handleSubmitRequest(xhr, status, args, dialogName, formName ) {  
-        dialog = jQuery('#' + dialogName );
-        
-        if ( args.validationFailed ) {  
-            dialog.effect("shake", { times:3 }, 100);  
-        } else {
-            clearForm( formName );
-            dialog.hide();  
-        }  
-    }
-    
-    function clearForm( formName ) {
-        jQuery('#' + formName ).each(function(){ this.reset(); });
-    }
-</script> 
-
 </html>

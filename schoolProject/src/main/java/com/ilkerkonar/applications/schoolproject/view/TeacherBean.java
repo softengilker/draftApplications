@@ -8,14 +8,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.Teacher;
 import com.ilkerkonar.applications.schoolproject.orm.service.TeacherService;
+import com.ilkerkonar.applications.schoolproject.orm.type.ProcessType;
 
 /**
  * @author ilker KONAR, senior software developer
@@ -23,7 +23,7 @@ import com.ilkerkonar.applications.schoolproject.orm.service.TeacherService;
  */
 @ManagedBean( name = "teacherBean" )
 @ViewScoped
-public class TeacherBean implements Serializable {
+public class TeacherBean extends AbstractBean implements Serializable {
 
 	/**
 	 *
@@ -41,6 +41,8 @@ public class TeacherBean implements Serializable {
 	public void init() {
 		teachers = service.getAllTeachers();
 		paramTeacher = new Teacher();
+		setModelName( getBundle().getString( "teacher" ) );
+		setInitialMessages();
 	}
 
 	/**
@@ -53,7 +55,7 @@ public class TeacherBean implements Serializable {
 	/**
 	 * Add a new teacher
 	 */
-	public void addNewTeacher() {
+	public void addNewTeacher( final ActionEvent event ) {
 
 		final Teacher newTeacher = new Teacher();
 		newTeacher.setName( getParamTeacher().getName() );
@@ -61,10 +63,7 @@ public class TeacherBean implements Serializable {
 		service.addNewTeacher( newTeacher );
 		reload();
 
-		FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
-				"Yeni öğretmen sisteme başarılı bir şekilde eklendi." ) );
+		giveInfoMessageAfterAProcess( ProcessType.ADD );
 	}
 
 	/**
@@ -74,20 +73,14 @@ public class TeacherBean implements Serializable {
 		service.updateTeacher( getParamTeacher() );
 		reload();
 
-		FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
-				"Öğretmen sistemde başarılı bir şekilde güncellendi." ) );
+		giveInfoMessageAfterAProcess( ProcessType.UPDATE );
 	}
 
 	public void removeTeacher() {
 		service.removeTeacher( getParamTeacher() );
 		reload();
 
-		FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage( FacesMessage.SEVERITY_INFO, "Başarılı İşlem",
-				"Öğretmen sistemden başarılı bir şekilde silindi." ) );
+		giveInfoMessageAfterAProcess( ProcessType.DELETE );
 	}
 
 	private void reload() {

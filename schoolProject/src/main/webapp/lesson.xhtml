@@ -6,8 +6,83 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <f:view contentType="text/html">
+	
 	<h:form id="lessonForm">
-		Lesson
-	</h:form>
+	
+		<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" actionListener="#{lessonBean.refreshPage}" ajax="false" />
+		
+		<p:dataTable var="lesson" value="#{lessonBean.lessons}"
+			emptyMessage="#{lessonBean.messageMap['datatable.empty.message']}" id="lessonDT" widgetVar="lessonDT" style="width: 500px;" rowKey="#{lesson.no}">
+			<p:column headerText="#{msg.id}" style="width: 10%;">
+				<h:outputText value="#{lesson.no}" />
+			</p:column>
+			<p:column headerText="#{msg.name}" style="width: 30%;">
+				<h:outputText value="#{lesson.name}" />
+			</p:column>
+			<p:column headerText="#{msg.class}" style="width: 13%">
+				<h:outputText value="#{lesson.schoolClass.name}" />
+			</p:column>
+			<p:column headerText="#{msg.teacher}" style="width: 37%">
+				<h:outputText value="#{lesson.teacher.name}" />
+			</p:column>
+			<p:column headerText="#{msg['datatable.delete']}" style="width: 10%;text-align:center;">
+				<p:commandButton process="@this" icon="#{msg['datatable.delete.button.icon']}" title="#{msg['datatable.delete']}" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
+					<f:setPropertyActionListener value="#{lesson}" target="#{lessonBean.paramLesson}"/>		
+				</p:commandButton>		
+			</p:column>
+
+			<f:facet name="footer">
+				<p:commandButton value="#{lessonBean.messageMap['add.button.value']}" icon="#{msg['datatable.add.new.item.icon']}" oncomplete="PF('addDialog').show()" />
+			</f:facet>
+		</p:dataTable>
+
+		<p:dialog id="addDialog" widgetVar="addDialog" header="#{lessonBean.messageMap['add.header']}" width="370" resizable="false" height="150">
+		  
+				<p:outputPanel id="addPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+					<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+						<p:outputLabel value="#{msg.name}" />
+						<h:inputText id="lessonName" style="width:200px;" required="true" requiredMessage="#{msg['name.required.message']}" value="#{lessonBean.newLesson.name}" />
+			        	<p:outputLabel value="#{msg.class}" />
+						<p:selectOneMenu id="classMenu" value="#{lessonBean.paramClassNo}">
+							<f:selectItems value="#{lessonBean.classes}" var="classItem" itemLabel="#{classItem.name}" itemValue="#{classItem.no}"/>						
+						</p:selectOneMenu>
+						<p:outputLabel value="#{msg.teacher}" />
+						<p:selectOneMenu id="teacherMenu" value="#{lessonBean.paramTeacherNo}">
+							<f:selectItems value="#{lessonBean.teachers}" var="teacherItem" itemLabel="#{teacherItem.name}" itemValue="#{teacherItem.no}"/>						
+						</p:selectOneMenu>
+						<f:facet name="footer">
+							<p:commandButton id="addButtonCmd" value="#{lessonBean.messageMap['add.button.value']}" oncomplete="handleSubmitAdd( xhr, status, args );" 
+								actionListener="#{lessonBean.addNewLesson}" update=":lessonForm:lessonDT, :growl" icon="#{msg['add.save.icon']}" />
+							<p:spacer width="15"/>
+							<p:commandButton value="#{msg.cancel}" onclick="PF('addDialog').hide();" icon="#{msg['close.icon']}"/>
+						</f:facet>	  					
+					</h:panelGrid>
+				</p:outputPanel>
+			
+		</p:dialog>				
+	</h:form>											
+						
+	<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="120">
+		
+		<h:form id="deleteForm">
+			<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+				<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
+					<h:outputText value="'#{lessonBean.paramLesson.name}' #{msg['lesson.delete.confirmation']}" />
+					<h:outputText value="#{msg['delete.confirmation']}" />
+					<f:facet name="footer">
+        				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{lessonBean.removeLesson}" update=":lessonForm:lessonDT, :growl" />
+        				<p:spacer width="40"/>
+        				<p:commandButton value="#{msg.no}" icon="ui-icon-close" onclick="PF('deleteConfirmationDialog').hide();" />
+        			</f:facet>
+        		</h:panelGrid>
+			</p:outputPanel>										
+		</h:form>
+		
+	</p:dialog>	
+	
 </f:view>
+
+<p:growl id="growl" showDetail="true" life="4000" />
+	
 </html>
+
