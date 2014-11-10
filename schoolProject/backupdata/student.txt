@@ -1,0 +1,111 @@
+1;"female";"Burçin ÇETÝN";4;1
+2;"male";"Kaan ÇOÞKUN";523;1
+3;"female";"Baþak ERGÜDER";824;1
+4;"male";"Sezen BÜR";825;1
+5;"female";"Eda ALTAY";848;1
+6;"male";"Umut MERT";850;1
+7;"female";"Edanur ÇALIÞKAN";1024;1
+8;"male";"Muhammed OLGUN";1045;1
+9;"male";"Dursun Ali ÇELÝK";1175;1
+10;"female";"Birsu Hilal ÝMECÝ";1176;1
+11;"male";"Rafet GÜCÜKKILINÇ";1177;1
+12;"male";"Mustafa DURMUÞ";1192;1
+13;"male";"Yiðit Efe YILDIZ";1193;1
+14;"female";"Esra EDABALÝ";1531;1
+15;"female";"Sude Nur ÇOÞKUN";1532;1
+16;"male";"Soner KARTAL";1533;1
+17;"male";"Deniz YILDIRIM";1544;1
+18;"female";"Gülüstan KARADUMAN";1882;1
+19;"female";"Simanur ÞAHÝN";1883;1
+20;"female";"Nida Nur ÝNCÝ";1886;1
+21;"female";"Pelin Su ÇAKIR";1895;1
+22;"female";"Kübra Ýrem BAYCAN";1896;1
+23;"female";"Onay YILÐIN";1905;1
+24;"female";"Doða YAMAN";1925;1
+25;"male";"Fýrat KAYA";1952;1
+26;"female";"Asiye Özlem SÜMER";1955;1
+27;"male";"Emre ESENLÝKCÝ";2111;1
+28;"male";"Doðukan Ali VURAL";2202;1
+29;"male";"Görkem YEÞÝLYURT";2207;1
+30;"female";"Beyzanur BORAN";2208;1
+31;"female";"Derya DEMÝR";2211;1
+32;"male";"Görkem KARADEMÝR";2221;1
+33;"female";"Zerda DEMÝRTÜRK";3047;1
+34;"male";"Cenker UYSAL";3075;1
+35;"female";"Eda ÇANKAYA";3742;1
+36;"male";"Ýsmail Mert SÖÐÜT";3875;1
+60;"male";"Emirhan ERGÜN";82;2
+61;"male";"Uður ÖZSOY";778;2
+62;"female";"Elif KELEÞ";1181;2
+63;"male";"Yiðit BAYRAK";1184;2
+64;"female";"Ceren SEVÝNÇ";1191;2
+65;"female";"Nazlýcan ASAV";1543;2
+66;"female";"Tuðçe SARÝ";1546;2
+67;"male";"Kerem ÝRFANOÐLU";1547;2
+68;"male";"Emre TAÞDAN";1549;2
+69;"male";"Yunus TAÞDAN";1550;2
+70;"male";"Barýþ GÜMÜÞ";1554;2
+71;"female";"Duygu KURT";1556;2
+72;"female";"Seçil ÇÝL";1558;2
+73;"male";"Tayfun DELÝBAÞ";1565;2
+74;"male";"Doðukan AYDEMÝÞ";1574;2
+75;"male";"Adem AGSAR";1577;2
+76;"male";"Egemen ÞAHÝN";1582;2
+77;"female";"Fadime Haným PAMUKCU";1617;2
+78;"female";"Ayþe Ýrem ÞENER";1889;2
+79;"female";"Sümeyye GENÇDAL";1897;2
+80;"female";"Simge KAYA";1900;2
+81;"male";"Mehmet KAYA";1902;2
+82;"male";"Burak KILIÇ";1903;2
+83;"male";"Tolga DAÐ";1904;2
+84;"female";"Sýla BAYSUNGUR";1908;2
+85;"female";"Gülçin KAZAN";2205;2
+86;"male";"Batuhan ÇÝZMAZ";2206;2
+87;"male";"Mert AKINCI";2209;2
+88;"female";"Senay BAYSAL";2217;2
+89;"male";"Tuna ATSIZ";2219;2
+90;"female";"Deniz ÖZLÜ";2220;2
+91;"female";"Sedef Nur DÝRÝL";2231;2
+92;"female";"Ýpek RUÞAN";2234;2
+93;"female";"Yaren GÖRAL";3056;2
+94;"male";"Erdal Eren GÖRAL";3057;2
+95;"male";"Berk Çaðatay ÞENYAÞA";3796;2
+96;"female";"Zelal TAÞER";3846;2
+97;"female";"Gülçin BATI";3890;2
+98;"male";"Salih Yiðit ÇELÝK";3944;2
+99;"male";"Furkan ÇALIÞ";70;3
+100;"male";"Yusuf Kerem KABAHOR";135;3
+101;"female";"Öykü Naz DAÞ";1053;3
+102;"male";"Kemal Can ULUSU";1615;3
+103;"male";"Sarp Ali CANPULUT";1621;3
+104;"male";"Ulaþ KARAKAÞ";1888;3
+105;"male";"Koray KARATAÞ";2183;3
+106;"male";"Berkay ALTINAY";2264;3
+107;"male";"Muhammet BAYRAK";2297;3
+108;"male";"Sedat ABAY";2317;3
+109;"male";"Atalay CAN";3060;3
+110;"male";"Eren ÇELÝK";3077;3
+111;"female";"Habibe KAYA";3099;3
+112;"female";"Fatma ÇALBAY";3100;3
+113;"female";"Nuray MERT";3128;3
+114;"male";"Aliþan ALÝÞANOÐLU";3130;3
+115;"female";"Buse AYDIN";3133;3
+116;"female";"Özüm Hilal ÇAVUÞ";3137;3
+117;"female";"Sema GÖK";3140;3
+118;"male";"Bayram GÜL";3144;3
+119;"male";"Berkecan ADIGÜZEL";3384;3
+120;"male";"Anýl Furkan POLAT";3708;3
+121;"female";"Aslý YILDIZ";3713;3
+122;"female";"Esma Sude AYDIN";3757;3
+123;"female";"Semra BULCUM";3767;3
+124;"male";"Þahan ÖTER";3777;3
+125;"female";"Tuðbanur ÇELEBÝ";3782;3
+126;"male";"Yusufcan POLAT";3850;3
+127;"male";"Kaan Mert SARIDERE";3874;3
+128;"female";"Ýrem Beyza AKSOY";3878;3
+129;"male";"Hüseyin Emre SÖÐÜT";3883;3
+130;"female";"Gül Deniz GÜLMEZ";3891;3
+131;"male";"Muhammet ÇÝLGÝN";3919;3
+132;"female";"Müzeyyen Sude YENÝSOY";3927;3
+133;"female";"Selin Naz ANLI";3948;3
+134;"female";"Hatun KAYA";6053;3
