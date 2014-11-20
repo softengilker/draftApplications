@@ -57,6 +57,10 @@ public class TestBean extends AbstractBean implements Serializable {
 		setInitialMessages();
 	}
 
+	public void refreshPage( final ActionEvent event ) {
+		reload();
+	}
+
 	/**
 	 * @param The setter method of the 'service' instance variable
 	 */

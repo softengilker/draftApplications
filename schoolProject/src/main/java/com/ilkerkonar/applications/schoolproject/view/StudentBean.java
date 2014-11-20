@@ -52,17 +52,15 @@ public class StudentBean extends AbstractBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		students = service.getAllStudents();
 		paramStudent = new Student();
 		newStudent = new Student();
-		classes = classService.getAllClasses();
+		reload();
 		setModelName( getBundle().getString( "student" ) );
 		setInitialMessages();
 	}
 
 	public void refreshPage( final ActionEvent event ) {
-		classes = classService.getAllClasses();
-		students = service.getAllStudents();
+		reload();
 	}
 
 	/**
@@ -120,7 +118,7 @@ public class StudentBean extends AbstractBean implements Serializable {
 	}
 
 	private void reload() {
-		// Reload students.
+		classes = classService.getAllClasses();
 		students = service.getAllStudents();
 	}
 

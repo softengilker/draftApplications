@@ -56,7 +56,7 @@ public class ClassService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+				.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -74,9 +74,10 @@ public class ClassService {
 
 	public void removeClass( final SchoolClass schoolClass ) {
 
+		UserTransaction transaction = null;
+
 		try {
-			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-			.lookup( "java:comp/UserTransaction" );
+			transaction = ( UserTransaction ) new InitialContext().lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -89,8 +90,12 @@ public class ClassService {
 
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			try {
+				transaction.rollback();
+			} catch ( IllegalStateException | SecurityException | SystemException e1 ) {
+				e1.printStackTrace();
+			}
 		}
 	}
 }

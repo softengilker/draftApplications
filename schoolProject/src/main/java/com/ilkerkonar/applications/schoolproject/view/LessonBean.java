@@ -13,6 +13,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import org.primefaces.context.RequestContext;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.Lesson;
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 import com.ilkerkonar.applications.schoolproject.orm.model.Teacher;
@@ -59,19 +61,15 @@ public class LessonBean extends AbstractBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		lessons = service.getAllLessons();
 		paramLesson = new Lesson();
 		newLesson = new Lesson();
-		classes = classService.getAllClasses();
-		teachers = teacherService.getAllTeachers();
+		reload();
 		setModelName( getBundle().getString( "lesson" ) );
 		setInitialMessages();
 	}
 
 	public void refreshPage( final ActionEvent event ) {
-		classes = classService.getAllClasses();
-		lessons = service.getAllLessons();
-		teachers = teacherService.getAllTeachers();
+		reload();
 	}
 
 	/**
@@ -118,8 +116,11 @@ public class LessonBean extends AbstractBean implements Serializable {
 	}
 
 	private void reload() {
-		// Reload Lessons.
+		classes = classService.getAllClasses();
 		lessons = service.getAllLessons();
+		teachers = teacherService.getAllTeachers();
+
+		RequestContext.getCurrentInstance().update( "lessonDT" );
 	}
 
 	/**

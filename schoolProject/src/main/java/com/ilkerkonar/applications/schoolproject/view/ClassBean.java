@@ -13,6 +13,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.context.RequestContext;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 import com.ilkerkonar.applications.schoolproject.orm.model.Student;
 import com.ilkerkonar.applications.schoolproject.orm.service.ClassService;
@@ -103,10 +105,12 @@ public class ClassBean extends AbstractBean implements Serializable {
 			classView.setTotal( size );
 			classView.setMaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "male" ) ).count() );
 			classView
-				.setFemaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count() );
+			.setFemaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count() );
 
 			classes.add( classView );
 		}
+
+		RequestContext.getCurrentInstance().update( "classDT" );
 	}
 
 	/**

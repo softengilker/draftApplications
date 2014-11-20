@@ -7,9 +7,11 @@
 
 <f:view contentType="text/html">
 	
-	<h:form id="lessonForm">
+	<h:form id="refreshForm">	
+		<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" actionListener="#{testBean.refreshPage}" ajax="false" update=":lessonForm:lessonDT" />
+	</h:form>
 	
-		<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" actionListener="#{lessonBean.refreshPage}" ajax="false" />
+	<h:form id="lessonForm">
 		
 		<p:dataTable var="lesson" value="#{lessonBean.lessons}"
 			emptyMessage="#{lessonBean.messageMap['datatable.empty.message']}" id="lessonDT" widgetVar="lessonDT" style="width: 500px;" rowKey="#{lesson.no}">
@@ -62,13 +64,14 @@
 		</p:dialog>				
 	</h:form>											
 						
-	<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="120">
+	<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="170">
 		
 		<h:form id="deleteForm">
 			<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
 				<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
 					<h:outputText value="'#{lessonBean.paramLesson.name}' #{msg['lesson.delete.confirmation']}" />
 					<h:outputText value="#{msg['delete.confirmation']}" />
+					<h:outputText value="#{msg.note} #{msg['lesson.delete.confirmation.note']}" />
 					<f:facet name="footer">
         				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{lessonBean.removeLesson}" update=":lessonForm:lessonDT, :growl" />
         				<p:spacer width="40"/>

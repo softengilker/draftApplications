@@ -7,21 +7,25 @@
 
 	<f:view contentType="text/html">
 	
+		<h:form id="refreshForm">	
+			<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" ajax="false" actionListener="#{testBean.refreshPage}" update=":testForm:testDT" />
+		</h:form>
+	
 		<h:form id="testForm">
 			<p:dataTable var="test" value="#{testBean.tests}"
-				emptyMessage="#{testBean.messageMap['datatable.empty.message']}" id="testDT" widgetVar="testDT" style="width: 800px;">
+				emptyMessage="#{testBean.messageMap['datatable.empty.message']}" id="testDT" widgetVar="testDT" style="width: 850px;">
 				<p:column headerText="#{msg.id}" style="width: 5%;">
 					<h:outputText value="#{test.no}" />
 				</p:column>
 				<p:column headerText="#{msg.name}" style="width: 27%;">
 					<h:outputText value="#{test.name}" />
 				</p:column>
-				<p:column headerText="#{msg.lesson}" style="width: 15%;">
+				<p:column headerText="#{msg.lesson}" style="width: 16%;">
 					<h:outputText value="#{test.lesson.name}" />
 				</p:column>
 				<p:column headerText="#{msg.date}" style="width: 13%;">
 					<h:outputText value="#{test.date}">
-						<f:convertDateTime pattern="dd-MMM-yyyy" locale="tr" />
+						<f:convertDateTime pattern="dd-MMM-yyyy" locale="tr" timeZone="GMT+2" />
 					</h:outputText>
 				</p:column>
 				<p:column headerText="#{msg.semester}" style="width: 8%;">
@@ -35,7 +39,7 @@
 				<p:column headerText="#{msg['test.test.number']}" style="width: 8%;">
 					<h:outputText value="#{test.testNumber}" />
 				</p:column>
-				<p:column headerText="#{msg['datatable.delete']}" style="width: 7%;">
+				<p:column headerText="#{msg['datatable.delete']}" style="width: 6%;">
 					<p:commandButton process="@this" icon="#{msg['datatable.delete.button.icon']}" title="#{msg['datatable.delete']}" oncomplete="PF('deleteConfirmationDialog').show();" update=":deleteConfirmationDialog">
 						<f:setPropertyActionListener value="#{test}" target="#{testBean.paramTest}"/>
 					</p:commandButton>				
@@ -127,13 +131,14 @@
 	   		</h:form>									 	
 		</p:dialog>
 		
-		<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="120">
+		<p:dialog id="deleteConfirmationDialog" style="text-align:center" widgetVar="deleteConfirmationDialog" header="#{msg['confirmation.header']}" width="350" resizable="false" height="170">
 			
 			<h:form id="deleteForm">
 				<p:outputPanel id="deletePanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
 					<h:panelGrid columns="1" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="leftAlignClass">
 						<h:outputText value="'#{testBean.paramTest.name}' #{msg['test.delete.confirmation']}" />
 						<h:outputText value="#{msg['delete.confirmation']}" />
+						<h:outputText value="#{msg.note} #{msg['test.delete.confirmation.note']}" />
 						<f:facet name="footer">
 	        				<p:commandButton id="deleteButtonCmd" process="@this" value="#{msg.yes}" icon="ui-icon-check" oncomplete="handleSubmitRequest( xhr, status, args, 'deleteConfirmationDialog', 'deleteForm' );" action="#{testBean.removeTest}" update=":testForm:testDT, :growl" />
 	        				<p:spacer width="40"/>
