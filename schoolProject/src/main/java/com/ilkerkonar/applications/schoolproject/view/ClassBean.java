@@ -105,7 +105,7 @@ public class ClassBean extends AbstractBean implements Serializable {
 			classView.setTotal( size );
 			classView.setMaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "male" ) ).count() );
 			classView
-			.setFemaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count() );
+				.setFemaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count() );
 
 			classes.add( classView );
 		}

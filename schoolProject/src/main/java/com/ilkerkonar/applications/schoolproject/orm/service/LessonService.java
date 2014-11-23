@@ -54,7 +54,7 @@ public class LessonService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -74,7 +74,7 @@ public class LessonService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -94,7 +94,7 @@ public class LessonService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 

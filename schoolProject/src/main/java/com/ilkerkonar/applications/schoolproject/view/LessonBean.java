@@ -64,12 +64,14 @@ public class LessonBean extends AbstractBean implements Serializable {
 		paramLesson = new Lesson();
 		newLesson = new Lesson();
 		reload();
+
 		setModelName( getBundle().getString( "lesson" ) );
 		setInitialMessages();
 	}
 
 	public void refreshPage( final ActionEvent event ) {
 		reload();
+
 	}
 
 	/**
@@ -121,6 +123,7 @@ public class LessonBean extends AbstractBean implements Serializable {
 		teachers = teacherService.getAllTeachers();
 
 		RequestContext.getCurrentInstance().update( "lessonDT" );
+
 	}
 
 	/**
