@@ -56,7 +56,7 @@
 		 *<br />
 		 * Tasarım Desenleri Sitesi Kodları. Dikkat: Her hakkı saklıdır.<br />
 		 */<br />
-		<br />		
+		 <br />
 		 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-7707439910959753";
 /* Yeni Tasarım Desenleri Kod İçi */
@@ -67,36 +67,29 @@ google_ad_height = 60;
 </script>
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>		
-		<br />		 		 
+</script>
+		<br />				 
 		<br />
 		</span><span class="java4">package </span><span class="java10">com.ilkerkonar.td.desen.ornekkodlar.facade;<br />
 		<br />
 		</span><span class="java14">/**<br />
-		 * Bilgisayar.java<br />
+		 * İşlemci.java<br />
 		 *<br />
 		 * Tarih bilgisi : May 24, 2014<br />
 		 */<br />
-		</span><span class="java4">public class </span><span class="java10">Bilgisayar </span><span class="java8">{<br />
+		</span><span class="java4">public class </span><span class="java10">İşlemci </span><span class="java8">{<br />
 		<br />
-		&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">a&ccedil;</span><span class="java8">() {<br />
+		&#xA0;&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">a&ccedil;ıl</span><span class="java8">() {<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;İşlemci a&ccedil;ıldı.&#34; </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0; </span><span class="java8">}<br />
 		<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java3">// &Ouml;n y&uuml;z sınıfının kullandığı ve istemcinin<br />
-		&#xA0;&#xA0;&#xA0; // bilmediği detay sınıflar.<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">İşlemci işlemci = </span><span class="java4">new </span><span class="java10">İşlemci</span><span class="java8">()</span><span class="java10">;<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">Bellek bellek = </span><span class="java4">new </span><span class="java10">Bellek</span><span class="java8">()</span><span class="java10">;<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">SabitDisk disk = </span><span class="java4">new </span><span class="java10">SabitDisk</span><span class="java8">()</span><span class="java10">;<br />
+		&#xA0;&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">konumlan</span><span class="java8">( </span><span class="java4">final </span><span class="java10">String adres </span><span class="java8">) {<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;İşlemci &#34; </span><span class="java10">+ adres + </span><span class="java5">&#34;'ine konumlandı.&#34; </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0; </span><span class="java8">}<br />
 		<br />
-		&#xA0;&#xA0;&#xA0; işlemci.a&ccedil;ıl</span><span class="java8">()</span><span class="java10">;<br />
-		<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java4">final </span><span class="java10">String a&ccedil;ılış_bilgisi = disk.oku</span><span class="java8">( </span><span class="java5">&#34;başlangı&ccedil; sekt&ouml;r&uuml;:4545656&#34;</span><span class="java10">, </span><span class="java5">&#34;sekt&ouml;r uzunluğu:1222&#34; </span><span class="java8">)</span><span class="java10">;<br />
-		<br />
-		&#xA0;&#xA0;&#xA0; bellek.y&uuml;kle</span><span class="java8">( </span><span class="java5">&#34;a&ccedil;ılış adresi:1522262&#34;</span><span class="java10">, a&ccedil;ılış_bilgisi </span><span class="java8">)</span><span class="java10">;<br />
-		<br />
-		&#xA0;&#xA0;&#xA0; işlemci.konumlan</span><span class="java8">( </span><span class="java5">&#34;a&ccedil;ılış adresi:1522262&#34; </span><span class="java8">)</span><span class="java10">;<br />
-		<br />
-		&#xA0;&#xA0;&#xA0; işlemci.&ccedil;alış</span><span class="java8">()</span><span class="java10">;<br />
-		&#xA0; </span><span class="java8">}<br />
+		&#xA0;&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">&ccedil;alış</span><span class="java8">() {<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;İşlemci &ccedil;alıştı.&#34; </span><span class="java8">)</span><span class="java10">;<br />
+		&#xA0;&#xA0; </span><span class="java8">}<br />
 		}</span></code></div>	
 	</div>
 	<div id="tabs-4">
@@ -109,23 +102,19 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		</span><span class="java4">package </span><span class="java10">com.ilkerkonar.td.desen.ornekkodlar.facade;<br />
 		<br />
 		</span><span class="java14">/**<br />
-		 * İşlemci.java<br />
+		 * SabitDisk.java<br />
 		 *<br />
 		 * Tarih bilgisi : May 24, 2014<br />
 		 */<br />
-		</span><span class="java4">public class </span><span class="java10">İşlemci </span><span class="java8">{<br />
+		</span><span class="java4">public class </span><span class="java10">SabitDisk </span><span class="java8">{<br />
 		<br />
-		&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">a&ccedil;ıl</span><span class="java8">() {<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;İşlemci a&ccedil;ıldı.&#34; </span><span class="java8">)</span><span class="java10">;<br />
-		&#xA0; </span><span class="java8">}<br />
+		&#xA0;&#xA0; </span><span class="java4">public </span><span class="java10">String oku</span><span class="java8">( </span><span class="java4">final </span><span class="java10">String başlangı&ccedil;_adresi, </span><span class="java4">final </span><span class="java10">String uzunluk </span><span class="java8">) {<br />
 		<br />
-		&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">konumlan</span><span class="java8">( </span><span class="java4">final </span><span class="java10">String adres </span><span class="java8">) {<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;İşlemci &#34; </span><span class="java10">+ adres + </span><span class="java5">&#34;'ine konumlandı.&#34; </span><span class="java8">)</span><span class="java10">;<br />
-		&#xA0; </span><span class="java8">}<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;Sabit disk '&#34; </span><span class="java10">+ başlangı&ccedil;_adresi + </span><span class="java5">&#34;' &#34; </span><span class="java10">+ </span><span class="java5">&#34;adresinden &#34; </span><span class="java10">+ uzunluk<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; + </span><span class="java5">&#34; kadar bilgiyi okudu.&#34; </span><span class="java8">)</span><span class="java10">;<br />
 		<br />
-		&#xA0; </span><span class="java4">public </span><span class="java9">void </span><span class="java10">&ccedil;alış</span><span class="java8">() {<br />
-		&#xA0;&#xA0;&#xA0; </span><span class="java10">System.out.println</span><span class="java8">( </span><span class="java5">&#34;İşlemci &ccedil;alıştı.&#34; </span><span class="java8">)</span><span class="java10">;<br />
-		&#xA0; </span><span class="java8">}<br />
+		&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; </span><span class="java4">return </span><span class="java5">&#34;okunan_bilgi&#34;</span><span class="java10">;<br />
+		&#xA0;&#xA0; </span><span class="java8">}<br />
 		}</span></code></div>	
 	</div>
 	<div id="tabs-5">
