@@ -124,6 +124,22 @@ input, textarea, select {
 	text-decoration: none;
 }
 
+
+/* Language */
+#language {
+	float: right;
+}
+
+#language ul {
+	margin: 0;
+	padding: 20px 15px 0 150px;
+	list-style: none;
+}
+
+#language li {
+	display: inline;
+}
+
 /* Menu */
 
 #menu {
@@ -313,4 +329,7 @@ input, textarea, select {
 	margin-bottom: 10px;
 }
 
+.listeIceri {
+	padding-left: 20px;
+}
 

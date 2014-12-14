@@ -2,6 +2,31 @@
 
 <%
 	getServletContext().setAttribute( "activePage", "resume" );
+
+	int langIndex = 0;
+	String lang = request.getParameter( "lang" );
+	
+	if ( lang == null ) {
+		lang = "eng";
+	} else if ( lang.equals( "tr" ) ) {
+		langIndex = 1;
+	}
+	
+	int fieldCount = 6;
+	String[][] langArray = new String[fieldCount][2];
+	
+	langArray[0][0] = "Senior Software Developer";
+	langArray[0][1] = "Kıdemli Yazılım Mühendisi";
+	langArray[1][0] = "SENIOR SOFTWARE DEVELOPER";
+	langArray[1][1] = "KIDEMLİ YAZILIM MÜHENDİSİ";
+	langArray[2][0] = "Profile";
+	langArray[2][1] = "Profil";
+	langArray[3][0] = "Skills";
+	langArray[3][1] = "Bilgisayar Bilgisi";
+	langArray[4][0] = "Experience";
+	langArray[4][1] = "Deneyim";		
+	langArray[5][0] = "Education";
+	langArray[5][1] = "Eğitim";		
 %>
 
 <head>
@@ -17,7 +42,7 @@
 			<div class="yui-gc">
 				<div class="yui-u first">
 					<h1>İlker KONAR</h1>
-					<h2>SENIOR SOFTWARE DEVELOPER</h2>
+					<h2><%=langArray[1][langIndex]%></h2>
 				</div>
 
 				<div class="yui-u">
@@ -38,7 +63,7 @@
 
 					<div class="yui-gf">
 						<div class="yui-u first">
-							<h2>Profile</h2>
+							<h2><%=langArray[2][langIndex]%></h2>
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
@@ -49,7 +74,7 @@
 
 					<div class="yui-gf">
 						<div class="yui-u first">
-							<h2>Skills</h2>
+							<h2><%=langArray[3][langIndex]%></h2>
 						</div>
 						<div class="yui-u">
 								<div class="talent">
@@ -112,21 +137,21 @@
 					<div class="yui-gf">
 	
 						<div class="yui-u first">
-							<h2>Experience</h2>
+							<h2><%=langArray[4][langIndex]%></h2>
 						</div><!--// .yui-u -->
 
 						<div class="yui-u">
 
 							<div class="job">
 								<h2>Turkcell Technology</h2>
-								<h3>Senior Software Developer</h3>
+								<h3><%=langArray[0][langIndex]%></h3>
 								<h4>09.2011 - ...</h4>
 								<p>Telecom Charging software application developments with J2EE technologies and Oracle PL/SQL. Designing, coding, unit testing, code reviewing, providing test team support. Troubleshoot for program bugs in existing systems. Make recommendations on the business requirements, technical documentation. Participate in continuous improvement initiatives.</p>
 							</div>
 
 							<div class="job">
 								<h2>Vodafone Technology</h2>
-								<h3>Senior Software Developer</h3>
+								<h3><%=langArray[0][langIndex]%></h3>
 								<h4>02.2007 - 09.2011</h4>
 								<p>Software coding and unit testing in order to create Telecom Messaging Applications. Recommend new approaches and tools. For example advised and provided spread of Maven and spring framework usage to other development teams.</p>
 							</div>
@@ -159,7 +184,7 @@
 
 					<div class="yui-gf last">
 						<div class="yui-u first">
-							<h2>Education</h2>
+							<h2><%=langArray[5][langIndex]%></h2>
 						</div>
 						<div class="yui-u">
 							<h2>Ege University - Izmir, Turkey&nbsp;&nbsp;2000-2004</h2>

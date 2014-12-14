@@ -4,6 +4,29 @@
 
 <%
 	String activePage = ( String ) getServletContext().getAttribute( "activePage" );
+
+	int langIndex = 0;
+	String lang = request.getParameter( "lang" );
+	
+	if ( lang == null ) {
+		lang = "eng";
+	} else if ( lang.equals( "tr" ) ) {
+		langIndex = 1;
+	}
+	
+	int fieldCount = 5;
+	String[][] langArray = new String[fieldCount][2];
+	
+	langArray[0][0] = "Me";
+	langArray[0][1] = "Ben";
+	langArray[1][0] = "Software Developer, Father, Wild Nature Lover";
+	langArray[1][1] = "Yazılım Mühendisi, Baba, Doğasever";
+	langArray[2][0] = "Home";
+	langArray[2][1] = "Ana Sayfa";
+	langArray[3][0] = "Photos";
+	langArray[3][1] = "Fotoğraflar";
+	langArray[4][0] = "Resume";
+	langArray[4][1] = "Özgeçmiş";
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,28 +47,19 @@
 <body>
 	<div id="header">
 		<div id="logo">
-			<h1><a href="#">İlker.<font style="color:#0A769A;">KONAR</font><sup>Me</sup></a></h1>
-			<h2>Software Developer, Father, Wild Nature Lover</h2>
+			<h1><a href="#">İlker.<font style="color:#0A769A;">KONAR</font><sup><%=langArray[0][langIndex]%></sup></a></h1>
+			<h2><%=langArray[1][langIndex]%></h2>
+		</div>
+		<div id="language">
+			<ul>
+				<li><a href="/jsp/<%=activePage%>.jsp?lang=<%=lang.equals( "eng" ) ? "tr" : "eng"%>" title="<%=lang.equals( "eng" ) ? "Türkçe diline geç" : "Convert to English"%>"><img src="/image/<%=lang.equals( "eng" ) ? "turk_bayrak.gif" : "british-flag.jpg"%>"/></a></li>
+			</ul>
 		</div>
 		<div id="menu">
 			<ul>
-				<% if ( activePage.equals( "home" ) ) { %>
-					<li class="active"><a href="/jsp/home.jsp">Home</a></li>
-				<% } else { %>
-					<li><a href="/jsp/home.jsp">Home</a></li>
-				<% } 
-				   if ( activePage.equals( "photos" ) ) {	
-				%>
-					<li class="active"><a href="#">Photos</a></li>
-				<% } else { %>
-					<li><a href="#">Photos</a></li>
-				<% } 
-				   if ( activePage.equals( "resume" ) ) {	
-				%>
-					<li class="active"><a href="/jsp/resume.jsp">Resume</a></li>
-				<% } else { %>
-					<li><a href="/jsp/resume.jsp">Resume</a></li>
-				<% } %>									
+				<li <% if ( activePage.equals( "home" ) ) { %>class="active"<%}%>><a href="/jsp/home.jsp?lang=<%=lang%>"><%=langArray[2][langIndex]%></a></li>
+				<li <% if ( activePage.equals( "photos" ) ) { %>class="active"<%}%>><a href="/jsp/photos.jsp?lang=<%=lang%>"><%=langArray[3][langIndex]%></a></li>
+				<li <% if ( activePage.equals( "resume" ) ) { %>class="active"<%}%>><a href="/jsp/resume.jsp?lang=<%=lang%>"><%=langArray[4][langIndex]%></a></li>
 			</ul>
 		</div>
 	</div>
