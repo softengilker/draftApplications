@@ -33,8 +33,9 @@ public class EpostaGonder {
 
 		try {
 			final Message msg = new MimeMessage( session );
-			msg.setFrom( new InternetAddress( "bilgi@tasarimdesenleri.com", "Tasarım Desenleri Sitesi" ) );
-			msg.addRecipient( Message.RecipientType.TO, new InternetAddress( "ilkerkonar@gmail.com", "Bay İlker KONAR" ) );
+			msg.setFrom( new InternetAddress( "ilkerkonar@gmail.com", "Tasarım Desenleri Sitesi" ) );
+			msg.addRecipient( Message.RecipientType.TO, new InternetAddress( "softengilker@gmail.com",
+				"Bay İlker KONAR" ) );
 			msg.setSubject( "Yorum Eklenmiştir" );
 			msg.setText( msgBody );
 			Transport.send( msg );
