@@ -1,9 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+<%
+	getServletContext().setAttribute( "activePage", "home" );
+%>
+
 <div id="page">
 	<div id="content">
 		<div class="box1">
-			<p><img src="/image/ben1.jpg" alt="" width="248" height="213" class="left" /><strong>Hello!, Welcome. A bit of me :</strong> I was born in İzmir, Turkey. I have accommodated in İstanbul, Turkey for a long time. I'm married and I've got very beautiful, cute daughter. She is my nearly everything in the life. I love her.<br/><br/>I am passionate software developer. I have been coding for about fifteen years. I love to build helpful, wonderful software and products.<br/><br/>For more about me, please contact.</p>
+			<p><img src="/image/ben1.jpg" alt="" width="248" height="213" class="left" /><strong>Hello!, Welcome. A bit of me :</strong> I was born in İzmir, Turkey. I have accommodated in İstanbul, Turkey for a long time. I'm married and I've got very beautiful, cute daughter. She is my nearly everything in the life. I love her.<br/><br/>I am passionate software developer. I have been coding for about fifteen years. I love to build helpful, wonderful software and products. I like continued learning new technologies, languages and frameworks.<br/><br/>I like outdoor activities like trekking, hunting. From the first steps into the forest, my entire body feels changed. I feel peaceful and calm in the nature.<br/><br/>For more about me, please contact.</p>
 		</div>
 	</div>	
 	<div id="sidebar">
@@ -23,9 +27,12 @@
 		</ul>
 		<ul>
 			<li>
-				<h2>Developer Sites</h2>
+				<h2>Developer Sites, I follow</h2>
 				<ul>
-					<li><a href="http://www.tasarimdesenleri.com" target="_blank">Tasarım Desenleri</a></li>
+					<li><a href="http://www.tasarimdesenleri.com" target="_blank">Tasarım Desenleri</a>&nbsp;( I built )</li>
+					<li><a href="http://www.javacodegeeks.com/" target="_blank">Java Code Geeks</a></li>
+					<li><a href="http://www.infoq.com/" target="_blank">InfoQ</a></li>
+					<li><a href="http://www.dzone.com/" target="_blank">Dzone</a></li>										
 				</ul>
 			</li>
 		</ul>

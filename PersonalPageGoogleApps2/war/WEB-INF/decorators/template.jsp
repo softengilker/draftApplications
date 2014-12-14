@@ -2,6 +2,10 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="decorator"%>
 
+<%
+	String activePage = ( String ) getServletContext().getAttribute( "activePage" );
+%>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -25,9 +29,23 @@
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="active"><a href="/jsp/home.jsp">Home</a></li>
-				<li><a href="#">Photos</a></li>
-				<li><a href="/jsp/resume.jsp">Resume</a></li>				
+				<% if ( activePage.equals( "home" ) ) { %>
+					<li class="active"><a href="/jsp/home.jsp">Home</a></li>
+				<% } else { %>
+					<li><a href="/jsp/home.jsp">Home</a></li>
+				<% } 
+				   if ( activePage.equals( "photos" ) ) {	
+				%>
+					<li class="active"><a href="#">Photos</a></li>
+				<% } else { %>
+					<li><a href="#">Photos</a></li>
+				<% } 
+				   if ( activePage.equals( "resume" ) ) {	
+				%>
+					<li class="active"><a href="/jsp/resume.jsp">Resume</a></li>
+				<% } else { %>
+					<li><a href="/jsp/resume.jsp">Resume</a></li>
+				<% } %>									
 			</ul>
 		</div>
 	</div>

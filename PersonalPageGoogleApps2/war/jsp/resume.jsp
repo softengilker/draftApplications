@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+<%
+	getServletContext().setAttribute( "activePage", "resume" );
+%>
+
 <head>
 	<link href="/css/resume.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="/css/reset-fonts-grids.css" rel="stylesheet" type="text/css" media="all" />
@@ -67,13 +71,13 @@
 									<h2>Subversion, Git, ClearCase</h2>
 								</div>
 								<div class="talent">
-									<h2>Struts, Struts2, JSF</h2>
+									<h2>Struts, Struts2</h2>
 								</div>
 								<div class="talent">
-									<h2>Primefaces</h2>
+									<h2>JSF, Primefaces</h2>
 								</div>
 								<div class="talent">
-									<h2>Html, Css, Java Script, Jquery</h2>
+									<h2>Html, Css, Java Script, Jquery, Angular JS</h2>
 								</div>
 								<div class="talent">
 									<h2>Oracle, Mysql, PostgreSql</h2>
@@ -114,32 +118,39 @@
 						<div class="yui-u">
 
 							<div class="job">
-								<h2>Facebook</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
+								<h2>Turkcell Technology</h2>
+								<h3>Senior Software Developer</h3>
+								<h4>09.2011 - ...</h4>
+								<p>Telecom Charging software application developments with J2EE technologies and Oracle PL/SQL. Designing, coding, unit testing, code reviewing, providing test team support. Troubleshoot for program bugs in existing systems. Make recommendations on the business requirements, technical documentation. Participate in continuous improvement initiatives.</p>
 							</div>
 
 							<div class="job">
-								<h2>Apple Inc.</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. </p>
+								<h2>Vodafone Technology</h2>
+								<h3>Senior Software Developer</h3>
+								<h4>02.2007 - 09.2011</h4>
+								<p>Software coding and unit testing in order to create Telecom Messaging Applications. Recommend new approaches and tools. For example advised and provided spread of Maven and spring framework usage to other development teams.</p>
 							</div>
 
 							<div class="job">
-								<h2>Microsoft</h2>
-								<h3>Principal and Creative Lead</h3>
-								<h4>2004-2005</h4>
-								<p>Intrinsicly transform flexible manufactured products without excellent intellectual capital. Energistically evisculate orthogonal architectures through covalent action items. Assertively incentivize sticky platforms without synergistic materials. </p>
+								<h2>Infina Software</h2>
+								<h3>Software Developer</h3>
+								<h4>11.2006 - 02.2007</h4>
+								<p>Developing, unit testing and documentation some financial J2EE applications.</p>
+							</div>
+							
+							<div class="job">
+								<h2>Military Service</h2>
+								<h3>Turkish Soldier and Software Developer</h3>
+								<h4>11.2005 - 11.2006</h4>
+								<p>Developed some useful web applications with .NET C# and ASP for the Army</p>
 							</div>
 
 
 							<div class="job last">
-								<h2>International Business Machines (IBM)</h2>
-								<h3>Lead Web Designer</h3>
-								<h4>2001-2004</h4>
-								<p>Globally re-engineer cross-media schemas through viral methods of empowerment. Proactively grow long-term high-impact human capital and highly efficient innovation. Intrinsicly iterate excellent e-tailers with timely e-markets.</p>
+								<h2>Done Communication and Information Systems</h2>
+								<h3>Mobile Application Developer</h3>
+								<h4>07.2004 - 11.2005</h4>
+								<p>Developed some J2ME mobile games for old 64KB memory Nokia phones. Memory optimization, complex math. calculations for the games.</p>
 							</div>
 
 						</div><!--// .yui-u -->
@@ -151,8 +162,8 @@
 							<h2>Education</h2>
 						</div>
 						<div class="yui-u">
-							<h2>Indiana University - Bloomington, Indiana</h2>
-							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
+							<h2>Ege University - Izmir, Turkey&nbsp;&nbsp;2000-2004</h2>
+							<h3>Computer Engineering &mdash; <strong>4.0 GPA</strong> </h3>
 						</div>
 					</div><!--// .yui-gf -->
 
