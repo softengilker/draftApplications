@@ -18,11 +18,11 @@
 	langArray[0][0] = "Hello!, Welcome. A bit of me :";
 	langArray[0][1] = "Merhaba!, Biraz kendimden bahsedecek olursam :";
 	langArray[1][0] = " I was born in İzmir, Turkey. I have accommodated in İstanbul, Turkey for a long time. I'm married and I've got very beautiful, cute daughter. She is my nearly everything in the life. I love her.";
-	langArray[1][1] = " İzmir'liyim. Fakat uzun zamandır İstanbul'da ikamet ediyorum. Evliyim ve dünya tatlısı bir kızım var. Onu çok seviyorum.";
+	langArray[1][1] = " İzmirliyim. Uzun zamandır İstanbul'da yaşıyorum. Evliyim ve dünya tatlısı bir kızım var. Onu çok seviyorum.";
 	langArray[2][0] = "I am passionate software developer. I have been coding for about fifteen years. I love to build helpful, wonderful software and products. I like continued learning new technologies, languages and frameworks.";
-	langArray[2][1] = "Yazılım mühendisi, olarak işime tutku ile bağlıyım. Yaklaşık 15 yıldır kod yazıyorum. Faydalı, etkili uygulamalar geliştirmeyi seviyorum. Yeni teknolojileri takip ederek sürekli öğrenmeye çalışıyorum.";
+	langArray[2][1] = "Yazılım mühendisi olarak işime tutku ile bağlıyım. Yaklaşık on beş yıldır yazılım geliştiriyorum. Uygulamalarımın yararlı ve etkin olması için çabalıyorum. Yeni teknolojileri takip ederek sürekli kendimi yeniliyorum.";
 	langArray[3][0] = "I like outdoor activities like trekking, hunting. From the first steps into the forest, my entire body feels changed. I feel peaceful and calm in the nature.";
-	langArray[3][1] = "Trekking, avcılık gibi doğa sporları ile zaman buldukça ilgileniyorum. Doğaya çıktığımda, henüz ilk adımımı attığımda bile kendimi ve huzuru buluyorum.";
+	langArray[3][1] = "Trekking, avcılık gibi doğa sporları ile zaman buldukça ilgileniyorum. Doğaya çıktığımda, doğaya henüz ilk adımımı attığım anda, kendimi ve huzuru buluyorum.";
 	langArray[4][0] = "For more about me, please contact.";
 	langArray[4][1] = "Daha fazlası için lütfen iletişim kurunuz.";	
 	langArray[5][0] = "Contact";
