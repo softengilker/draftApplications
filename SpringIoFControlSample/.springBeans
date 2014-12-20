@@ -10,6 +10,9 @@
 		<config>src/main/resources/applicationContext.xml</config>
 		<config>src/main/resources/applicationContext2.xml</config>
 		<config>src/main/resources/applicationContext3.xml</config>
+		<config>src/main/resources/applicationContext4.xml</config>
+		<config>src/main/resources/applicationContext5.xml</config>
+		<config>src/main/resources/applicationContext6.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
