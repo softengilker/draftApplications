@@ -58,7 +58,7 @@
 	langArray[20][0] = "Developed some web applications with .NET C# and ASP for the Army.";
 	langArray[20][1] = "Deniz Kuvvetleri için .NET C# ve ASP teknolojileri ile web uygulamaları geliştirdim.";
 	langArray[21][0] = "Developed some J2ME mobile games for old 64KB memory Nokia phones. Memory optimization, complex math. calculations for the games.";
-	langArray[21][1] = "J2ME ile yalnızca 64 kilobyte belleğe sahip olan Nokia telefonlar için oyun geliştirdim. Oyun programlama sırasında karmaşık matematik işlemleri, bellek optimizasyonları ile ilgilendim.";	
+	langArray[21][1] = "J2ME ile yalnızca 64 kilobyte belleğe sahip olan Nokia telefonlar için oyun geliştirdim. Oyun programlama sırasında karmaşık matematik işlemleri, bellek optimizasyonları ile ilgilendim.";
 	langArray[22][0] = "GPA";	
 	langArray[22][1] = "Mezuniyet Not Ortalaması";				
 %>

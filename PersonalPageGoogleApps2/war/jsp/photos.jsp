@@ -28,5 +28,18 @@
 %>
 
 <div id="page">
-	Fotoğraflar
+	<table style="margin-left: 100px;">
+		<tr>
+			<td><img src="/image/photos/1.jpg"/></td>
+			<td><img src="/image/photos/2.JPG"/></td>			
+			<td><img src="/image/photos/3.JPG"/></td>
+			<td><img src="/image/photos/4.jpg"/></td>			
+		</tr>
+		<tr>
+			<td><img src="/image/photos/5.jpg"/></td>
+			<td><img src="/image/photos/6.JPG"/></td>			
+			<td><img src="/image/photos/7.JPG"/></td>
+			<td><img src="/image/photos/8.JPG"/></td>			
+		</tr>
+	</table>
 </div>
