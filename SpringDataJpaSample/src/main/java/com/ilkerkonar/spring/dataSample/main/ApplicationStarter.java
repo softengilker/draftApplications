@@ -27,5 +27,12 @@ public class ApplicationStarter {
 		p1.setGrade( 56 );
 
 		personRepository.save( p1 );
+
+		try {
+			Thread.sleep( 300000L );
+		} catch ( final InterruptedException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
