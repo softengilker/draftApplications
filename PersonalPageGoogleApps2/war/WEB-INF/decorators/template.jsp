@@ -37,9 +37,15 @@
 	<META http-equiv="content-language" content="TR">
 	<meta name="currentPageType" content="ana"/>
 
+	<script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/js/benim.js"></script>
-	<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />	
-
+	<script type="text/javascript" src="/js/glisse.js"></script>
+	
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/glisse.css" rel="stylesheet" type="text/css" media="all" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico" />
+		
 	<title><decorator:title default="İlker KONAR Kişisel Sayfam" /></title>
 	<decorator:head />
 </head>

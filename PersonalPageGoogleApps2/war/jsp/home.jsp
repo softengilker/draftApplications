@@ -28,7 +28,7 @@
 	langArray[5][0] = "Contact";
 	langArray[5][1] = "İletişim";	
 	langArray[6][0] = "Sites I Built:";
-	langArray[6][1] = "Kendim Geliştirdim:";	
+	langArray[6][1] = "Çalışmalarım:";	
 	langArray[7][0] = "Developer Sites, I follow";
 	langArray[7][1] = "Takip Ettiğim Siteler";	
 %>
@@ -54,6 +54,7 @@
 						<a href="http://tr.linkedin.com/pub/i%CC%87lker-konar/5/237/998" target="_blank"><img src="/image/linkedin_32.gif" /></a>
 						<a href="https://twitter.com/ilkerkonar" target="_blank"><img src="/image/twitter_32.gif" /></a>
 						<a href="http://iyikodyazma.blogspot.com.tr/" target="_blank"><img src="/image/blogger_32.gif" /></a>
+						<a href="https://github.com/softengilker" target="_blank"><img src="/image/github.png" /></a>						
 					</li>
 				</ul>
 			</li>
