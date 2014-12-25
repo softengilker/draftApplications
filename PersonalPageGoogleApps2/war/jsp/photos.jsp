@@ -45,7 +45,7 @@
 			<td><img class="pics" src="/image/photos/5.jpg" data-glisse-big="/image/photos/5B.jpg" rel="group1" title="<%=langArray[4][langIndex]%>" style="cursor: hand;"/></td>
 			<td><img class="pics" src="/image/photos/6.JPG" data-glisse-big="/image/photos/6B.JPG" rel="group1" title="<%=langArray[5][langIndex]%>" style="cursor: hand;"/></td>			
 			<td><img class="pics" src="/image/photos/7.JPG" data-glisse-big="/image/photos/7B.JPG" rel="group1" title="<%=langArray[6][langIndex]%>" style="cursor: hand;"/></td>
-			<td><img class="pics" src="/image/photos/8.jpg" data-glisse-big="/image/photos/8B.jpg" rel="group1" title="<%=langArray[7][langIndex]%>" style="cursor: hand;"/></td>			
+			<td><img class="pics" src="/image/photos/8.JPG" data-glisse-big="/image/photos/8B.JPG" rel="group1" title="<%=langArray[7][langIndex]%>" style="cursor: hand;"/></td>			
 		</tr>
 	</table>
 </div>
