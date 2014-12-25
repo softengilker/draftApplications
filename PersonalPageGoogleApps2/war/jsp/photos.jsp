@@ -36,7 +36,7 @@
 <div id="page">
 	<table style="margin-left: 100px;">
 		<tr>
-			<td><img class="pics" src="/image/photos/1.jpg" data-glisse-big="/image/photos/1B.jpg" rel="group1" title="<%=langArray[0][langIndex]%>" style="cursor: hand;"/></td>
+			<td><img class="pics" src="/image/photos/1.jpg" data-glisse-big="/image/photos/1B.JPG" rel="group1" title="<%=langArray[0][langIndex]%>" style="cursor: hand;"/></td>
 			<td><img class="pics" src="/image/photos/2.JPG" data-glisse-big="/image/photos/2B.JPG" rel="group1" title="<%=langArray[1][langIndex]%>" style="cursor: hand;"/></td>			
 			<td><img class="pics" src="/image/photos/3.JPG" data-glisse-big="/image/photos/3B.JPG" rel="group1" title="<%=langArray[2][langIndex]%>" style="cursor: hand;"/></td>
 			<td><img class="pics" src="/image/photos/4.jpg" data-glisse-big="/image/photos/4B.jpg" rel="group1" title="<%=langArray[3][langIndex]%>" style="cursor: hand;"/></td>			
