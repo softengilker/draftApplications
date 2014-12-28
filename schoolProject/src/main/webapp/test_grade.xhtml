@@ -27,19 +27,31 @@
 			<p:outputPanel id="gradePanel" rendered="#{testGradeBean.showGradeInput}">
 			
 				<p:dataTable var="studentItem" value="#{testGradeBean.gradeStudents}" emptyMessage="#{studentBean.messageMap['datatable.empty.message']}" 
-					id="gradeInputDT" widgetVar="gradeInputDT" style="width: 300px;" editable="true" editMode="cell">
+					id="gradeInputDT" widgetVar="gradeInputDT" style="width: 380px;" editable="true" editMode="cell">
 					
 					<p:ajax event="cellEdit" listener="#{testGradeBean.onCellEdit}" update=":testGradeForm:gradeInputDT" />
 					
-					<p:column headerText="#{msg.student}" style="width: 60%;">
+					<p:column headerText="#{msg.student}" style="width: 51%;">
 						<h:outputText value="#{studentItem.studentName}" />
 					</p:column>
 									
 					<p:column headerText="#{msg['testgrade.grade']}">
               			<p:cellEditor>
                   			<f:facet name="output"><h:outputText value="#{studentItem.grade}" /></f:facet>
-                  			<f:facet name="input"><p:inputText id="studentGradeInput" value="#{studentItem.grade}" style="width:96%"/></f:facet>
+                  			<f:facet name="input">
+                  				<p:inputText id="studentGradeInput" value="#{studentItem.grade}" style="width:96%">
+                  					<p:ajax event="blur" update=":testGradeForm:gradeInputDT" />
+                  				</p:inputText>
+                  			</f:facet>
               			</p:cellEditor>
+              		</p:column>
+              		
+              		<p:column headerText="#{msg['testgrade.absent.header']}" style="width: 31%;">
+              			<h:outputText value="#{msg['testgrade.absent']}" />
+              			<p:spacer height="5" width="10"/>
+        				<p:selectBooleanCheckbox value="#{studentItem.absent}">
+            				<p:ajax update=":testGradeForm:gradeInputDT" listener="#{testGradeBean.absentCheckEvent}" />
+        				</p:selectBooleanCheckbox>              		
               		</p:column>
               		
 				</p:dataTable>

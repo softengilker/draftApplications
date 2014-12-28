@@ -18,6 +18,8 @@ public class StudentGrade implements Serializable {
 
 	private Float				grade;
 
+	private Boolean				absent;
+
 	public Long getStudentNo() {
 		return studentNo;
 	}
@@ -50,9 +52,17 @@ public class StudentGrade implements Serializable {
 		this.grade = grade;
 	}
 
+	public Boolean getAbsent() {
+		return absent;
+	}
+
+	public void setAbsent( final Boolean absent ) {
+		this.absent = absent;
+	}
+
 	@Override
 	public String toString() {
 		return "StudentGrade [studentNo=" + studentNo + ", testNo=" + testNo + ", studentName=" + studentName
-			+ ", grade=" + grade + "]";
+			+ ", grade=" + grade + ", absent=" + absent + "]";
 	}
 }

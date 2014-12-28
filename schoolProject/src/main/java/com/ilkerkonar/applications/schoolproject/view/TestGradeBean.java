@@ -13,8 +13,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 
+import org.primefaces.component.column.Column;
 import org.primefaces.component.datatable.DataTable;
+import org.primefaces.component.selectbooleancheckbox.SelectBooleanCheckbox;
 import org.primefaces.event.CellEditEvent;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.Lesson;
@@ -80,6 +83,10 @@ public class TestGradeBean extends AbstractBean implements Serializable {
 	}
 
 	public void getTheGradeInput( final ActionEvent event ) {
+		loadGrades();
+	}
+
+	private void loadGrades() {
 		showGradeInput = true;
 
 		final Test test = service.getTest( paramTestNo );
@@ -96,10 +103,15 @@ public class TestGradeBean extends AbstractBean implements Serializable {
 			studentGrade.setStudentName( student.getName() );
 			studentGrade.setStudentNo( student.getNo() );
 			studentGrade.setTestNo( paramTestNo );
+			studentGrade.setAbsent( false );
 
 			try {
 				final TestStudent testStudent = service.getTestStudent( paramTestNo, student.getNo() );
 				studentGrade.setGrade( testStudent.getGrade() );
+
+				if ( testStudent.getGrade().floatValue() == -1f ) {
+					studentGrade.setAbsent( true );
+				}
 			} catch ( final javax.persistence.NoResultException nre ) {
 				studentGrade.setGrade( 0.0f );
 			}
@@ -133,6 +145,35 @@ public class TestGradeBean extends AbstractBean implements Serializable {
 				service.addNewTestStudent( testStudent );
 			}
 		}
+
+		loadGrades();
+	}
+
+	public void absentCheckEvent( final AjaxBehaviorEvent event ) {
+		final SelectBooleanCheckbox s = ( SelectBooleanCheckbox ) event.getSource();
+		final Boolean checkBoxValue = ( Boolean ) s.getValue();
+		final Column c = ( Column ) s.getParent();
+		final DataTable d = ( DataTable ) c.getParent();
+		final StudentGrade rowData = ( StudentGrade ) d.getRowData();
+
+		TestStudent testStudent = null;
+
+		try {
+			testStudent = service.getTestStudent( rowData.getTestNo(), rowData.getStudentNo() );
+			testStudent.setGrade( checkBoxValue ? -1f : 0f );
+
+			service.updateTestStudent( testStudent );
+
+		} catch ( final javax.persistence.NoResultException nre ) {
+			testStudent = new TestStudent();
+			testStudent.setGrade( checkBoxValue ? -1f : 0f );
+			testStudent.setTest( service.getTest( rowData.getTestNo() ) );
+			testStudent.setStudent( studentService.getStudent( rowData.getStudentNo() ) );
+
+			service.addNewTestStudent( testStudent );
+		}
+
+		loadGrades();
 	}
 
 	/**
