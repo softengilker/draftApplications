@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view contentType="text/html">
+	
+		<h:form id="refreshForm">	
+			<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" ajax="false" actionListener="#{testGradeBean.refreshPage}" update=":testGradeForm:gradePanel" />
+		</h:form>
+	
+		<h:form id="testGradeForm">
+		
+			<p:outputPanel id="testPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+				<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
+					<p:outputLabel value="#{msg.test}:"/>
+					<p:selectOneMenu id="testMenu" value="#{testGradeBean.paramTestNo}">
+						<f:selectItems value="#{testGradeBean.tests}" var="testItem" itemLabel="#{testItem.name}" itemValue="#{testItem.no}"/>						
+					</p:selectOneMenu>
+					<p:spacer height="5" width="100"/>
+					<p:commandButton value="Öğrencileri Listele" actionListener="#{testGradeBean.getTheGradeInput}" update="@form"/>					
+				</h:panelGrid>
+			</p:outputPanel>
+			
+			<p:outputPanel id="gradePanel" rendered="#{testGradeBean.showGradeInput}">
+			
+				<p:dataTable var="studentItem" value="#{testGradeBean.gradeStudents}" emptyMessage="#{studentBean.messageMap['datatable.empty.message']}" 
+					id="gradeInputDT" widgetVar="gradeInputDT" style="width: 300px;" editable="true" editMode="cell">
+					
+					<p:ajax event="cellEdit" listener="#{testGradeBean.onCellEdit}" update=":testGradeForm:gradeInputDT" />
+					
+					<p:column headerText="#{msg.student}" style="width: 60%;">
+						<h:outputText value="#{studentItem.studentName}" />
+					</p:column>
+									
+					<p:column headerText="#{msg['testgrade.grade']}">
+              			<p:cellEditor>
+                  			<f:facet name="output"><h:outputText value="#{studentItem.grade}" /></f:facet>
+                  			<f:facet name="input"><p:inputText id="studentGradeInput" value="#{studentItem.grade}" style="width:96%"/></f:facet>
+              			</p:cellEditor>
+              		</p:column>
+              		
+				</p:dataTable>
+							
+			</p:outputPanel>
+		
+		</h:form>
+				
+	</f:view>
+	
+	<p:growl id="growl" showDetail="true" life="3000" />
+
+</html>

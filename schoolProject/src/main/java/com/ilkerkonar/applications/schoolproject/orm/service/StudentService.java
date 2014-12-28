@@ -41,6 +41,15 @@ public class StudentService {
 		return namedQuery.getResultList();
 	}
 
+	public Student getStudent( final Long no ) {
+
+		final TypedQuery< Student > namedQuery = entityManager.createNamedQuery( "Student.findById", Student.class );
+
+		namedQuery.setParameter( "no", no );
+
+		return namedQuery.getSingleResult();
+	}
+
 	public void addNewStudent( final Student student ) {
 
 		try {

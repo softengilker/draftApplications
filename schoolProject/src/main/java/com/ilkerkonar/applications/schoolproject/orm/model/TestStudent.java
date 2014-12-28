@@ -14,12 +14,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * @author ilker KONAR, senior software developer
  *
  */
 @Entity
+@NamedQueries( {
+	@NamedQuery( name = "TestStudent.findByStudentAndTest", query = "SELECT ts FROM TestStudent ts WHERE ts.student.no = :studentnoparam AND ts.test.no = :testnoparam" )
+} )
 public class TestStudent implements Serializable {
 
 	/**

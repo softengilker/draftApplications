@@ -21,6 +21,7 @@ import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.Test;
+import com.ilkerkonar.applications.schoolproject.orm.model.TestStudent;
 
 /**
  * @author ilker KONAR, senior software developer
@@ -47,6 +48,17 @@ public class TestService {
 			Test.class );
 
 		namedQuery.setParameter( "no", no );
+
+		return namedQuery.getSingleResult();
+	}
+
+	public TestStudent getTestStudent( final Long testNo, final Long studentNo ) {
+
+		final TypedQuery< TestStudent > namedQuery = entityManager.createNamedQuery(
+			"TestStudent.findByStudentAndTest", TestStudent.class );
+
+		namedQuery.setParameter( "testnoparam", testNo );
+		namedQuery.setParameter( "studentnoparam", studentNo );
 
 		return namedQuery.getSingleResult();
 	}
@@ -102,6 +114,46 @@ public class TestService {
 			transaction.begin();
 
 			entityManager.merge( test );
+			entityManager.flush();
+
+			transaction.commit();
+
+		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
+			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void updateTestStudent( final TestStudent testStudent ) {
+
+		try {
+			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
+				.lookup( "java:comp/UserTransaction" );
+
+			transaction.begin();
+
+			entityManager.merge( testStudent );
+			entityManager.flush();
+
+			transaction.commit();
+
+		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
+			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void addNewTestStudent( final TestStudent testStudent ) {
+
+		try {
+			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
+				.lookup( "java:comp/UserTransaction" );
+
+			transaction.begin();
+
+			entityManager.persist( testStudent );
 			entityManager.flush();
 
 			transaction.commit();
