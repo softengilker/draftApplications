@@ -19,7 +19,7 @@
 	
 	langArray[0][0] = "Me";
 	langArray[0][1] = "Ben";
-	langArray[1][0] = "Software Developer, Father, Wild Nature Lover";
+	langArray[1][0] = "Software Developer, Father, Nature Lover";
 	langArray[1][1] = "Yazılım Mühendisi, Baba, Doğa sever";
 	langArray[2][0] = "Home";
 	langArray[2][1] = "Ana Sayfa";
