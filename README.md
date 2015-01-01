@@ -1,4 +1,4 @@
-uygulamalar
+Consice info of the applications in the "draftApplications" repository:
 ===========
 
 I am going to put my draft projects into this repository.
