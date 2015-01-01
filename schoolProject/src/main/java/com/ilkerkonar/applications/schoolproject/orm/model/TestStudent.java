@@ -23,7 +23,8 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries( {
-	@NamedQuery( name = "TestStudent.findByStudentAndTest", query = "SELECT ts FROM TestStudent ts WHERE ts.student.no = :studentnoparam AND ts.test.no = :testnoparam" )
+	@NamedQuery( name = "TestStudent.findByStudentAndTest", query = "SELECT ts FROM TestStudent ts WHERE ts.student.no = :studentnoparam AND ts.test.no = :testnoparam" ),
+	@NamedQuery( name = "TestStudent.findByTest", query = "SELECT ts FROM TestStudent ts WHERE ts.test.no = :testnoparam" )
 } )
 public class TestStudent implements Serializable {
 

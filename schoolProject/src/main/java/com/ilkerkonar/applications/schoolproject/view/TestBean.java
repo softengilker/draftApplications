@@ -6,6 +6,7 @@ package com.ilkerkonar.applications.schoolproject.view;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -13,8 +14,11 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import org.primefaces.component.datatable.DataTable;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.Lesson;
 import com.ilkerkonar.applications.schoolproject.orm.model.Test;
+import com.ilkerkonar.applications.schoolproject.orm.model.TestStudent;
 import com.ilkerkonar.applications.schoolproject.orm.service.LessonService;
 import com.ilkerkonar.applications.schoolproject.orm.service.TestService;
 import com.ilkerkonar.applications.schoolproject.orm.type.ProcessType;
@@ -42,6 +46,8 @@ public class TestBean extends AbstractBean implements Serializable {
 
 	private List< Lesson >		lessons;
 
+	private Object[]			statisticList;
+
 	@ManagedProperty( "#{testService}" )
 	private TestService			service;
 
@@ -55,6 +61,8 @@ public class TestBean extends AbstractBean implements Serializable {
 		newTest = new Test();
 		setModelName( getBundle().getString( "test" ) );
 		setInitialMessages();
+
+		statisticList = new Object[ 8 ];
 	}
 
 	public void refreshPage( final ActionEvent event ) {
@@ -103,6 +111,56 @@ public class TestBean extends AbstractBean implements Serializable {
 		// Reload tests
 		tests = service.getAllTests();
 		lessons = lessonService.getAllLessons();
+	}
+
+	public void calculateStatistic( final ActionEvent event ) {
+		final DataTable s = ( DataTable ) ( ( org.primefaces.component.commandbutton.CommandButton ) event.getSource() )
+			.getParent().getParent();
+		final Test rowData = ( Test ) s.getRowData();
+
+		final Long testNo = rowData.getNo();
+
+		final List< TestStudent > testStudents = service.getTestStudents( testNo );
+
+		final Double average = getNewStream( testStudents ).mapToDouble( ts -> ts.getGrade() ).average().getAsDouble();
+
+		// Average grade.
+		statisticList[ 0 ] = String.format( "%.2f", average );
+
+		// Students count whose grade is higher than the average.
+		statisticList[ 1 ] = getNewStream( testStudents ).filter( ts -> ts.getGrade() >= average ).count();
+
+		// Students count whose grade is lower than the average.
+		statisticList[ 2 ] = getNewStream( testStudents ).filter( ts -> ts.getGrade() < average ).count();
+
+		// Average grade of the male students
+		statisticList[ 3 ] = getAverageByGender( testStudents, "male" );
+
+		// Average grade of the female students
+		statisticList[ 4 ] = getAverageByGender( testStudents, "female" );
+
+		// What is the top grade and who got this grade.
+		final TestStudent topGradeStudent = getNewStream( testStudents ).max(
+			( ts1, ts2 ) -> Double.compare( ts1.getGrade(), ts2.getGrade() ) ).get();
+		statisticList[ 5 ] = String.format( "%s, Not : %.2f", topGradeStudent.getStudent().getName(),
+			topGradeStudent.getGrade() );
+
+		// What is the lowest grade and who got this grade.
+		final TestStudent lowestGradeStudent = getNewStream( testStudents ).min(
+			( ts1, ts2 ) -> Double.compare( ts1.getGrade(), ts2.getGrade() ) ).get();
+		statisticList[ 6 ] = String.format( "%s, Not : %.2f", lowestGradeStudent.getStudent().getName(),
+			lowestGradeStudent.getGrade() );
+	}
+
+	private Stream< TestStudent > getNewStream( final List< TestStudent > testStudents ) {
+		return testStudents.stream().filter( ts -> ts.getGrade() != -1f );
+	}
+
+	private String getAverageByGender( final List< TestStudent > testStudents, final String gender ) {
+		return String.format(
+			"%.2f",
+			getNewStream( testStudents ).filter( ts -> ts.getStudent().getGender().equals( gender ) )
+				.mapToDouble( ts -> ts.getGrade() ).average().getAsDouble() );
 	}
 
 	/**
@@ -168,4 +226,7 @@ public class TestBean extends AbstractBean implements Serializable {
 		return lessons;
 	}
 
+	public Object[] getStatisticList() {
+		return statisticList;
+	}
 }

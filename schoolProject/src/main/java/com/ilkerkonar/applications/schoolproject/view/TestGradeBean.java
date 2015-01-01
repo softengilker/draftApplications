@@ -63,6 +63,7 @@ public class TestGradeBean extends AbstractBean implements Serializable {
 
 	public void refreshPage( final ActionEvent event ) {
 		reload();
+		loadGrades();
 	}
 
 	/**

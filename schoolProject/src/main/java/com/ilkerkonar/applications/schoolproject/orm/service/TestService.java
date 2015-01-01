@@ -63,6 +63,16 @@ public class TestService {
 		return namedQuery.getSingleResult();
 	}
 
+	public List< TestStudent > getTestStudents( final Long testNo ) {
+
+		final TypedQuery< TestStudent > namedQuery = entityManager.createNamedQuery( "TestStudent.findByTest",
+			TestStudent.class );
+
+		namedQuery.setParameter( "testnoparam", testNo );
+
+		return namedQuery.getResultList();
+	}
+
 	public void addNewTest( final Test test ) {
 
 		try {
