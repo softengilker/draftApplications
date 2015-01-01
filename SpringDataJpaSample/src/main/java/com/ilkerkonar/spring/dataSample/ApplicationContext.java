@@ -1,16 +1,13 @@
 
 package com.ilkerkonar.spring.dataSample;
 
-import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-import org.h2.tools.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -24,8 +21,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableJpaRepositories
-@PropertySource( "classpath:application.properties" )
 @EnableTransactionManagement
+@PropertySource( "classpath:application.properties" )
 public class ApplicationContext {
 
 	/**
@@ -94,26 +91,5 @@ public class ApplicationContext {
 		transactionManager.setEntityManagerFactory( entityManagerFactory );
 
 		return transactionManager;
-	}
-
-	@Bean( name = "h2WebServer", initMethod = "start", destroyMethod = "stop" )
-	public Server h2WebServer() {
-		try {
-			System.out.println( "Girdi1" );
-			return Server.createWebServer( "-web,-webAllowOthers,-webPort,8082" );
-		} catch ( final SQLException e ) {
-			return null;
-		}
-	}
-
-	@Bean( initMethod = "start", destroyMethod = "stop" )
-	@DependsOn( "h2WebServer" )
-	public Server h2TcpServer() {
-		try {
-			System.out.println( "Girdi2" );
-			return Server.createTcpServer( "-tcp,-tcpAllowOthers,-tcpPort,9092" );
-		} catch ( final SQLException e ) {
-			return null;
-		}
 	}
 }

@@ -1,38 +1,72 @@
 
 package com.ilkerkonar.spring.dataSample.main;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ilkerkonar.spring.dataSample.ApplicationContext;
-import com.ilkerkonar.spring.dataSample.data.PersonRepository;
-import com.ilkerkonar.spring.dataSample.model.Person;
+import com.ilkerkonar.spring.dataSample.data.GroupRepository;
+import com.ilkerkonar.spring.dataSample.data.MemberRepository;
+import com.ilkerkonar.spring.dataSample.model.Group;
+import com.ilkerkonar.spring.dataSample.model.Member;
 
 public class ApplicationStarter {
 
 	public static void main( final String[] args ) {
 
+		final DbOperations dbOperations = new DbOperations();
+
+		//dbOperations.insertToDatabase();
+
+		System.out.println( dbOperations.getMembers() );
+	}
+}
+
+class DbOperations {
+
+	private final GroupRepository	groupRepository;
+	private final MemberRepository	memberRepository;
+
+	public DbOperations() {
 		final AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 			ApplicationContext.class );
 		applicationContext.registerShutdownHook();
 
-		final PersonRepository personRepository = applicationContext.getBean( PersonRepository.class );
+		groupRepository = applicationContext.getBean( GroupRepository.class );
+		memberRepository = applicationContext.getBean( MemberRepository.class );
+	}
 
-		// Create a person1.
-		final Person p1 = new Person();
+	@Transactional
+	public void insertToDatabase() {
 
-		p1.setId( 1L );
-		p1.setName( "ilker KONAR" );
-		p1.setSalary( 1524.25d );
-		p1.setGrade( 56 );
+		// Create a group
+		final Group g1 = new Group();
+		g1.setCreateUsername( "ilker" );
+		g1.setOfferId( 24476 );
+		//g1.setCreateDate( new Date() );
 
-		personRepository.save( p1 );
+		groupRepository.save( g1 );
 
-		try {
-			Thread.sleep( 300000L );
-		} catch ( final InterruptedException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// Create a member
+		final Member m1 = new Member();
+		m1.setName( "nehir" );
+		m1.setGroup( g1 );
+
+		memberRepository.save( m1 );
+
+		// Create a member
+		final Member m2 = new Member();
+		m2.setName( "ali" );
+		m2.setGroup( g1 );
+
+		memberRepository.save( m2 );
+	}
+
+	public List< Member > getMembers() {
+		// Find the member by name
+		return memberRepository.findByName( "ali" );
 	}
 }
