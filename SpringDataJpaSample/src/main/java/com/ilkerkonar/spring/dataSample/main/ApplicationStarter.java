@@ -21,7 +21,7 @@ public class ApplicationStarter {
 
 		final DbOperations dbOperations = new DbOperations();
 
-		dbOperations.insertToDatabase();
+		//dbOperations.insertToDatabase();
 
 		System.out.println( dbOperations.getMembers() );
 	}
