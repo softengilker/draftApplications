@@ -51,14 +51,14 @@
 	langArray[16][1] = "Bilgisayar Mühendisliği";
 	langArray[17][0] = "Telecom Charging software application developments with J2EE technologies and Oracle PL/SQL. Designing, coding, unit testing, code reviewing, providing test team support. Troubleshoot for program bugs in existing systems. Make recommendations on the business requirements, technical documentation. Participate in continuous improvement initiatives.";
 	langArray[17][1] = "J2EE ve Oracle PL/SQL teknolojileri ile telekom ücretlendirme uygulamaları geliştiriyorum. Tasarım, kodlama, birim sınama, kod gözden geçirme ve test ekiplerine destek faaliyetlerini yürütüyorum. İş istekleri konusunda analiz yapıp, önerilerde bulunuyorum.";
-	langArray[18][0] = "Software coding and unit testing in order to create Telecom Messaging Applications. Recommend new approaches and tools. For example advised and provided spread of Maven and spring framework usage to other development teams.";
+	langArray[18][0] = "Software coding and unit testing in order to create Telecom Messaging Applications. Recommend for new approaches and tools. For example advised and provided to broaden Maven and Spring Framework usage in the development teams.";
 	langArray[18][1] = "Telekom alanında mesajlaşma uygulamaları ve servisleri geliştirdim. Maven, Spring Framework gibi teknolojileri diğer geliştirme ekiplerine önerip, kullanımının yaygınlaşmasına katkıda bulundum.";
 	langArray[19][0] = "Developing, unit testing and documentation some financial J2EE applications.";
 	langArray[19][1] = "J2EE teknolojilerini kullanıp geliştirme, birim sınama ve teknik belge hazırlama işlerini yürüttüm.";
 	langArray[20][0] = "Developed some web applications with .NET C# and ASP for the Army.";
 	langArray[20][1] = "Deniz Kuvvetleri için .NET C# ve ASP teknolojileri ile web uygulamaları geliştirdim.";
-	langArray[21][0] = "Developed some J2ME mobile games for old 64KB memory Nokia phones. Memory optimization, complex math. calculations for the games.";
-	langArray[21][1] = "J2ME ile yalnızca 64 kilobyte belleğe sahip olan Nokia telefonlar için oyun geliştirdim. Oyun programlama sırasında karmaşık matematik işlemleri, bellek optimizasyonları ile ilgilendim.";
+	langArray[21][0] = "Developed some J2ME mobile games for old Nokia phones that has only 64KB memory capacity. Memory optimization, complex math. calculations for the games. My games were published and sold in Turkcell Oyunparkı game portal.";
+	langArray[21][1] = "J2ME ile yalnızca 64 kilobyte belleğe sahip olan Nokia telefonlar için oyun geliştirdim. Oyun programlama sırasında karmaşık matematik işlemleri, bellek optimizasyonları ile ilgilendim. Geliştirdiğim oyunlar Turkcell Oyunparkı üzerinden satıldı.";
 	langArray[22][0] = "GPA";	
 	langArray[22][1] = "Mezuniyet Not Ortalaması";				
 %>

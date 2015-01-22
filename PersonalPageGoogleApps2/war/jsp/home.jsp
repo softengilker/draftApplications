@@ -19,8 +19,8 @@
 	langArray[0][1] = "Merhaba!, Biraz kendimden bahsedecek olursam :";
 	langArray[1][0] = " I was born in İzmir, Turkey. I have accommodated in İstanbul, Turkey for a long time. I'm married and I've got very beautiful, cute daughter. She is my nearly everything in the life. I love her.";
 	langArray[1][1] = " İzmirliyim. Uzun zamandır İstanbul'da yaşıyorum. Evliyim ve dünya tatlısı bir kızım var. Onu çok seviyorum.";
-	langArray[2][0] = "I am passionate software developer. I have been coding for about fifteen years. I love to build helpful, wonderful software and products. I like continued learning new technologies, languages and frameworks.";
-	langArray[2][1] = "Yazılım mühendisi olarak işime tutku ile bağlıyım. Yaklaşık on beş yıldır yazılım geliştiriyorum. Uygulamalarımın yararlı ve etkin olması için çabalıyorum. Yeni teknolojileri takip ederek sürekli kendimi yeniliyorum.";
+	langArray[2][0] = "I am passionate software developer. I have been coding for about fifteen years. I love to build helpful, wonderful software and products. I like continued learning new technologies, languages and frameworks. After every new technology, tool or framework knowledge I get, I suddenly realize that there are much more to learn. It seems endless sea!";
+	langArray[2][1] = "Yazılım mühendisi olarak işime tutku ile bağlıyım. Yaklaşık on beş yıldır yazılım geliştiriyorum. Uygulamalarımın yararlı ve etkin olması için çabalıyorum. Yeni teknolojileri takip ederek sürekli kendimi yeniliyorum. Her yeni teknoloji, dili veya aracı öğrendikten sonra daha çok şeyin öğrenilmesi gerektiğini farkediyorum. Sonsuz deniz gibi!";
 	langArray[3][0] = "I like outdoor activities like trekking, hunting. From the first steps into the forest, my entire body feels changed. I feel peaceful and calm in the nature.";
 	langArray[3][1] = "Trekking, avcılık gibi doğa sporları ile zaman buldukça ilgileniyorum. Doğaya çıktığımda, doğaya henüz ilk adımımı attığım anda, kendimi ve huzuru buluyorum.";
 	langArray[4][0] = "For more about me, please contact.";
