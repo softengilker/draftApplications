@@ -53,7 +53,7 @@
 						<a href="https://plus.google.com/101043058878661923860/about" target="_blank"><img src="/image/google_32.png" /></a>
 						<a href="http://tr.linkedin.com/pub/i%CC%87lker-konar/5/237/998" target="_blank"><img src="/image/linkedin_32.gif" /></a>
 						<a href="https://twitter.com/ilkerkonar" target="_blank"><img src="/image/twitter_32.gif" /></a>
-						<a href="http://iyikodyazma.blogspot.com.tr/" target="_blank"><img src="/image/blogger_32.gif" /></a>
+						<a href="http://ilkerkonar.blogspot.com/" target="_blank"><img src="/image/blogger_32.gif" /></a>
 						<a href="https://github.com/softengilker" target="_blank"><img src="/image/github.png" /></a>						
 					</li>
 				</ul>
