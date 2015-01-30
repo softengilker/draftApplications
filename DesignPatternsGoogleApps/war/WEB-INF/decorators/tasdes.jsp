@@ -47,7 +47,7 @@
 			İlişkileri Nasıl Olmalı?</div>
 	</div>
 	<div align="right" style="margin-right: 30px;margin-bottom:5px;font-family: Tahoma;font-style: italic;color: green;">
-		Sitem yeni tasarımı ile karşınızda! Yorum da ekleyebilirsiniz! :) 
+		Testçiler sizin düşmanınız değildir. Esas düşman yazılım hatalarıdır! 
 	</div>
 	<div class="yataymenueksen">
 		<div class="yataymenu">
