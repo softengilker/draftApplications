@@ -16,6 +16,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.ilkerkonar.spring.dataSample.data.DbOperationsImpl;
+import com.ilkerkonar.spring.dataSample.data.IDbOperations;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -30,6 +32,11 @@ public class ApplicationContext {
 	 */
 	//@Autowired
 	//Environment	env;
+
+	@Bean( name = "dbprocess" )
+	public IDbOperations getDbOperations() {
+		return new DbOperationsImpl();
+	}
 
 	/**
 	 * Creates and configures the HikariCP datasource bean.
