@@ -11,6 +11,7 @@ public class Application8 {
 
 	public static void main( final String[] args ) {
 
+		@SuppressWarnings( "resource" )
 		final AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext( AppConf.class );
 
 		applicationContext.registerShutdownHook();

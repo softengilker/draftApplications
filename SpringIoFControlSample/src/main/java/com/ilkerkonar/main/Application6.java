@@ -10,6 +10,7 @@ public class Application6 {
 
 	public static void main( final String[] args ) {
 
+		@SuppressWarnings( "resource" )
 		final AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 			"applicationContext6.xml" );
 
