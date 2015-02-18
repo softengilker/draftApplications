@@ -10,9 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.retry.RetryPolicy;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.retry.backoff.FixedBackOffPolicy;
 import org.springframework.retry.policy.ExceptionClassifierRetryPolicy;
 import org.springframework.retry.policy.SimpleRetryPolicy;
+
+import com.ilkerkonar.sample.springretry.conf.IProcess;
+import com.ilkerkonar.sample.springretry.conf.ProcessImpl;
 
 /**
  * @author Ilker KONAR, Senior Software Developer
@@ -26,6 +30,7 @@ import org.springframework.retry.policy.SimpleRetryPolicy;
 @Configuration
 @ComponentScan
 @PropertySource( "classpath:application.properties" )
+@EnableRetry
 public class ApplicationContext {
 
 	@Bean
@@ -58,5 +63,10 @@ public class ApplicationContext {
 	@Bean
 	public WebServiceClientSimulation getWebServiceClient() {
 		return new WebServiceClientSimulation();
+	}
+
+	@Bean
+	public IProcess getProcess() {
+		return new ProcessImpl();
 	}
 }

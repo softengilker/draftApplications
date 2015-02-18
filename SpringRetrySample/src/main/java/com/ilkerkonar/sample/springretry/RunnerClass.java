@@ -7,6 +7,8 @@ package com.ilkerkonar.sample.springretry;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
+import com.ilkerkonar.sample.springretry.conf.IProcess;
+
 /**
  * @author Ilker KONAR, Senior Software Developer
  *
@@ -29,5 +31,15 @@ public class RunnerClass {
 		final ApplicationService service = ctx.getBean( ApplicationService.class );
 
 		System.out.println( service.callTheWebService() );
+
+		final IProcess processBean = ctx.getBean( IProcess.class );
+
+		processBean.doWork();
+
+		try {
+			processBean.doWork2();
+		} catch ( final Exception e ) {
+			System.out.println( "Finish" );
+		}
 	}
 }
