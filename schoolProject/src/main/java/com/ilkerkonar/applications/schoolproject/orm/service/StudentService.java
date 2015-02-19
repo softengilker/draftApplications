@@ -20,6 +20,9 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.Student;
 
 /**
@@ -31,14 +34,20 @@ import com.ilkerkonar.applications.schoolproject.orm.model.Student;
 @ApplicationScoped
 public class StudentService {
 
+	private static final Logger	LOGGER	= LoggerFactory.getLogger( StudentService.class );
+
 	@PersistenceContext( unitName = "school" )
-	private EntityManager	entityManager;
+	private EntityManager		entityManager;
 
 	public List< Student > getAllStudents() {
 
 		final TypedQuery< Student > namedQuery = entityManager.createNamedQuery( "Student.findAll", Student.class );
 
-		return namedQuery.getResultList();
+		final List< Student > resultList = namedQuery.getResultList();
+
+		LOGGER.info( "All the students are retrieved. Return list : {}", resultList );
+
+		return resultList;
 	}
 
 	public Student getStudent( final Long no ) {
@@ -47,7 +56,11 @@ public class StudentService {
 
 		namedQuery.setParameter( "no", no );
 
-		return namedQuery.getSingleResult();
+		final Student resultObject = namedQuery.getSingleResult();
+
+		LOGGER.info( "The student are retrieved. Student id : {}, Return student : {}", no, resultObject );
+
+		return resultObject;
 	}
 
 	public void addNewStudent( final Student student ) {
@@ -63,10 +76,12 @@ public class StudentService {
 
 			transaction.commit();
 
+			LOGGER.info( "New student is inserted. Student object : {}", student );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while inserting a new student.", e );
 		}
 	}
 
@@ -83,10 +98,12 @@ public class StudentService {
 
 			transaction.commit();
 
+			LOGGER.info( "The student is updated. Student object : {}", student );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while updating the student.", e );
 		}
 	}
 
@@ -105,10 +122,12 @@ public class StudentService {
 
 			transaction.commit();
 
+			LOGGER.info( "The student is removed. Student object : {}", student );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while removing the student.", e );
 		}
 	}
 }

@@ -20,6 +20,9 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.Test;
 import com.ilkerkonar.applications.schoolproject.orm.model.TestStudent;
 
@@ -32,14 +35,20 @@ import com.ilkerkonar.applications.schoolproject.orm.model.TestStudent;
 @ApplicationScoped
 public class TestService {
 
+	private static final Logger	LOGGER	= LoggerFactory.getLogger( TestService.class );
+
 	@PersistenceContext( unitName = "school" )
-	private EntityManager	entityManager;
+	private EntityManager		entityManager;
 
 	public List< Test > getAllTests() {
 
 		final TypedQuery< Test > namedQuery = entityManager.createNamedQuery( "Test.findAll", Test.class );
 
-		return namedQuery.getResultList();
+		final List< Test > resultList = namedQuery.getResultList();
+
+		LOGGER.info( "All the tests are retrieved. Return list : {}", resultList );
+
+		return resultList;
 	}
 
 	public Test getTest( final Long no ) {
@@ -49,7 +58,11 @@ public class TestService {
 
 		namedQuery.setParameter( "no", no );
 
-		return namedQuery.getSingleResult();
+		final Test resultObject = namedQuery.getSingleResult();
+
+		LOGGER.info( "The test are retrieved. Test id : {}, Return test : {}", no, resultObject );
+
+		return resultObject;
 	}
 
 	public TestStudent getTestStudent( final Long testNo, final Long studentNo ) {
@@ -60,7 +73,12 @@ public class TestService {
 		namedQuery.setParameter( "testnoparam", testNo );
 		namedQuery.setParameter( "studentnoparam", studentNo );
 
-		return namedQuery.getSingleResult();
+		final TestStudent resultObject = namedQuery.getSingleResult();
+
+		LOGGER.info( "The test-student are retrieved. Test id : {}, Student id : {}, Return test-student object: {}",
+			new Object[] { testNo, studentNo, resultObject } );
+
+		return resultObject;
 	}
 
 	public List< TestStudent > getTestStudents( final Long testNo ) {
@@ -70,14 +88,18 @@ public class TestService {
 
 		namedQuery.setParameter( "testnoparam", testNo );
 
-		return namedQuery.getResultList();
+		final List< TestStudent > resultList = namedQuery.getResultList();
+
+		LOGGER.info( "All the test-students are retrieved. Test id : {}, Return list : {}", testNo, resultList );
+
+		return resultList;
 	}
 
 	public void addNewTest( final Test test ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -86,10 +108,12 @@ public class TestService {
 
 			transaction.commit();
 
+			LOGGER.info( "New test is inserted. Test object : {}", test );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while inserting the test.", e );
 		}
 	}
 
@@ -97,7 +121,7 @@ public class TestService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -108,10 +132,12 @@ public class TestService {
 
 			transaction.commit();
 
+			LOGGER.info( "The test is removed. Test object : {}", test );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while removing the test", e );
 		}
 	}
 
@@ -119,7 +145,7 @@ public class TestService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -128,10 +154,12 @@ public class TestService {
 
 			transaction.commit();
 
+			LOGGER.info( "Test is updated. Test object : {}", test );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while updating the test", e );
 		}
 	}
 
@@ -139,7 +167,7 @@ public class TestService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -148,10 +176,12 @@ public class TestService {
 
 			transaction.commit();
 
+			LOGGER.info( "Test-student is updated. Test-student object : {}", testStudent );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while updating the test-student", e );
 		}
 	}
 
@@ -159,7 +189,7 @@ public class TestService {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -168,10 +198,12 @@ public class TestService {
 
 			transaction.commit();
 
+			LOGGER.info( "New test-student is inserted. Test Student Object : {}", testStudent );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while inserting the test-student", e );
 		}
 	}
 }

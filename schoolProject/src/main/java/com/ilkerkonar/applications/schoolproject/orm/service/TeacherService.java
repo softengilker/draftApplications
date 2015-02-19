@@ -20,6 +20,9 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.Teacher;
 
 /**
@@ -31,15 +34,21 @@ import com.ilkerkonar.applications.schoolproject.orm.model.Teacher;
 @ApplicationScoped
 public class TeacherService {
 
+	private static final Logger	LOGGER	= LoggerFactory.getLogger( TeacherService.class );
+
 	@PersistenceContext( unitName = "school" )
-	private EntityManager	entityManager;
+	private EntityManager		entityManager;
 
 	public List< Teacher > getAllTeachers() {
 
 		final TypedQuery< Teacher > namedQuery = entityManager.createNamedQuery( "Teacher.findAll",
 			Teacher.class );
 
-		return namedQuery.getResultList();
+		final List< Teacher > resultList = namedQuery.getResultList();
+
+		LOGGER.info( "All the teachers are retrieved. Return list : {}", resultList );
+
+		return resultList;
 	}
 
 	public Teacher getTeacher( final Long no ) {
@@ -49,7 +58,11 @@ public class TeacherService {
 
 		namedQuery.setParameter( "no", no );
 
-		return namedQuery.getSingleResult();
+		final Teacher resultObject = namedQuery.getSingleResult();
+
+		LOGGER.info( "The teacher are retrieved. Teacher id : {}, Return teacher : {}", no, resultObject );
+
+		return resultObject;
 	}
 
 	public void addNewTeacher( final Teacher teacher ) {
@@ -65,10 +78,12 @@ public class TeacherService {
 
 			transaction.commit();
 
+			LOGGER.info( "New teacher is inserted. Teacher object : {}", teacher );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while inserting a new teacher.", e );
 		}
 	}
 
@@ -87,10 +102,12 @@ public class TeacherService {
 
 			transaction.commit();
 
+			LOGGER.info( "The teacher is removed. Teacher object : {}", teacher );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while removing the teacher.", e );
 		}
 	}
 
@@ -107,10 +124,12 @@ public class TeacherService {
 
 			transaction.commit();
 
+			LOGGER.info( "The teacher is updated. Teacher object : {}", teacher );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while updating the teacher.", e );
 		}
 	}
 }

@@ -20,6 +20,9 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 
 /**
@@ -31,15 +34,21 @@ import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 @ApplicationScoped
 public class ClassService {
 
+	private static final Logger	LOGGER	= LoggerFactory.getLogger( ClassService.class );
+
 	@PersistenceContext( unitName = "school" )
-	private EntityManager	entityManager;
+	private EntityManager		entityManager;
 
 	public List< SchoolClass > getAllClasses() {
 
 		final TypedQuery< SchoolClass > namedQuery = entityManager.createNamedQuery( "SchoolClass.findAll",
 			SchoolClass.class );
 
-		return namedQuery.getResultList();
+		final List< SchoolClass > resultList = namedQuery.getResultList();
+
+		LOGGER.info( "All the Classes are retrieved. Return list : {}", resultList );
+
+		return resultList;
 	}
 
 	public SchoolClass getClass( final Long no ) {
@@ -49,14 +58,18 @@ public class ClassService {
 
 		namedQuery.setParameter( "no", no );
 
-		return namedQuery.getSingleResult();
+		final SchoolClass resultObject = namedQuery.getSingleResult();
+
+		LOGGER.info( "The class are retrieved. Class id : {}, Return class : {}", no, resultObject );
+
+		return resultObject;
 	}
 
 	public void addNewClass( final SchoolClass schoolClass ) {
 
 		try {
 			final UserTransaction transaction = ( UserTransaction ) new InitialContext()
-				.lookup( "java:comp/UserTransaction" );
+			.lookup( "java:comp/UserTransaction" );
 
 			transaction.begin();
 
@@ -65,10 +78,12 @@ public class ClassService {
 
 			transaction.commit();
 
+			LOGGER.info( "New class is inserted. Class object : {}", schoolClass );
+
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			LOGGER.error( "An error has been occurred while inserting a new class.", e );
 		}
 	}
 
@@ -91,10 +106,13 @@ public class ClassService {
 		} catch ( SecurityException | IllegalStateException | NamingException | NotSupportedException | SystemException
 			| RollbackException | HeuristicMixedException | HeuristicRollbackException e ) {
 
+			LOGGER.error( "An error has been occurred while removing a class.", e );
+
 			try {
 				transaction.rollback();
 			} catch ( IllegalStateException | SecurityException | SystemException e1 ) {
-				e1.printStackTrace();
+
+				LOGGER.error( "An error has been occurred while rollback.", e1 );
 			}
 		}
 	}
