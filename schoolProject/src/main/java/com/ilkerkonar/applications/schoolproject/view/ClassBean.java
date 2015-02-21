@@ -14,6 +14,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import org.primefaces.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.SchoolClass;
 import com.ilkerkonar.applications.schoolproject.orm.model.Student;
@@ -33,6 +35,8 @@ public class ClassBean extends AbstractBean implements Serializable {
 	 *
 	 */
 	private static final long	serialVersionUID	= -5941571640869756279L;
+
+	private static final Logger	LOGGER				= LoggerFactory.getLogger( ClassBean.class );
 
 	private List< ClassView >	classes;
 
@@ -103,9 +107,16 @@ public class ClassBean extends AbstractBean implements Serializable {
 			students = students.subList( 0, size );
 
 			classView.setTotal( size );
-			classView.setMaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "male" ) ).count() );
-			classView
-				.setFemaleTotal( ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count() );
+			final int femaleCount = ( int ) students.stream().filter( s -> s.getGender().equals( "male" ) ).count();
+			final int maleCount = ( int ) students.stream().filter( s -> s.getGender().equals( "female" ) ).count();
+
+			classView.setMaleTotal( maleCount );
+			classView.setFemaleTotal( femaleCount );
+
+			LOGGER
+				.info(
+					"The total of the class has been calculated. Class id : {}, Class name : {}, Male count : {}, Female count : {}",
+					new Object[] { schoolClass.getNo(), schoolClass.getName(), maleCount, femaleCount } );
 
 			classes.add( classView );
 		}

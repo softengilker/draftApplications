@@ -9,7 +9,7 @@
 	</appender>
 
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>schoolProject.log</file>
+		<file>../logs/schoolProject.log</file>
 		<append>true</append>
  		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       		<!-- daily rollover -->
@@ -28,6 +28,7 @@
 
 	<root level="debug">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
 	</root>
 
 </configuration>

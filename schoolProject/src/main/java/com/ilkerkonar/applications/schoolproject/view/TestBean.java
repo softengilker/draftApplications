@@ -15,6 +15,8 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.component.datatable.DataTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ilkerkonar.applications.schoolproject.orm.model.Lesson;
 import com.ilkerkonar.applications.schoolproject.orm.model.Test;
@@ -35,6 +37,8 @@ public class TestBean extends AbstractBean implements Serializable {
 	 *
 	 */
 	private static final long	serialVersionUID	= -1497483709501027213L;
+
+	private static final Logger	LOGGER				= LoggerFactory.getLogger( TestBean.class );
 
 	private List< Test >		tests;
 
@@ -150,6 +154,13 @@ public class TestBean extends AbstractBean implements Serializable {
 			( ts1, ts2 ) -> Double.compare( ts1.getGrade(), ts2.getGrade() ) ).get();
 		statisticList[ 6 ] = String.format( "%s, Not : %.2f", lowestGradeStudent.getStudent().getName(),
 			lowestGradeStudent.getGrade() );
+
+		LOGGER
+			.info(
+				"Statistics of the test are calculated. Average grade : {}, Students count whose grade is higher than the average : {}, Students count whose grade is lower than the average : {}, Average grade of the male students : {}, Average grade of the female students : {}, Top grade : {}, who got this grade : {}, Lowest grade : {}, who got this grade : {}",
+				new Object[] { statisticList[ 0 ], statisticList[ 1 ], statisticList[ 2 ], statisticList[ 3 ],
+					statisticList[ 4 ], topGradeStudent.getGrade(), topGradeStudent.getStudent().getName(),
+					lowestGradeStudent.getGrade(), lowestGradeStudent.getStudent().getName() } );
 	}
 
 	private Stream< TestStudent > getNewStream( final List< TestStudent > testStudents ) {
