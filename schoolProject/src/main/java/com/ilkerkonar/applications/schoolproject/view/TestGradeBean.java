@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 
@@ -121,29 +123,43 @@ public class TestGradeBean extends AbstractBean implements Serializable {
 		}
 	}
 
+	/**
+	 * When test grade cell is edited, this method is invoked.
+	 * If the new cell grade value is different, the new value is updated in the database.
+	 *
+	 * @param event {@link CellEditEvent}
+	 */
 	public void onCellEdit( final CellEditEvent event ) {
 		final Float newValue = ( Float ) event.getNewValue();
 		final Float oldValue = ( Float ) event.getOldValue();
 
+		// Check whether the old and new value is different.
 		if ( newValue.floatValue() != oldValue.floatValue() ) {
+
+			if ( newValue.floatValue() < 0.0f || newValue.floatValue() > 100.0f ) {
+				FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage( FacesMessage.SEVERITY_WARN, getBundle().getString(
+						"testgrade.warning.message.wrong.grade.header" ), getBundle().getString(
+						"testgrade.warning.message.wrong.grade.content" ) ) );
+				return;
+			}
+
 			final DataTable s = ( DataTable ) event.getSource();
 			final StudentGrade rowData = ( StudentGrade ) s.getRowData();
 
 			TestStudent testStudent = null;
 
 			try {
+				// If the database record is already exist. Update it.
 				testStudent = service.getTestStudent( rowData.getTestNo(), rowData.getStudentNo() );
 				testStudent.setGrade( newValue );
 
 				service.updateTestStudent( testStudent );
 
+				// If the database record is not found. Then insert new record.
 			} catch ( final javax.persistence.NoResultException nre ) {
-				testStudent = new TestStudent();
-				testStudent.setGrade( newValue );
-				testStudent.setTest( service.getTest( rowData.getTestNo() ) );
-				testStudent.setStudent( studentService.getStudent( rowData.getStudentNo() ) );
-
-				service.addNewTestStudent( testStudent );
+				insertNewTestStudentRow( newValue, rowData );
 			}
 		}
 
@@ -166,15 +182,25 @@ public class TestGradeBean extends AbstractBean implements Serializable {
 			service.updateTestStudent( testStudent );
 
 		} catch ( final javax.persistence.NoResultException nre ) {
-			testStudent = new TestStudent();
-			testStudent.setGrade( checkBoxValue ? -1f : 0f );
-			testStudent.setTest( service.getTest( rowData.getTestNo() ) );
-			testStudent.setStudent( studentService.getStudent( rowData.getStudentNo() ) );
-
-			service.addNewTestStudent( testStudent );
+			insertNewTestStudentRow( checkBoxValue ? -1f : 0f, rowData );
 		}
 
 		loadGrades();
+	}
+
+	/**
+	 * @param grade The grade value to insert.
+	 * @param rowData The student grade row data.
+	 */
+	private void insertNewTestStudentRow( final Float grade, final StudentGrade rowData ) {
+
+		final TestStudent testStudent = new TestStudent();
+
+		testStudent.setGrade( grade );
+		testStudent.setTest( service.getTest( rowData.getTestNo() ) );
+		testStudent.setStudent( studentService.getStudent( rowData.getStudentNo() ) );
+
+		service.addNewTestStudent( testStudent );
 	}
 
 	/**

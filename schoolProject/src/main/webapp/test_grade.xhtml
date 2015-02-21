@@ -5,14 +5,16 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-	<f:view contentType="text/html">
-	
-		<h:form id="refreshForm">	
+	<f:view contentType="text/html">		
+		 
+		<h:form id="refreshForm">							
 			<p:commandButton title="#{msg.refresh}" icon="ui-icon-arrowrefresh-1-s" ajax="false" actionListener="#{testGradeBean.refreshPage}" update=":testGradeForm:gradePanel" />
 		</h:form>
 	
 		<h:form id="testGradeForm">
 		
+			<p:messages id="msgs" showDetail="true"/>
+			
 			<p:outputPanel id="testPanel" styleClass="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
 				<h:panelGrid columns="2" border="0" cellpadding="4" style="margin:0 auto;" columnClasses="rightAlignClass,leftAlignClass">
 					<p:outputLabel value="#{msg.test}:"/>
@@ -29,7 +31,7 @@
 				<p:dataTable var="studentItem" value="#{testGradeBean.gradeStudents}" emptyMessage="#{studentBean.messageMap['datatable.empty.message']}" 
 					id="gradeInputDT" widgetVar="gradeInputDT" style="width: 380px;" editable="true" editMode="cell">
 					
-					<p:ajax event="cellEdit" listener="#{testGradeBean.onCellEdit}" update=":testGradeForm:gradeInputDT" />
+					<p:ajax event="cellEdit" listener="#{testGradeBean.onCellEdit}" update=":testGradeForm:gradeInputDT, :testGradeForm:msgs" />
 					
 					<p:column headerText="#{msg.student}" style="width: 51%;">
 						<h:outputText value="#{studentItem.studentName}" />
