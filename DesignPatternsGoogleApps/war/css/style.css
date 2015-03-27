@@ -1,0 +1,230 @@
+body {
+	margin: 0;
+	padding: 0;
+	font: 70% Tahoma, Arial, Helvetica, sans-serif;
+	color: #7e7e7e;
+	line-height: 16px;
+}
+
+.baslik {
+	background: #FFFFFF url(../image/arkaustdesen.png) repeat-x;
+	width: 100½;
+	height: 90px;
+	clear: both;
+}
+
+.marka {
+	font: Helvetica, Arial;
+	font-size: 32px;
+	color: darkblue;
+	text-indent: 50px;
+	padding-top: 20px;
+}
+
+.slogan {
+	font: Tahoma, Helvetica, Arial;
+	font-size: 12px; 
+	color: #CC6633;
+	text-indent: 70px;
+	padding-top: 10px;
+}
+
+.yataymenueksen {
+	background: #FFFFFF url(../image/menuarka.png) repeat-x;
+	width: 100½;
+	height: 31px;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.solmenu {
+	width: 230px;
+	float: left;
+}
+
+.solmenu ul {
+	margin-top: 10px;
+	margin-left: 10px;
+	padding-left: 20px;
+	padding-top: 10px;
+	list-style-type: none;			
+	float: left;
+	width: 220px;
+	border-right:1px dotted #AAA;
+}
+
+.solmenu ul li {
+	padding-bottom: 10px;
+	width: 220px;
+	height: 22px;
+}
+
+.solmenu ul li a:link, .solmenu ul li a:visited {
+	background: url(../image/okyok.png) 0% 30% no-repeat;
+	padding-left: 15px;
+	height: 22px;
+	font-family: "Trebuchet MS",Geneva,Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+}
+
+.solmenu ul li a:hover {
+	background: url(../image/okvar.png) 0% 30% no-repeat;
+}
+
+.solmenubaslik {
+	font-family: Geneva,Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 10px;
+	margin-left:10px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+}
+
+.content {
+	margin-left: 270px;
+	font-family:"Bitstream Vera Sans Mono",Monaco,"Lucida Console",monospace;
+	text-align: justify;
+	padding-right: 20px;	
+	font-size:1em;
+	color: black;
+	display: block;
+}
+
+.contentHeader {
+	font-family:Verdana,Arial,sans-serif;
+	font-size:1.2em;
+	border-bottom-color: #3333dd;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	width:auto;
+	padding-bottom: 5px;
+	color: #ee9915;
+}
+
+.blogdiv {
+	margin-left:50px;
+	margin-top:30px;
+}
+
+.vurgu {
+	color: #ee2220;
+}
+
+.kodkirmizi {
+	color: #950055;
+}
+
+.kodmavi {
+	color: #645fd5;
+}
+
+.kodyesil {
+	color: #3f7f5f;
+}
+
+.yorumBaslik {
+	width:auto;
+	background-color: #f6d9a8;
+	font-family: Tahoma, Arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding-left: 30px;
+	padding-top: 5px;
+	height: 18px;
+	border-color: #3333dd;
+	border-style: dotted;
+	border-width: 1px;	
+	border-color: #3333dd;
+	border-style: dotted;
+	border-width: 1px;	
+}
+
+.yorumIcerik {
+	width:auto;
+	background-color: #ffffff;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	color: #2886c5;
+	padding-left: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 50px;
+	height: auto;
+	margin-bottom: 15px;
+	border-right-color: #3333dd;
+	border-right-style: dotted;
+	border-right-width: 1px;	
+	border-left-color: #3333dd;
+	border-left-style: dotted;
+	border-left-width: 1px;	
+	border-bottom-color: #3333dd;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;	
+}
+
+.yorumAlt {
+	width:auto;
+	background-color: #f2f2f2;
+	font-family: Verdana,Arial;
+	font-size: 10px;
+	font-weight: normal;
+	padding-left: 50px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 50px;
+	height: auto;
+	border-right-color: #3333dd;
+	border-right-style: dotted;
+	border-right-width: 1px;	
+	border-left-color: #3333dd;
+	border-left-style: dotted;
+	border-left-width: 1px;	
+}
+
+.icerikKodVurgu {
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: red;
+}
+
+.altkisim {
+	background: #FFFFFF url(../image/altcizgi.png) repeat-x;
+	clear: both;
+	height: 70px;
+	padding-top: 25px;
+	padding-left: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.yorumTablo {
+	margin-left: 10px;
+	margin-top: 5px;
+	border: 1px solid black;
+}
+
+.yorumTablo th {
+	border: 1px solid black;
+	font-family: Tahoma, Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: red;	
+	padding: 2px;
+}
+
+.yorumTablo td {
+	border: 1px solid black;
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: normal;
+	color: black;
+	padding: 2px;	
+}
+

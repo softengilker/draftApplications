@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">	
+	<!-- Filters -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+			
+	<servlet id="yorumEkle">
+		<servlet-name>yorumEkle</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.YorumEkleServlet</servlet-class>
+	</servlet>
+	
+	<servlet id="girisKontrol">
+		<servlet-name>girisKontrol</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.GirisKontrolServlet</servlet-class>
+	</servlet>
+	
+	<servlet id="giris">
+		<servlet-name>giris</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.GirisServlet</servlet-class>
+	</servlet>
+	
+	<servlet id="cikis">
+		<servlet-name>cikis</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.CikisServlet</servlet-class>
+	</servlet>
+
+	<servlet id="yorumOnayla">
+		<servlet-name>yorumOnayla</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.YorumOnaylaServlet</servlet-class>
+	</servlet>
+	
+	<servlet id="yorumDegistir">
+		<servlet-name>yorumDegistir</servlet-name>
+		<servlet-class>com.ilkerkonar.td.desen.servlet.YorumYonetimiServlet</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>yorumEkle</servlet-name>
+		<url-pattern>/yorumEkle</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>girisKontrol</servlet-name>
+		<url-pattern>/girisKontrol</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>giris</servlet-name>
+		<url-pattern>/giris</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>cikis</servlet-name>
+		<url-pattern>/cikis</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>yorumOnayla</servlet-name>
+		<url-pattern>/yorumOnayla</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>yorumDegistir</servlet-name>
+		<url-pattern>/yorumDegistir</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+    	<session-timeout>8</session-timeout>
+	</session-config>	
+	
+</web-app>

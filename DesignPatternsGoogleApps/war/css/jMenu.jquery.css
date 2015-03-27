@@ -1,0 +1,66 @@
+#jMenu {
+	display:table;
+	margin:0;
+	padding:0;
+	background: url(../image/menuarka.png) center center repeat-x;
+}
+
+#jMenu li {
+	display:table-cell;
+	margin:0;
+	float:left;
+}
+
+#jMenu li a {
+	display: block;
+	padding: 6px 14px;
+	border: 1px solid #cc8815;
+	border-left-width: 0;
+	text-decoration: none;
+	text-align: center;
+	background: url(../image/menuarka.png) center center repeat-x;
+	color: white;
+	font: bold 13px Arial;
+	cursor:pointer;
+}
+	
+#jMenu li ul {
+	display:none;
+	position:absolute;
+	padding:0;
+	margin:0
+}
+	
+#jMenu li ul li {
+	display:block;
+	border-bottom:1px solid #484548;
+	padding:0
+}
+
+#jMenu li ul li.arrow {
+	background:#577de5 url('../image/arrow_down.png') no-repeat center center;
+	height:6px;
+	padding:0;
+	border-bottom:none;
+	padding-bottom:10px;
+	border-bottom:1px solid #202023;
+}
+		
+#jMenu li ul li a {
+	font-size:11px;
+	text-transform:none;
+	padding:7px;
+	display:block;
+	border-top:1px solid transparent;
+	border-bottom:1px solid transparent;
+}
+		
+#jMenu li ul li a.isParent {
+	background:#3A3A3A url('../image/arrow_right.png') no-repeat right center;
+}
+
+#jMenu li ul li a:hover {
+	background-color:#514c52;
+	border-top:1px solid #cc8815;
+	border-bottom:1px solid #cc8815;
+}
