@@ -12,7 +12,7 @@
 		langIndex = 1;
 	}
 	
-	int fieldCount = 8;
+	int fieldCount = 9;
 	String[][] langArray = new String[fieldCount][2];
 	
 	langArray[0][0] = "Hello!, Welcome. A bit of me :";
@@ -31,6 +31,8 @@
 	langArray[6][1] = "Çalışmalarım:";	
 	langArray[7][0] = "Developer Sites, I follow";
 	langArray[7][1] = "Takip Ettiğim Siteler";	
+	langArray[8][0] = "Sites, I contribute to";
+	langArray[8][1] = "Katkıda Bulunduğum Siteler";	
 %>
 
 <div id="page">
@@ -49,10 +51,9 @@
 				<h2><%=langArray[5][langIndex]%></h2>
 				<ul>
 					<li>
-						<a href="https://tr-tr.facebook.com/ilker.konar.7" target="_blank"><img src="/image/facebook_32.png" /></a>
-						<a href="https://plus.google.com/101043058878661923860/about" target="_blank"><img src="/image/google_32.png" /></a>
-						<a href="http://tr.linkedin.com/pub/i%CC%87lker-konar/5/237/998" target="_blank"><img src="/image/linkedin_32.gif" /></a>
-						<a href="https://twitter.com/ilkerkonar" target="_blank"><img src="/image/twitter_32.gif" /></a>
+						<a href="http://www.facebook.com/ilker.konar.7" target="_blank"><img src="/image/facebook_32.png" /></a>
+						<a href="https://plus.google.com/+İlkerKonar" target="_blank"><img src="/image/google_32.png" /></a>
+						<a href="https://www.linkedin.com/in/ilkerkonar" target="_blank"><img src="/image/linkedin_32.gif" /></a>
 						<a href="http://ilkerkonar.blogspot.com/" target="_blank"><img src="/image/blogger_32.gif" /></a>
 						<a href="https://github.com/softengilker" target="_blank"><img src="/image/github.png" /></a>						
 					</li>
@@ -74,6 +75,14 @@
 					<li class="listeIceri"><a href="http://www.javacodegeeks.com/" target="_blank">Java Code Geeks</a></li>
 					<li class="listeIceri"><a href="http://www.infoq.com/" target="_blank">InfoQ</a></li>
 					<li class="listeIceri"><a href="http://www.dzone.com/" target="_blank">Dzone</a></li>										
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<h2><%=langArray[8][langIndex]%></h2>
+				<ul>					
+					<li class="listeIceri"><a href="http://www.javacodegeeks.com/" imageanchor="1"><img alt="Java Code Geeks" src="http://cdn.javacodegeeks.com/wp-content/uploads/2012/12/JavaCodeGeek_Badge.png" title="Java Code Geeks" /></a></li>
 				</ul>
 			</li>
 		</ul>
