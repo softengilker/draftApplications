@@ -44,3 +44,4 @@ Thumbs.db
 bin/
 .classpath
 .project
+.iml
