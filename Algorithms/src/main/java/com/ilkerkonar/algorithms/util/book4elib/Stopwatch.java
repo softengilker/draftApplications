@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac Stopwatch.java
  *  Execution:    java Stopwatch n
  *  Dependencies: none

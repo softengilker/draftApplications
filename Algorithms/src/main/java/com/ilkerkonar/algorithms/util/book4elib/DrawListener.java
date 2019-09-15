@@ -6,7 +6,7 @@
  *  Interface that accompanies Draw.java.
  ******************************************************************************/
 
-package edu.princeton.cs.algs4;
+package com.ilkerkonar.algorithms.util.book4elib;
 
 public interface DrawListener {
 

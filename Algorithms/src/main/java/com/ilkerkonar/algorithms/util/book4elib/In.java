@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac In.java
  *  Execution:    java In   (basic test --- see source for required files)
  *  Dependencies: none

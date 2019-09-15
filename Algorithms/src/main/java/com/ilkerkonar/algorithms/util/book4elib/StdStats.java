@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac StdStats.java
  *  Execution:    java StdStats < input.txt
  *  Dependencies: StdOut.java

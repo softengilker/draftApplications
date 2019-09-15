@@ -8,31 +8,30 @@ import java.util.Scanner;
  * 
  * Test for if the number is prime
  */
-public class PrimeTesting {
+public class GcdEuclidTesting {
 
 	public static void main( final String[] args ) {
 
-		System.out.println( "Please input the number : " );
+		System.out.println( "Please input 2 numbers : " );
 
 		final Scanner takeInput = new Scanner( System.in );
-		final int number = takeInput.nextInt();
+
+		final int n1 = takeInput.nextInt();
+		final int n2 = takeInput.nextInt();
+
 		takeInput.close();
 
-		System.out.printf( "The number %d is %s a prime number", number, isPrime( number ) ? "" : "not" );
+		System.out.printf( "The greatest number of the %d and %d is %d", n1, n2, gcdEuclidsAlgorithm( n1, n2 ) );
 	}
 
-	private static boolean isPrime( final Integer number ) {
+	private static Integer gcdEuclidsAlgorithm( final Integer n1, final Integer n2 ) {
 
-		if ( number < 2 ) {
-			return false;
+		if ( n2 == 0 ) {
+			return n1;
 		}
 
-		for ( int i = 2; i * i <= number; i++ ) {
-			if ( number % i == 0 ) {
-				return false;
-			}
-		}
+		Integer temp = n1 % n2;
 
-		return true;
+		return gcdEuclidsAlgorithm( n2, temp );
 	}
 }

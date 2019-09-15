@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac StdRandom.java
  *  Execution:    java StdRandom
  *  Dependencies: StdOut.java

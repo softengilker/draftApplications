@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac Draw.java
  *  Execution:    java Draw
  *  Dependencies: none

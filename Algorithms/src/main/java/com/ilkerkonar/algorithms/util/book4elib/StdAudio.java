@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac StdAudio.java
  *  Execution:    java StdAudio
  *  Dependencies: none

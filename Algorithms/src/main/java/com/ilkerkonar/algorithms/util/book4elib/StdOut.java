@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut
  *  Dependencies: none

@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac Picture.java
  *  Execution:    java Picture imagename
  *  Dependencies: none
@@ -280,7 +280,7 @@ public final class Picture implements ActionListener {
     }
 
    /**
-     * Returns the color of pixel ({@code col}, {@code row}) as a {@link java.awt.Color}.
+     * Returns the color of pixel ({@code col}, {@code row}) as a {@link Color}.
      *
      * @param col the column index
      * @param row the row index

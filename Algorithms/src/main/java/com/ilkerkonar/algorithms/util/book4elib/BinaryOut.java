@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac BinaryOut.java
  *  Execution:    java BinaryOut
  *  Dependencies: none

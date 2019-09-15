@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac BinaryIn.java
  *  Execution:    java BinaryIn input output
  *  Dependencies: none             

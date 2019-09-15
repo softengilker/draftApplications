@@ -1,4 +1,4 @@
-/******************************************************************************
+package com.ilkerkonar.algorithms.util.book4elib; /******************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw
  *  Dependencies: none

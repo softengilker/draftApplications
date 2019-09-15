@@ -4,7 +4,7 @@ import com.ilkerkonar.algorithms.util.Printing;
 import com.ilkerkonar.algorithms.util.book4elib.StdOut;
 import com.ilkerkonar.algorithms.util.book4elib.StdRandom;
 
-public class Examples11 {
+public class Exercises11_to14 {
 
     private static Printing printing = new Printing();
 
@@ -17,6 +17,9 @@ public class Examples11 {
         StdOut.println( "lg(6) : " + lg( 6 ) );
         StdOut.println( "lg(8) : " + lg( 8 ) );
         StdOut.println( "lg(65) : " + lg( 65 ) );
+
+        // examples11_11();
+        transposition();
     }
 
     public static void examples11_11() {
