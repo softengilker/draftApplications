@@ -1,4 +1,4 @@
-package com.ilkerkonar.algorithms.book4elib.chapter11;
+package com.ilkerkonar.algorithms.book4elib.chapter_1_1;
 
 import com.ilkerkonar.algorithms.util.Printing;
 
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Exercise11_15 {
+public class Exercise_1_1_15 {
 
     private static Printing printing = new Printing();
 

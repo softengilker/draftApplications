@@ -1,10 +1,10 @@
-package com.ilkerkonar.algorithms.book4elib.chapter11;
+package com.ilkerkonar.algorithms.book4elib.chapter_1_1;
 
 import com.ilkerkonar.algorithms.util.Printing;
 import com.ilkerkonar.algorithms.util.book4elib.StdOut;
 import com.ilkerkonar.algorithms.util.book4elib.StdRandom;
 
-public class Exercises11_to14 {
+public class Exercises_1_1_to14 {
 
     private static Printing printing = new Printing();
 

@@ -1,4 +1,4 @@
-package com.ilkerkonar.algorithms.book4elib.chapter11;
+package com.ilkerkonar.algorithms.book4elib.chapter_1_1;
 
 import com.ilkerkonar.algorithms.util.book4elib.StdIn;
 import com.ilkerkonar.algorithms.util.book4elib.StdOut;
