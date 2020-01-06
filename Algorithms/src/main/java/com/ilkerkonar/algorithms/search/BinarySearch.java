@@ -5,17 +5,23 @@ import java.util.Arrays;
 
 public class BinarySearch {
 
-	private static final int[]	numbers			= { 15, 2, 26, 98, 78, 145, 28, 90, 34, 712, 85 };
+	private int[] numbers;
 
-	private static final int	searchingNumber	= 145;
+	private int searchingNumber;
 
-	public static void main( final String[] args ) {
+	public BinarySearch() {
 
-		System.out.println(
-			"The number { " + searchingNumber + " } is " + ( binarySearch() ? "" : "not " ) + "found in the array." );
 	}
 
-	private static boolean binarySearch() {
+	public void setNumbers(int[] numbers) {
+		this.numbers = numbers;
+	}
+
+	public void setSearchingNumber(int searchingNumber) {
+		this.searchingNumber = searchingNumber;
+	}
+
+	public boolean binarySearch() {
 
 		Arrays.sort( numbers );
 
@@ -35,5 +41,17 @@ public class BinarySearch {
 		}
 
 		return false;
+	}
+
+	public static void main(final String[] args ) {
+
+		BinarySearch binarySearch = new BinarySearch();
+		final int searchingNumber = 145;
+
+		binarySearch.setNumbers( new int[] { 15, 2, 26, 98, 78, 145, 28, 90, 34, 712, 85 } );
+		binarySearch.setSearchingNumber( searchingNumber );
+
+		System.out.println(
+				"The number { " + searchingNumber + " } is " + ( binarySearch.binarySearch() ? "" : "not " ) + "found in the array." );
 	}
 }
