@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class BinarySearch {
 
-	private int[] numbers;
+	protected int[] numbers;
 
 	private int searchingNumber;
 
