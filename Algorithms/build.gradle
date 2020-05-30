@@ -5,5 +5,5 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.12
-targetCompatibility = 1.12
+sourceCompatibility = 1.14
+targetCompatibility = 1.14
