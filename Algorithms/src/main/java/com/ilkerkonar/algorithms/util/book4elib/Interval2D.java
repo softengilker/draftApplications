@@ -50,6 +50,12 @@ public class Interval2D {
         return true;
     }
 
+    public boolean contains(Interval2D that) {
+        if (!( that.x.min() >= this.x.min() && that.x.max() <= this.x.max() )) return false;
+        if (!( that.y.min() >= this.y.min() && that.y.max() <= this.y.max() )) return false;
+        return true;
+    }
+
     /**
      * Does this two-dimensional interval contain the point p?
      * @param p the two-dimensional point
