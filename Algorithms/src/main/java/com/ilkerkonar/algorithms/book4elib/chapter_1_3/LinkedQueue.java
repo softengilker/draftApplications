@@ -53,12 +53,12 @@ public class LinkedQueue<Item> implements Iterable<Item> {
     }
 
     public void enqueue(Item item) {
-        Node oldlast = last;
+        Node oldLast = last;
         last = new Node();
         last.item = item;
         last.next = null;
         if (isEmpty()) first = last;
-        else           oldlast.next = last;
+        else           oldLast.next = last;
         n++;
     }
 
@@ -73,8 +73,10 @@ public class LinkedQueue<Item> implements Iterable<Item> {
 
     public String toString() {
         StringBuilder s = new StringBuilder();
-        for (Item item : this)
-            s.append(item + " ");
+        for (Item item : this) {
+            s.append(item);
+            s.append(" ");
+        }
         return s.toString();
     }
 
@@ -99,15 +101,14 @@ public class LinkedQueue<Item> implements Iterable<Item> {
             last = tempNode.next;
             last.next = null;
         // Middle element
-        } else if ( k > 0 && k < n - 1 )  {
+        } else if ( k < n - 1 )  {
             Node tempNode = first;
             int index = 0;
             while ( index + 1 != k ) {
                 tempNode = tempNode.next;
                 index++;
             }
-            Node newNext = tempNode.next.next;
-            tempNode.next = newNext;
+            tempNode.next = tempNode.next.next;
             n--;
         }
     }
