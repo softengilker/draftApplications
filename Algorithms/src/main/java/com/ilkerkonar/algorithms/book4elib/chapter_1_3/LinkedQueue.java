@@ -71,8 +71,85 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         return item;
     }
 
+    public void removeAfter(Item removeAfterItem) {
+
+        Node tempNode = first;
+        while ( tempNode != null && !tempNode.item.equals(removeAfterItem) ) {
+            tempNode = tempNode.next;
+        }
+
+        // Can not find the node or it is the last, so do nothing
+        if ( tempNode == null || tempNode == last ) {
+            return;
+        }
+
+        // Remove the last
+        if ( tempNode.next == last ) {
+            tempNode.next = null;
+            last = tempNode;
+        } else {
+            tempNode.next = tempNode.next.next;
+        }
+    }
+
+    public void insertAfter(Item insertAfterItem, Item newItem) {
+
+        Node tempNode = first;
+        while ( tempNode != null && !tempNode.item.equals(insertAfterItem) ) {
+            tempNode = tempNode.next;
+        }
+
+        // Can not find the node, so do nothing
+        if ( tempNode == null ) {
+            return;
+        }
+
+        // Initialize the new node
+        Node newNode = new Node();
+        newNode.item = newItem;
+
+        if ( tempNode == last ) {
+            newNode.next = null;
+            last = newNode;
+        } else {
+            newNode.next = tempNode.next;
+        }
+
+        tempNode.next = newNode;
+    }
+
+    public void remove( Item removeItem ) {
+        Node tempNode = first;
+        Node previousNode = first;
+
+        while ( tempNode != null ) {
+
+            if ( tempNode.item.equals(removeItem) ) {
+
+                if ( tempNode == first ) {
+                    first = tempNode.next;
+                    tempNode = first;
+                } else if ( tempNode == last ) {
+                    last = previousNode;
+                    last.next = null;
+                    tempNode = last;
+                } else {
+                    previousNode.next = tempNode.next;
+                    tempNode = previousNode;
+                }
+            }
+            previousNode = tempNode;
+
+            if ( tempNode != null ) {
+                tempNode = tempNode.next;
+            }
+        }
+    }
+
     public String toString() {
         StringBuilder s = new StringBuilder();
+        s.append("liste : ");
+
         for (Item item : this) {
             s.append(item);
             s.append(" ");
