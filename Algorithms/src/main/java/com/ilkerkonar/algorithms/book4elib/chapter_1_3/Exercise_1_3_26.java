@@ -4,13 +4,13 @@ public class Exercise_1_3_26 {
     public static void main(String[] args) {
         LinkedQueue<String> linkList = new LinkedQueue<>();
 
-        linkList.remove("ilker" );
+        linkList.removeAll("ilker" );
 
         System.out.println( linkList );
 
         linkList.enqueue( "nehir" );
 
-        linkList.remove("nehir");
+        linkList.removeAll("nehir");
 
         System.out.println( linkList );
 
@@ -26,7 +26,7 @@ public class Exercise_1_3_26 {
 
         System.out.println( linkList );
 
-        linkList.remove("ozge");
+        linkList.removeAll("ozge");
 
         System.out.println( linkList );
 
@@ -34,7 +34,7 @@ public class Exercise_1_3_26 {
         linkList.enqueue( "egemen" );
         linkList.enqueue( "egemen" );
 
-        linkList.remove("egemen");
+        linkList.removeAll("egemen");
 
         System.out.println( linkList );
     }

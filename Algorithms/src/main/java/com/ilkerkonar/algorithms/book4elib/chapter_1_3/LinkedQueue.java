@@ -90,6 +90,8 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         } else {
             tempNode.next = tempNode.next.next;
         }
+
+        n--;
     }
 
     public void insertAfter(Item insertAfterItem, Item newItem) {
@@ -116,9 +118,10 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         }
 
         tempNode.next = newNode;
+        n++;
     }
 
-    public void remove( Item removeItem ) {
+    public void removeAll( Item removeItem ) {
         Node tempNode = first;
         Node previousNode = first;
 
@@ -137,6 +140,7 @@ public class LinkedQueue<Item> implements Iterable<Item> {
                     previousNode.next = tempNode.next;
                     tempNode = previousNode;
                 }
+                n--;
             }
             previousNode = tempNode;
 
@@ -148,12 +152,16 @@ public class LinkedQueue<Item> implements Iterable<Item> {
 
     public String toString() {
         StringBuilder s = new StringBuilder();
-        s.append("liste : ");
+        s.append("list : { ");
 
         for (Item item : this) {
             s.append(item);
             s.append(" ");
         }
+
+        s.append("}, size : ");
+        s.append(n);
+
         return s.toString();
     }
 
