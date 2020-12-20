@@ -20,6 +20,24 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         n = 0;
     }
 
+    public LinkedQueue( LinkedQueue<Item> copiedQueue ) {
+        first = null;
+        last  = null;
+        n = 0;
+
+        var copiedNewQueue = new LinkedQueue<Item>();
+
+        while( copiedQueue.size() != 0 ) {
+            Item item = (Item) copiedQueue.dequeue();
+            copiedNewQueue.enqueue( item );
+            enqueue( item );
+        }
+
+        for ( Item item : copiedNewQueue ) {
+            copiedQueue.enqueue( item );
+        }
+    }
+
     public int size() {
         return n;
     }
@@ -59,6 +77,15 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         last.next = null;
         if (isEmpty()) first = last;
         else           oldLast.next = last;
+        n++;
+    }
+
+    public void enqueueFirst(Item item) {
+        Node newNode = new Node();
+        newNode.item = item;
+        newNode.next = first;
+        first = newNode;
+        if (size() == 0) last = first;
         n++;
     }
 
@@ -205,5 +232,16 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         }
 
         return returnValue;
+    }
+
+    public int findItemIndex( Item item ) {
+        int index = 0;
+        for ( Item itemLoop : this ) {
+            if ( itemLoop.equals( item ) ) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 }
