@@ -165,25 +165,31 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         return s.toString();
     }
 
-    public void delete(int k) {
+    public Item delete(int k) {
+        Item returnValue = null;
+
         if (isEmpty()) throw new NoSuchElementException("Queue underflow");
         else if (k >= n) throw new NoSuchElementException("Queue underflow");
         else if (k < 0) throw new NoSuchElementException("Queue underflow");
         // First element and only 1 node exists
         else if (k == 0 && n == 1) {
             n = 0;
+            returnValue = first.item;
             first = null;
             last = null;
         } else if (k == 0) {
+            returnValue = first.item;
             first = first.next;
+            n--;
         // Last element
         } else if ( k == n - 1 ) {
             Node tempNode = first;
-            while (tempNode.next.next != last) {
+            while (tempNode.next != last) {
                 tempNode = tempNode.next;
             }
             n--;
-            last = tempNode.next;
+            returnValue = last.item;
+            last = tempNode;
             last.next = null;
         // Middle element
         } else if ( k < n - 1 )  {
@@ -193,8 +199,11 @@ public class LinkedQueue<Item> implements Iterable<Item> {
                 tempNode = tempNode.next;
                 index++;
             }
+            returnValue = tempNode.next.item;
             tempNode.next = tempNode.next.next;
             n--;
         }
+
+        return returnValue;
     }
 }
