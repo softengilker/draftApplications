@@ -1,0 +1,205 @@
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_15.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_15
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_37.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_37
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_7.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_7
+com/ilkerkonar/algorithms/search/BinarySearchWithDoubles.java
+ com.ilkerkonar.algorithms.search.BinarySearchWithDoubles
+com/ilkerkonar/algorithms/others/DengeliSayi.java
+ com.ilkerkonar.algorithms.others.DengeliSayi
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_25.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_25
+com/ilkerkonar/algorithms/util/book4elib/StdDraw.java
+ com.ilkerkonar.algorithms.util.book4elib.StdDraw
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_20.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_20
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_29.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_29
+com/ilkerkonar/algorithms/util/book4elib/Interval1D.java
+ com.ilkerkonar.algorithms.util.book4elib.Interval1D
+ com.ilkerkonar.algorithms.util.book4elib.Interval1D$LengthComparator
+ com.ilkerkonar.algorithms.util.book4elib.Interval1D$MaxEndpointComparator
+ com.ilkerkonar.algorithms.util.book4elib.Interval1D$MinEndpointComparator
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_39.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_39
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/LinkedQueue.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue$LinkedIterator
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue$Node
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_12.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_12
+com/ilkerkonar/algorithms/util/Printing.java
+ com.ilkerkonar.algorithms.util.Printing
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_28.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_28
+com/ilkerkonar/algorithms/util/book4elib/BinaryStdOut.java
+ com.ilkerkonar.algorithms.util.book4elib.BinaryStdOut
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_24.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_24
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_1.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_1
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_22.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_22
+com/ilkerkonar/algorithms/util/book4elib/Point2D.java
+ com.ilkerkonar.algorithms.util.book4elib.Point2D
+ com.ilkerkonar.algorithms.util.book4elib.Point2D$Atan2Order
+ com.ilkerkonar.algorithms.util.book4elib.Point2D$DistanceToOrder
+ com.ilkerkonar.algorithms.util.book4elib.Point2D$PolarOrder
+ com.ilkerkonar.algorithms.util.book4elib.Point2D$ROrder
+ com.ilkerkonar.algorithms.util.book4elib.Point2D$XOrder
+ com.ilkerkonar.algorithms.util.book4elib.Point2D$YOrder
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/IntegerNode.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.IntegerNode
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_36.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_36
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_33.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_33
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Matrix
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_27.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_27
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/DoublyLinkList.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.DoublyLinkList
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.DoublyLinkList$DoubleNode
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.DoublyLinkList$LinkedIterator
+com/ilkerkonar/algorithms/util/book4elib/Stopwatch.java
+ com.ilkerkonar.algorithms.util.book4elib.Stopwatch
+com/ilkerkonar/algorithms/util/book4elib/Interval2D.java
+ com.ilkerkonar.algorithms.util.book4elib.Interval2D
+com/ilkerkonar/algorithms/util/book4elib/Picture.java
+ com.ilkerkonar.algorithms.util.book4elib.Picture
+com/ilkerkonar/algorithms/java8lambdas/Execution.java
+ com.ilkerkonar.algorithms.java8lambdas.Execution
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_41.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_41
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/RandomSeq.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.RandomSeq
+com/ilkerkonar/algorithms/util/book4elib/Out.java
+ com.ilkerkonar.algorithms.util.book4elib.Out
+com/ilkerkonar/algorithms/numbers/PrimeTesting.java
+ com.ilkerkonar.algorithms.numbers.PrimeTesting
+com/ilkerkonar/algorithms/array/ReverseElements.java
+ com.ilkerkonar.algorithms.array.ReverseElements
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/RingBuffer.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.RingBuffer
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.RingBuffer$LinkedIterator
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.RingBuffer$Node
+com/ilkerkonar/algorithms/java8lambdas/Gender.java
+ com.ilkerkonar.algorithms.java8lambdas.Gender
+com/ilkerkonar/algorithms/util/book4elib/Draw.java
+ com.ilkerkonar.algorithms.util.book4elib.Draw
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_31.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_31
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_31$Point
+com/ilkerkonar/algorithms/others/SihirliKare.java
+ com.ilkerkonar.algorithms.others.SihirliKare
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_20.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_20
+com/ilkerkonar/algorithms/java8lambdas/DataBucket.java
+ com.ilkerkonar.algorithms.java8lambdas.DataBucket
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_3.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_3
+com/ilkerkonar/algorithms/util/book4elib/StdOut.java
+ com.ilkerkonar.algorithms.util.book4elib.StdOut
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_6.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_6
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_16.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_16
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Rational
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_18.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_18
+com/ilkerkonar/algorithms/util/book4elib/Date.java
+ com.ilkerkonar.algorithms.util.book4elib.Date
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercises_1_1_to14.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercises_1_1_to14
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_9.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_9
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_4.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_4
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_31.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_31
+com/ilkerkonar/algorithms/numbers/GcdEuclidTesting.java
+ com.ilkerkonar.algorithms.numbers.GcdEuclidTesting
+com/ilkerkonar/algorithms/util/book4elib/DrawListener.java
+ com.ilkerkonar.algorithms.util.book4elib.DrawListener
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_28.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_28
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_26.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_26
+com/ilkerkonar/algorithms/util/book4elib/BinaryOut.java
+ com.ilkerkonar.algorithms.util.book4elib.BinaryOut
+com/ilkerkonar/algorithms/util/book4elib/StdStats.java
+ com.ilkerkonar.algorithms.util.book4elib.StdStats
+com/ilkerkonar/algorithms/util/book4elib/BinaryIn.java
+ com.ilkerkonar.algorithms.util.book4elib.BinaryIn
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_5.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_5
+com/ilkerkonar/algorithms/util/book4elib/Accumulator.java
+ com.ilkerkonar.algorithms.util.book4elib.Accumulator
+com/ilkerkonar/algorithms/util/book4elib/In.java
+ com.ilkerkonar.algorithms.util.book4elib.In
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_40.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_40
+com/ilkerkonar/algorithms/java8lambdas/Person.java
+ com.ilkerkonar.algorithms.java8lambdas.Person
+com/ilkerkonar/algorithms/util/book4elib/StdAudio.java
+ com.ilkerkonar.algorithms.util.book4elib.StdAudio
+ com.ilkerkonar.algorithms.util.book4elib.StdAudio$1
+ com.ilkerkonar.algorithms.util.book4elib.StdAudio$2
+com/ilkerkonar/algorithms/search/BruteForceSearch.java
+ com.ilkerkonar.algorithms.search.BruteForceSearch
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_21.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_21
+com/ilkerkonar/algorithms/search/BinarySearch.java
+ com.ilkerkonar.algorithms.search.BinarySearch
+com/ilkerkonar/algorithms/others/FindOperators.java
+ com.ilkerkonar.algorithms.others.FindOperators
+com/ilkerkonar/algorithms/util/book4elib/StdArrayIO.java
+ com.ilkerkonar.algorithms.util.book4elib.StdArrayIO
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/FixedCapacityStackOfStrings.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FixedCapacityStackOfStrings
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FixedCapacityStackOfStrings$ReverseArrayIterator
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_4.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_4
+com/ilkerkonar/algorithms/util/book4elib/Counter.java
+ com.ilkerkonar.algorithms.util.book4elib.Counter
+com/ilkerkonar/algorithms/util/book4elib/StdIn.java
+ com.ilkerkonar.algorithms.util.book4elib.StdIn
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_16.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_16
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_2.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_2
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_26.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_26
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_24.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_24
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Average.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Average
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/IntegerLinkedList.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.IntegerLinkedList
+com/ilkerkonar/algorithms/util/book4elib/Transaction.java
+ com.ilkerkonar.algorithms.util.book4elib.Transaction
+ com.ilkerkonar.algorithms.util.book4elib.Transaction$HowMuchOrder
+ com.ilkerkonar.algorithms.util.book4elib.Transaction$WhenOrder
+ com.ilkerkonar.algorithms.util.book4elib.Transaction$WhoOrder
+com/ilkerkonar/algorithms/util/book4elib/BinaryStdIn.java
+ com.ilkerkonar.algorithms.util.book4elib.BinaryStdIn
+com/ilkerkonar/algorithms/util/book4elib/StdRandom.java
+ com.ilkerkonar.algorithms.util.book4elib.StdRandom
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_19.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_19
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_35.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_35
+com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_38.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_38
+com/ilkerkonar/algorithms/java8lambdas/Sample1.java
+ com.ilkerkonar.algorithms.java8lambdas.Sample1
+com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_10.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_10
+ com.ilkerkonar.algorithms.book4elib.chapter_1_2.VisualCounter
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/FileQueue.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileNode
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileType
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_43.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_43
