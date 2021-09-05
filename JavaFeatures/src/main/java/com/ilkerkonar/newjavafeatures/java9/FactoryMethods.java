@@ -11,6 +11,9 @@ public class FactoryMethods {
         final List<String> animals = List.of("Dog", "Cat", "Monkey");
         animals.forEach(System.out::println);
 
+        System.out.println( animals.getClass() ); // class java.util.ImmutableCollections$ListN
+        // animals.add( "Lion"); -> Hit exception, because the list is immutable.
+
         // Creating Set
         final Set<String> languages = Set.of("Java", "C++", "Scala", "C#", "Javascript");
         languages.forEach(System.out::println);

@@ -203,3 +203,5 @@ com/ilkerkonar/algorithms/book4elib/chapter_1_3/FileQueue.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileType
 com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_43.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_43
+com/ilkerkonar/algorithms/java8lambdas/OptionalSamples.java
+ com.ilkerkonar.algorithms.java8lambdas.OptionalSamples
