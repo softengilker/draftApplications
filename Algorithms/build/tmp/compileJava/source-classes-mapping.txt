@@ -205,3 +205,9 @@ com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_43.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_43
 com/ilkerkonar/algorithms/java8lambdas/OptionalSamples.java
  com.ilkerkonar.algorithms.java8lambdas.OptionalSamples
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_44.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.ApplicationGUI
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_44
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_44$1
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/TextBuffer.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.TextBuffer
