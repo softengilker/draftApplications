@@ -1,11 +1,17 @@
 com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_15.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_15
-com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_37.java
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_37
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/FileQueue.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileNode
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileType
 com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_7.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_7
 com/ilkerkonar/algorithms/search/BinarySearchWithDoubles.java
  com.ilkerkonar.algorithms.search.BinarySearchWithDoubles
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/LinkedQueue.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue$LinkedIterator
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue$Node
 com/ilkerkonar/algorithms/others/DengeliSayi.java
  com.ilkerkonar.algorithms.others.DengeliSayi
 com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_25.java
@@ -21,12 +27,12 @@ com/ilkerkonar/algorithms/util/book4elib/Interval1D.java
  com.ilkerkonar.algorithms.util.book4elib.Interval1D$LengthComparator
  com.ilkerkonar.algorithms.util.book4elib.Interval1D$MaxEndpointComparator
  com.ilkerkonar.algorithms.util.book4elib.Interval1D$MinEndpointComparator
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_47.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_47
 com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_39.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_39
-com/ilkerkonar/algorithms/book4elib/chapter_1_3/LinkedQueue.java
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue$LinkedIterator
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.LinkedQueue$Node
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_43.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_43
 com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_12.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_12
 com/ilkerkonar/algorithms/util/Printing.java
@@ -78,8 +84,14 @@ com/ilkerkonar/algorithms/util/book4elib/Out.java
  com.ilkerkonar.algorithms.util.book4elib.Out
 com/ilkerkonar/algorithms/numbers/PrimeTesting.java
  com.ilkerkonar.algorithms.numbers.PrimeTesting
+com/ilkerkonar/algorithms/java8lambdas/OptionalSamples.java
+ com.ilkerkonar.algorithms.java8lambdas.OptionalSamples
 com/ilkerkonar/algorithms/array/ReverseElements.java
  com.ilkerkonar.algorithms.array.ReverseElements
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/MyStack.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.MyStack
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.MyStack$1
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.MyStack$Node
 com/ilkerkonar/algorithms/book4elib/chapter_1_3/RingBuffer.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_3.RingBuffer
  com.ilkerkonar.algorithms.book4elib.chapter_1_3.RingBuffer$LinkedIterator
@@ -132,6 +144,10 @@ com/ilkerkonar/algorithms/util/book4elib/StdStats.java
  com.ilkerkonar.algorithms.util.book4elib.StdStats
 com/ilkerkonar/algorithms/util/book4elib/BinaryIn.java
  com.ilkerkonar.algorithms.util.book4elib.BinaryIn
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_44.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.ApplicationGUI
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_44
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_44$1
 com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_5.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_5
 com/ilkerkonar/algorithms/util/book4elib/Accumulator.java
@@ -186,10 +202,14 @@ com/ilkerkonar/algorithms/util/book4elib/BinaryStdIn.java
  com.ilkerkonar.algorithms.util.book4elib.BinaryStdIn
 com/ilkerkonar/algorithms/util/book4elib/StdRandom.java
  com.ilkerkonar.algorithms.util.book4elib.StdRandom
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/TextBuffer.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.TextBuffer
 com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_19.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_19
 com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_35.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_35
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_37.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_37
 com/ilkerkonar/algorithms/book4elib/chapter_1_1/Exercise_1_1_38.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_1.Exercise_1_1_38
 com/ilkerkonar/algorithms/java8lambdas/Sample1.java
@@ -197,17 +217,15 @@ com/ilkerkonar/algorithms/java8lambdas/Sample1.java
 com/ilkerkonar/algorithms/book4elib/chapter_1_2/Exercise_1_2_10.java
  com.ilkerkonar.algorithms.book4elib.chapter_1_2.Exercise_1_2_10
  com.ilkerkonar.algorithms.book4elib.chapter_1_2.VisualCounter
-com/ilkerkonar/algorithms/book4elib/chapter_1_3/FileQueue.java
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileNode
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.FileQueue$FileType
-com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_43.java
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_43
-com/ilkerkonar/algorithms/java8lambdas/OptionalSamples.java
- com.ilkerkonar.algorithms.java8lambdas.OptionalSamples
-com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_44.java
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.ApplicationGUI
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_44
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_44$1
-com/ilkerkonar/algorithms/book4elib/chapter_1_3/TextBuffer.java
- com.ilkerkonar.algorithms.book4elib.chapter_1_3.TextBuffer
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/MyDeque.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.MyDeque
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.MyDeque$1
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.MyDeque$Node
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_33.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_33
+com/ilkerkonar/algorithms/book4elib/chapter_1_3/Exercise_1_3_48.java
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_48
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_48$LeftStack
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_48$LeftStack$1
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_48$RightStack
+ com.ilkerkonar.algorithms.book4elib.chapter_1_3.Exercise_1_3_48$RightStack$1
