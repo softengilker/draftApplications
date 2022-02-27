@@ -11,4 +11,12 @@ public class First {
       Second second = new Second();
       System.out.println(second.getInfo());
    }
+   
+   public String getInfo() {
+	return "I am the first module.";
+   }
+   
+   public Second getSecondInstance() {
+   	return new Second();
+   }
 }
